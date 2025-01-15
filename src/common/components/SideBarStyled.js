@@ -58,7 +58,10 @@ export const SidebarItemStyled = styled.div`
         font-weight: 600;
         color: #799283;
         margin: 2rem;
+        text-decoration: underline;
+        text-decoration-color: #ffffff;
     }
+
 
     &:hover {
         border-left: .5rem solid red;
@@ -81,7 +84,7 @@ export const SideBarProfileStyled = styled.div`
     margin: 2rem 1rem;
     background: #ffffff;
     border-radius: 1rem;
-    box-shadow: 0px 12px 16px #d5d5d5
+    box-shadow: 0px 12px 16px #d5d5d5;
 `
 
 export const SideBarProfilePhotoStyled = styled.div`
@@ -120,6 +123,7 @@ export const SideBarProfileButtonStyled = styled.button`
     font-weight: 700;
     color: #135846;
     background: #EBF1EF;
+    cursor: pointer;
 `
 
 export const SideBarCopyrightStyled = styled.div`

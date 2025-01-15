@@ -4,10 +4,12 @@ export const KPIStyled = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    background: #ffffff;
     padding: 1.5rem;
     gap: 1.5rem;
     border-radius: 1rem;
-    background: #f8f8f8;
+    margin-top: 1rem;
+    width: 15%;
 
     svg {
         font-size: 3rem;
@@ -18,7 +20,6 @@ export const KPIStyled = styled.div`
     }
 
     &:hover {
-        background: #ffffff;
         box-shadow: 0px 6px 12px #d5d5d5;
 
         svg {

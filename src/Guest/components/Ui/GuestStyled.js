@@ -10,14 +10,14 @@ export const GuestMenuStyled = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #D4D4D4;
     margin-bottom: 3rem;
     padding: .5% 2%;
 `
 
 export const GuestMenuTextStyled = styled.div`
     display: flex;
-    gap: 2rem;
+    gap: 2rem;    
+    border-bottom: 1px solid #D4D4D4;
 `
 
 export const GuestMenuSearchBarStyled = styled.div`
@@ -76,8 +76,13 @@ export const GuestMenuItemStyled = styled.p`
     padding-right: 1rem;
     cursor: pointer;
 
+    svg {
+        cursor: pointer;
+    }
+
     &:hover {
         color: #135846;
+        border-bottom: 1px solid #135846;
     }
 `
 

@@ -1,24 +1,23 @@
-import { useNavigate } from "react-router-dom"
-import { 
-    SideBarStyled, SideBarHeaderStyled, SideBarTitleStyled, SidebarItemStyled, 
+import {
+    SideBarStyled, SideBarHeaderStyled, SideBarTitleStyled, SidebarItemStyled,
     SideBarProfileStyled, SideBarProfilePhotoStyled, SideBarProfileNameStyled, SideBarProfileEmailStyled, SideBarProfileButtonStyled,
     SideBarCopyrightStyled, SideBarCopyrightTitleStyled, SideBarCopyrightTextStyled
 } from "./SideBarStyled"
 import hotelIcon from '../../assets/hotel_icon.png'
 import photo from '../../assets/dni_cuadrado.jpg'
-import { 
-    LuLayoutDashboard as DashboardIcon, 
-    LuCalendarCheck as BookingIcon, 
+import {
+    LuLayoutDashboard as DashboardIcon,
+    LuCalendarCheck as BookingIcon,
     LuKeyRound as RoomsIcon,
     LuContact as ContactIcon,
     LuUsers as UsersIcon
 } from "react-icons/lu"
 import { IoIosArrowDown as ArrowDownIcon } from "react-icons/io"
+import { Link } from "react-router-dom"
 
 
 
 export const SideBarMenu = () => {
-    const navigate = useNavigate()
 
     return (
         <SideBarStyled>
@@ -29,19 +28,25 @@ export const SideBarMenu = () => {
                     <p>Hotel Admin Dashboard</p>
                 </SideBarTitleStyled>
             </SideBarHeaderStyled>
-            <SidebarItemStyled>
-                <DashboardIcon />
-                <p>Dashboard</p>
-            </SidebarItemStyled>
-            <SidebarItemStyled>
-                <BookingIcon />
-                <p>Booking</p>
-            </SidebarItemStyled>
-            <SidebarItemStyled>
-                <RoomsIcon />
-                <p>Rooms</p>
-                <ArrowDownIcon />
-            </SidebarItemStyled>
+            <Link to={'/dashboard'}>
+                <SidebarItemStyled>
+                    <DashboardIcon />
+                    <p>Dashboard</p>
+                </SidebarItemStyled>
+            </Link>
+            <Link to={'/guest'}>
+                <SidebarItemStyled>
+                    <DashboardIcon />
+                    <p>Booking</p>
+                </SidebarItemStyled>
+            </Link>
+            <Link to={'/rooms'}>
+                <SidebarItemStyled>
+                    <RoomsIcon />
+                    <p>Rooms</p>
+                    <ArrowDownIcon />
+                </SidebarItemStyled>
+            </Link>
             <SidebarItemStyled>
                 <ContactIcon />
                 <p>Contact</p>

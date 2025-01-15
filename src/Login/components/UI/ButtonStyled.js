@@ -7,4 +7,5 @@ export const ButtonStyled = styled.button`
     border: none;
     border-radius: 1rem;
     font-weight: 700;
+    cursor: pointer;
 `
