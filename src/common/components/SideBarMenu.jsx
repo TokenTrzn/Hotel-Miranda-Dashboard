@@ -1,10 +1,11 @@
+import { useNavigate } from "react-router-dom"
 import { 
     SideBarStyled, SideBarHeaderStyled, SideBarTitleStyled, SidebarItemStyled, 
     SideBarProfileStyled, SideBarProfilePhotoStyled, SideBarProfileNameStyled, SideBarProfileEmailStyled, SideBarProfileButtonStyled,
     SideBarCopyrightStyled, SideBarCopyrightTitleStyled, SideBarCopyrightTextStyled
 } from "./SideBarStyled"
 import hotelIcon from '../../assets/hotel_icon.png'
-import photo from '../../assets/FotoDNI.jpg'
+import photo from '../../assets/dni_cuadrado.jpg'
 import { 
     LuLayoutDashboard as DashboardIcon, 
     LuCalendarCheck as BookingIcon, 
@@ -12,9 +13,12 @@ import {
     LuContact as ContactIcon,
     LuUsers as UsersIcon
 } from "react-icons/lu"
+import { IoIosArrowDown as ArrowDownIcon } from "react-icons/io"
+
 
 
 export const SideBarMenu = () => {
+    const navigate = useNavigate()
 
     return (
         <SideBarStyled>
@@ -36,6 +40,7 @@ export const SideBarMenu = () => {
             <SidebarItemStyled>
                 <RoomsIcon />
                 <p>Rooms</p>
+                <ArrowDownIcon />
             </SidebarItemStyled>
             <SidebarItemStyled>
                 <ContactIcon />

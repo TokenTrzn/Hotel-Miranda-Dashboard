@@ -5,7 +5,7 @@ export const SideBarStyled = styled.div`
     padding: 1rem 0;
     width: 25%;
     height: 100%;
-    background: #ffffff
+    background: #ffffff;
 `
 
 export const SideBarHeaderStyled = styled.div`
@@ -44,6 +44,7 @@ export const SidebarItemStyled = styled.div`
     justify-content: flex-start;
     align-items: center;
     padding: 0 2rem;
+    cursor: pointer;
 
     svg {
         color: #799283;

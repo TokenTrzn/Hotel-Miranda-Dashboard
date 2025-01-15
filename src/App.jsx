@@ -2,6 +2,8 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Layout } from './common/Layout'
 import { Login } from './Login/pages/Login'
+import { Dashboard } from './Dashboard/pages/Dashboard'
+import { Guest } from './Guest/pages/Guest'
 
 function App() {
 
@@ -9,8 +11,11 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-            <Route path='/' element={<Login />}/>
-            <Route path='/dashboard' element={<Layout />} />
+            <Route path='/' element={<Login />} />
+            <Route element={<Layout />}>
+              <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/guest' element={<Guest />} />
+            </Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -1,39 +1,38 @@
 import styled from "styled-components"
 
 export const NavStyled = styled.nav`
-    width: 100%;
     background: #ffffff;
-    position: fixed;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    top: 0;
-    margin-left: 30%;
+    font-size: 1.5rem;
+    color: #000000;
 `
 
 export const NavContainerIconsStyled = styled.div`
+    color: #262626;
     display: flex;
+    flex-direction: row;
+    font-family: "Poppins";
     align-items: center;
-
+    gap: 2rem;
+    justify-content: flex-end;  
+    
     svg {
-        font-size: 3rem;
-        color: #000000;
+        font-size: 2rem;
+        cursor: pointer;
     }
 
     h2 {
         font-size:  2rem;
         font-family: 'Poppins';
-        color: #000000;
         padding-left: 2rem;
     }
-`
 
-export const NavContainerAlertIconsStyled = styled.div`
-
-    svg {
-        font-size: 3rem;
-        color: #000000;
+    &.secondary {
+        color: #135846;
+        gap: 4rem;
     }
 `

@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom"
-import { NavStyled, NavContainerIconsStyled, NavContainerAlertIconsStyled } from "./HeaderStyled"
+import { NavStyled, NavContainerIconsStyled } from "./HeaderStyled"
 import { HiOutlineMenuAlt2 as MenuIcon } from "react-icons/hi"
+import { IoArrowBack as ArrowBackIcon } from "react-icons/io5"
 import { HiOutlineEnvelope as ContactIcon } from "react-icons/hi2"
 import { LuBellRing as MessageIcon } from "react-icons/lu"
 import { IoIosLogOut as LogOutIcon } from "react-icons/io"
 
-export const Header = () => {
+export const Header = ({ onToggleSideBarMenu }) => {
 
     const navigate = useNavigate()
 
@@ -16,14 +17,17 @@ export const Header = () => {
     return (
         <NavStyled>
             <NavContainerIconsStyled>
-                <MenuIcon onClick={() => { }} />
+                {onToggleSideBarMenu ? 
+                    <MenuIcon onClick={onToggleSideBarMenu} /> : 
+                    <ArrowBackIcon onClick={onToggleSideBarMenu} />
+                }                
                 <h2>Dashboard</h2>
             </NavContainerIconsStyled>
-            <NavContainerAlertIconsStyled>
+            <NavContainerIconsStyled className='secondary'>
                 <ContactIcon />
                 <MessageIcon />
-                <LogOutIcon />
-            </NavContainerAlertIconsStyled>
+                <LogOutIcon onClick={handleLogout} />
+            </NavContainerIconsStyled>
         </NavStyled>
     )
 }
