@@ -5,6 +5,7 @@ import { Login } from './Login/pages/Login'
 import { Dashboard } from './Dashboard/pages/Dashboard'
 import { Guest } from './Guest/pages/Guest'
 import { Rooms } from './Rooms/pages/Rooms'
+import { Contact } from './Contact/page/Contact'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/guest' element={<Guest />} />
               <Route path='/rooms' element={<Rooms />} />
+              <Route path='/contact' element={<Contact />} />
             </Route>
         </Routes>
       </BrowserRouter>

@@ -47,10 +47,12 @@ export const SideBarMenu = () => {
                     <ArrowDownIcon />
                 </SidebarItemStyled>
             </Link>
-            <SidebarItemStyled>
-                <ContactIcon />
-                <p>Contact</p>
-            </SidebarItemStyled>
+            <Link to={'/contact'}>
+                <SidebarItemStyled>
+                    <ContactIcon />
+                    <p>Contact</p>
+                </SidebarItemStyled>
+            </Link>
             <SidebarItemStyled>
                 <UsersIcon />
                 <p>Users</p>
