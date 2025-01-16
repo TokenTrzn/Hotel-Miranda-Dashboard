@@ -19,7 +19,7 @@ export const ContactKPIStyled = styled.div`
     padding: 1.5rem;
     gap: 1.5rem;
     border-radius: 1rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
     width: 25%;
 
     svg {

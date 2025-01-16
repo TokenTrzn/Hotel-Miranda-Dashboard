@@ -1,7 +1,14 @@
 import { KPI } from "../../common/components/KPI/KPI"
-import { DashboardContainerStyled, DashboardKPIsStyled } from "../components/DashboardStyled"
+import { DashboardCalendar } from "../components/Calendar/Calendar";
+import { DashboardCalendarStatsRowStyled, DashboardContainerStyled, DashboardKPIsStyled } from "../components/DashboardStyled"
+import { ContactKPIContainer, ContactKPIIconItemStyled, ContactKPIIconsStyled, ContactKPIInfoStyled, ContactKPIProfileInfoStyled, ContactKPIProfilePhotoStyled, ContactKPIProfileRowStyled, ContactKPIStyled, ContactKPITextStyled, ContactKPITimeStyled } from '../../Contact/components/ContactStyled'
 import { IoBedOutline as BedIcon } from "react-icons/io5"
 import { LuCalendarCheck as BookingIcon, LuLogIn as CheckInIcon, LuLogOut as CheckOutIcon } from "react-icons/lu";
+import { Graph } from "../components/Graph/Graph";
+import ReviewPhoto from '../../assets/dni_cuadrado.jpg'
+import OkIcon from '../../assets/ok_icon.png'
+import DeleteIcon from '../../assets/delete_icon.png'
+import { BookingInfo } from "../components/BookingInfo/BookingInfo";
 
 
 
@@ -15,6 +22,61 @@ export const Dashboard = () => {
                 <KPI icon={<CheckInIcon />} number='753' text='Check In' />
                 <KPI icon={<CheckOutIcon />} number='516' text='Check Out' />
             </DashboardKPIsStyled>
+            <DashboardCalendarStatsRowStyled>
+                <DashboardCalendar />
+                <Graph />
+            </DashboardCalendarStatsRowStyled>
+            <BookingInfo />
+            <ContactKPIContainer>
+                <ContactKPIStyled>
+                    <ContactKPIInfoStyled>
+                        <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
+                    </ContactKPIInfoStyled>
+                    <ContactKPIProfileRowStyled>
+                        <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
+                        <ContactKPIProfileInfoStyled>
+                            <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
+                            <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
+                        </ContactKPIProfileInfoStyled>
+                        <ContactKPIIconsStyled>
+                            <ContactKPIIconItemStyled src={OkIcon} />
+                            <ContactKPIIconItemStyled src={DeleteIcon} />
+                        </ContactKPIIconsStyled>
+                    </ContactKPIProfileRowStyled>
+                </ContactKPIStyled>
+                <ContactKPIStyled>
+                    <ContactKPIInfoStyled>
+                        <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
+                    </ContactKPIInfoStyled>
+                    <ContactKPIProfileRowStyled>
+                        <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
+                        <ContactKPIProfileInfoStyled>
+                            <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
+                            <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
+                        </ContactKPIProfileInfoStyled>
+                        <ContactKPIIconsStyled>
+                            <ContactKPIIconItemStyled src={OkIcon} />
+                            <ContactKPIIconItemStyled src={DeleteIcon} />
+                        </ContactKPIIconsStyled>
+                    </ContactKPIProfileRowStyled>
+                </ContactKPIStyled>
+                <ContactKPIStyled>
+                    <ContactKPIInfoStyled>
+                        <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
+                    </ContactKPIInfoStyled>
+                    <ContactKPIProfileRowStyled>
+                        <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
+                        <ContactKPIProfileInfoStyled>
+                            <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
+                            <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
+                        </ContactKPIProfileInfoStyled>
+                        <ContactKPIIconsStyled>
+                            <ContactKPIIconItemStyled src={OkIcon} />
+                            <ContactKPIIconItemStyled src={DeleteIcon} />
+                        </ContactKPIIconsStyled>
+                    </ContactKPIProfileRowStyled>
+                </ContactKPIStyled>
+            </ContactKPIContainer>
         </DashboardContainerStyled>
     )
 }

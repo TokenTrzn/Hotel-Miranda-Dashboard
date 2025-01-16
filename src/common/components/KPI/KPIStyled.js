@@ -9,7 +9,7 @@ export const KPIStyled = styled.div`
     gap: 1.5rem;
     border-radius: 1rem;
     margin-top: 1rem;
-    width: 15%;
+    width: 20%;
 
     svg {
         font-size: 3rem;
