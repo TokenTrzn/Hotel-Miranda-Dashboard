@@ -1,4 +1,4 @@
-import { ContactKPIContainer, ContactKPIIconItemStyled, ContactKPIIconsStyled, ContactKPIInfoStyled, ContactKPIProfileInfoStyled, ContactKPIProfilePhotoStyled, ContactKPIProfileRowStyled, ContactKPIStyled, ContactKPITextStyled, ContactKPITimeStyled, ContactStyled } from "../components/ContactStyled"
+import { ContactFirstRowItemStyled, ContactFirstRowStyled, ContactItemActionStyled, ContactItemCommentStyled, ContactItemStyled, ContactItemTextStyled, ContactKPIContainer, ContactKPIIconItemStyled, ContactKPIIconsStyled, ContactKPIInfoStyled, ContactKPIProfileInfoStyled, ContactKPIProfilePhotoStyled, ContactKPIProfileRowStyled, ContactKPIStyled, ContactKPITextStyled, ContactKPITimeStyled, ContactListContainerStyled, ContactMenuItemStyled, ContactMenuStyled, ContactStyled } from "../components/ContactStyled"
 import ReviewPhoto from '../../assets/dni_cuadrado.jpg'
 import OkIcon from '../../assets/ok_icon.png'
 import DeleteIcon from '../../assets/delete_icon.png'
@@ -57,6 +57,83 @@ export const Contact = () => {
                     </ContactKPIProfileRowStyled>
                 </ContactKPIStyled>
             </ContactKPIContainer>
+            <ContactListContainerStyled>
+                <ContactMenuStyled>
+                    <ContactMenuItemStyled>All Contacts</ContactMenuItemStyled>
+                    <ContactMenuItemStyled>Archived</ContactMenuItemStyled>
+                </ContactMenuStyled>
+                <ContactFirstRowStyled>
+                    <ContactFirstRowItemStyled>Date</ContactFirstRowItemStyled>
+                    <ContactFirstRowItemStyled>Customer</ContactFirstRowItemStyled>
+                    <ContactFirstRowItemStyled>Comment</ContactFirstRowItemStyled>
+                    <ContactFirstRowItemStyled>Action</ContactFirstRowItemStyled>
+                </ContactFirstRowStyled>
+                <ContactItemStyled>
+                    <div>
+                        <ContactItemTextStyled>#000123456</ContactItemTextStyled>
+                        <ContactItemTextStyled><span>Nov 21th 2020 09:21 AM</span></ContactItemTextStyled>
+                    </div>
+                    <div>
+                        <ContactItemTextStyled>Alberto Gil</ContactItemTextStyled>
+                        <ContactItemTextStyled><span>alberto.gil.sanjuan@gmail.com</span></ContactItemTextStyled>
+                        <ContactItemTextStyled><span>+34 645 630 341</span></ContactItemTextStyled>
+                    </div>
+                    <ContactItemCommentStyled>We recently had dinner with friends at Dimas Can Zheng and we all walked away with a great experience. Good food, pleasant environment, personal attention through all the evening. Thanks to the team and we will be back</ContactItemCommentStyled>
+                    <ContactItemActionStyled>Archive</ContactItemActionStyled>
+                </ContactItemStyled>
+                <ContactItemStyled>
+                    <div>
+                        <ContactItemTextStyled>#000123456</ContactItemTextStyled>
+                        <ContactItemTextStyled><span>Nov 21th 2020 09:21 AM</span></ContactItemTextStyled>
+                    </div>
+                    <div>
+                        <ContactItemTextStyled>Alberto Gil</ContactItemTextStyled>
+                        <ContactItemTextStyled><span>alberto.gil.sanjuan@gmail.com</span></ContactItemTextStyled>
+                        <ContactItemTextStyled><span>+34 645 630 341</span></ContactItemTextStyled>
+                    </div>
+                    <ContactItemCommentStyled>We recently had dinner with friends at Dimas Can Zheng and we all walked away with a great experience. Good food, pleasant environment, personal attention through all the evening. Thanks to the team and we will be back</ContactItemCommentStyled>
+                    <ContactItemActionStyled>Archive</ContactItemActionStyled>
+                </ContactItemStyled>
+                <ContactItemStyled>
+                    <div>
+                        <ContactItemTextStyled>#000123456</ContactItemTextStyled>
+                        <ContactItemTextStyled><span>Nov 21th 2020 09:21 AM</span></ContactItemTextStyled>
+                    </div>
+                    <div>
+                        <ContactItemTextStyled>Alberto Gil</ContactItemTextStyled>
+                        <ContactItemTextStyled><span>alberto.gil.sanjuan@gmail.com</span></ContactItemTextStyled>
+                        <ContactItemTextStyled><span>+34 645 630 341</span></ContactItemTextStyled>
+                    </div>
+                    <ContactItemCommentStyled>We recently had dinner with friends at Dimas Can Zheng and we all walked away with a great experience. Good food, pleasant environment, personal attention through all the evening. Thanks to the team and we will be back</ContactItemCommentStyled>
+                    <ContactItemActionStyled>Archive</ContactItemActionStyled>
+                </ContactItemStyled>
+                <ContactItemStyled>
+                    <div>
+                        <ContactItemTextStyled>#000123456</ContactItemTextStyled>
+                        <ContactItemTextStyled><span>Nov 21th 2020 09:21 AM</span></ContactItemTextStyled>
+                    </div>
+                    <div>
+                        <ContactItemTextStyled>Alberto Gil</ContactItemTextStyled>
+                        <ContactItemTextStyled><span>alberto.gil.sanjuan@gmail.com</span></ContactItemTextStyled>
+                        <ContactItemTextStyled><span>+34 645 630 341</span></ContactItemTextStyled>
+                    </div>
+                    <ContactItemCommentStyled>We recently had dinner with friends at Dimas Can Zheng and we all walked away with a great experience. Good food, pleasant environment, personal attention through all the evening. Thanks to the team and we will be back</ContactItemCommentStyled>
+                    <ContactItemActionStyled>Archive</ContactItemActionStyled>
+                </ContactItemStyled>
+                <ContactItemStyled>
+                    <div>
+                        <ContactItemTextStyled>#000123456</ContactItemTextStyled>
+                        <ContactItemTextStyled><span>Nov 21th 2020 09:21 AM</span></ContactItemTextStyled>
+                    </div>
+                    <div>
+                        <ContactItemTextStyled>Alberto Gil</ContactItemTextStyled>
+                        <ContactItemTextStyled><span>alberto.gil.sanjuan@gmail.com</span></ContactItemTextStyled>
+                        <ContactItemTextStyled><span>+34 645 630 341</span></ContactItemTextStyled>
+                    </div>
+                    <ContactItemCommentStyled>We recently had dinner with friends at Dimas Can Zheng and we all walked away with a great experience. Good food, pleasant environment, personal attention through all the evening. Thanks to the team and we will be back</ContactItemCommentStyled>
+                    <ContactItemActionStyled>Archive</ContactItemActionStyled>
+                </ContactItemStyled>
+            </ContactListContainerStyled>
         </ContactStyled>
     )
 }

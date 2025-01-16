@@ -65,10 +65,11 @@ export const RoomsMenuItemStyled = styled.p`
 export const RoomsFirstRowStyled = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     background: #ffffff;
-    padding: 1rem 0;
+    padding: 1rem;
+    margin: 0 1rem;
 `
 
 export const RoomsFirstRowItemStyled = styled.p`
@@ -86,7 +87,7 @@ export const RoomsItemStyled = styled.div`
     align-items: center;
     background: #ffffff;
     padding: .5rem 1rem;
-    margin: .5rem 0;
+    margin: 0 1rem;
 
     svg {
         color: #000000;
@@ -151,6 +152,7 @@ export const RoomsItemStatusStyled = styled.button`
     font-size: 1rem;
     font-weight: 600;
     border: none;
+    width: 10%;
     border-radius: .5rem;
     text-align: center;
 `

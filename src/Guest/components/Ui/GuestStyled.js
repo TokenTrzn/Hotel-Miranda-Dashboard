@@ -93,6 +93,7 @@ export const GuestFirstRowStyled = styled.div`
     align-items: center;
     background: #ffffff;
     padding: 1rem 0;
+    margin: 0 1rem;
 `
 
 export const GuestFirstRowItemStyled = styled.p`
@@ -109,8 +110,8 @@ export const GuestItemStyled = styled.div`
     justify-content: space-between;
     align-items: center;
     background: #ffffff;
-    padding: .5rem 1rem;
-    margin: .5rem 0;
+    padding: 1.5rem .5rem;
+    margin: 0 1rem;
 
     svg {
         color: #000000;
