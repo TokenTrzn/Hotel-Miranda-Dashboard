@@ -36,7 +36,7 @@ export const SideBarMenu = () => {
             </Link>
             <Link to={'/guest'}>
                 <SidebarItemStyled>
-                    <DashboardIcon />
+                    <BookingIcon />
                     <p>Booking</p>
                 </SidebarItemStyled>
             </Link>
@@ -53,10 +53,12 @@ export const SideBarMenu = () => {
                     <p>Contact</p>
                 </SidebarItemStyled>
             </Link>
-            <SidebarItemStyled>
-                <UsersIcon />
-                <p>Users</p>
-            </SidebarItemStyled>
+            <Link to={'/users'}>
+                <SidebarItemStyled>
+                    <UsersIcon />
+                    <p>Users</p>
+                </SidebarItemStyled>
+            </Link>
             <SideBarProfileStyled>
                 <SideBarProfilePhotoStyled>
                     <img src={photo} />
