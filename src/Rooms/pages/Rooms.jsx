@@ -1,5 +1,6 @@
 import { RoomsFirstRowItemStyled, RoomsFirstRowStyled, RoomsItemRoomProfileContainerStyled, RoomsItemRoomProfileIdStyled, RoomsItemRoomProfileInfoStyled, RoomsItemRoomProfilePhotoStyled, RoomsItemStatusStyled, RoomsItemStyled, RoomsItemTextStyled, RoomsMenuItemStyled, RoomsMenuStyled, RoomsStyled } from "../components/RoomsStyled"
 import RoomPhoto from '../../assets/room_photo.jpg'
+import RoomsData from '../data/roomsData.json'
 
 
 export const Rooms = () => {
@@ -17,90 +18,24 @@ export const Rooms = () => {
                 <RoomsFirstRowItemStyled>Offer Price</RoomsFirstRowItemStyled>
                 <RoomsFirstRowItemStyled>Status</RoomsFirstRowItemStyled>
             </RoomsFirstRowStyled>
-            <RoomsItemStyled>
+        {RoomsData.map((room) => (
+            <RoomsItemStyled key={room.id}>
                 <RoomsItemRoomProfileContainerStyled>
                     <RoomsItemRoomProfilePhotoStyled src={RoomPhoto} />
                     <RoomsItemRoomProfileInfoStyled>
-                        <RoomsItemRoomProfileIdStyled>#000123456</RoomsItemRoomProfileIdStyled>
-                        <RoomsItemTextStyled>Deluxe A - 91234</RoomsItemTextStyled>
+                        <RoomsItemRoomProfileIdStyled>{room.id}</RoomsItemRoomProfileIdStyled>
+                        <RoomsItemTextStyled>{room.name} - {room.number}</RoomsItemTextStyled>
                     </RoomsItemRoomProfileInfoStyled>
                 </RoomsItemRoomProfileContainerStyled>
-                <RoomsItemTextStyled>Double Bed</RoomsItemTextStyled>
-                <RoomsItemTextStyled>AC, Shower, Double Bed, Towel,<br/> Bathup, Coffee Set, LED TV, Wifi</RoomsItemTextStyled>
-                <RoomsItemTextStyled>$145 <span>/Night</span></RoomsItemTextStyled>
-                <RoomsItemTextStyled>$120</RoomsItemTextStyled>
-                <RoomsItemStatusStyled type="available">Available</RoomsItemStatusStyled>
+                <RoomsItemTextStyled>{room.type}</RoomsItemTextStyled>
+                <RoomsItemTextStyled>{room.amenities}</RoomsItemTextStyled>
+                <RoomsItemTextStyled>{room.price} <span>/Night</span></RoomsItemTextStyled>
+                <RoomsItemTextStyled>{room.offerPrice}</RoomsItemTextStyled>
+                <RoomsItemStatusStyled type="available">{room.status}</RoomsItemStatusStyled>
             </RoomsItemStyled>
-            <RoomsItemStyled>
-                <RoomsItemRoomProfileContainerStyled>
-                    <RoomsItemRoomProfilePhotoStyled src={RoomPhoto} />
-                    <RoomsItemRoomProfileInfoStyled>
-                        <RoomsItemRoomProfileIdStyled>#000123456</RoomsItemRoomProfileIdStyled>
-                        <RoomsItemTextStyled>Deluxe A - 91234</RoomsItemTextStyled>
-                    </RoomsItemRoomProfileInfoStyled>
-                </RoomsItemRoomProfileContainerStyled>
-                <RoomsItemTextStyled>Double Bed</RoomsItemTextStyled>
-                <RoomsItemTextStyled>AC, Shower, Double Bed, Towel,<br/> Bathup, Coffee Set, LED TV, Wifi</RoomsItemTextStyled>
-                <RoomsItemTextStyled>$145 <span>/Night</span></RoomsItemTextStyled>
-                <RoomsItemTextStyled>$120</RoomsItemTextStyled>
-                <RoomsItemStatusStyled type="booked">Booked</RoomsItemStatusStyled>
-            </RoomsItemStyled>
-            <RoomsItemStyled>
-                <RoomsItemRoomProfileContainerStyled>
-                    <RoomsItemRoomProfilePhotoStyled src={RoomPhoto} />
-                    <RoomsItemRoomProfileInfoStyled>
-                        <RoomsItemRoomProfileIdStyled>#000123456</RoomsItemRoomProfileIdStyled>
-                        <RoomsItemTextStyled>Deluxe A - 91234</RoomsItemTextStyled>
-                    </RoomsItemRoomProfileInfoStyled>
-                </RoomsItemRoomProfileContainerStyled>
-                <RoomsItemTextStyled>Double Bed</RoomsItemTextStyled>
-                <RoomsItemTextStyled>AC, Shower, Double Bed, Towel,<br/> Bathup, Coffee Set, LED TV, Wifi</RoomsItemTextStyled>
-                <RoomsItemTextStyled>$145 <span>/Night</span></RoomsItemTextStyled>
-                <RoomsItemTextStyled>$120</RoomsItemTextStyled>
-                <RoomsItemStatusStyled type="booked">Booked</RoomsItemStatusStyled>
-            </RoomsItemStyled>
-            <RoomsItemStyled>
-                <RoomsItemRoomProfileContainerStyled>
-                    <RoomsItemRoomProfilePhotoStyled src={RoomPhoto} />
-                    <RoomsItemRoomProfileInfoStyled>
-                        <RoomsItemRoomProfileIdStyled>#000123456</RoomsItemRoomProfileIdStyled>
-                        <RoomsItemTextStyled>Deluxe A - 91234</RoomsItemTextStyled>
-                    </RoomsItemRoomProfileInfoStyled>
-                </RoomsItemRoomProfileContainerStyled>
-                <RoomsItemTextStyled>Double Bed</RoomsItemTextStyled>
-                <RoomsItemTextStyled>AC, Shower, Double Bed, Towel,<br/> Bathup, Coffee Set, LED TV, Wifi</RoomsItemTextStyled>
-                <RoomsItemTextStyled>$145 <span>/Night</span></RoomsItemTextStyled>
-                <RoomsItemTextStyled>$120</RoomsItemTextStyled>
-                <RoomsItemStatusStyled type="available">Available</RoomsItemStatusStyled>
-            </RoomsItemStyled>
-            <RoomsItemStyled>
-                <RoomsItemRoomProfileContainerStyled>
-                    <RoomsItemRoomProfilePhotoStyled src={RoomPhoto} />
-                    <RoomsItemRoomProfileInfoStyled>
-                        <RoomsItemRoomProfileIdStyled>#000123456</RoomsItemRoomProfileIdStyled>
-                        <RoomsItemTextStyled>Deluxe A - 91234</RoomsItemTextStyled>
-                    </RoomsItemRoomProfileInfoStyled>
-                </RoomsItemRoomProfileContainerStyled>
-                <RoomsItemTextStyled>Double Bed</RoomsItemTextStyled>
-                <RoomsItemTextStyled>AC, Shower, Double Bed, Towel,<br/> Bathup, Coffee Set, LED TV, Wifi</RoomsItemTextStyled>
-                <RoomsItemTextStyled>$145 <span>/Night</span></RoomsItemTextStyled>
-                <RoomsItemTextStyled>$120</RoomsItemTextStyled>
-                <RoomsItemStatusStyled type="booked">Booked</RoomsItemStatusStyled>
-            </RoomsItemStyled>
-            <RoomsItemStyled>
-                <RoomsItemRoomProfileContainerStyled>
-                    <RoomsItemRoomProfilePhotoStyled src={RoomPhoto} />
-                    <RoomsItemRoomProfileInfoStyled>
-                        <RoomsItemRoomProfileIdStyled>#000123456</RoomsItemRoomProfileIdStyled>
-                        <RoomsItemTextStyled>Deluxe A - 91234</RoomsItemTextStyled>
-                    </RoomsItemRoomProfileInfoStyled>
-                </RoomsItemRoomProfileContainerStyled>
-                <RoomsItemTextStyled>Double Bed</RoomsItemTextStyled>
-                <RoomsItemTextStyled>AC, Shower, Double Bed, Towel,<br/> Bathup, Coffee Set, LED TV, Wifi</RoomsItemTextStyled>
-                <RoomsItemTextStyled>$145 <span>/Night</span></RoomsItemTextStyled>
-                <RoomsItemTextStyled>$120</RoomsItemTextStyled>
-                <RoomsItemStatusStyled type="available">Available</RoomsItemStatusStyled>
-            </RoomsItemStyled>
+        ))}
+            
+            
         </RoomsStyled>
     )
 }
