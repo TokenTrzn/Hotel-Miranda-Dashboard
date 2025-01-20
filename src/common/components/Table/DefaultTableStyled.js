@@ -11,7 +11,7 @@ export const TableStyled = styled.table`
 export const TableHeaderStyled = styled.th`
   background-color: #FFFFFF;
   padding: .7rem;
-  text-align: center;
+  text-align: start;
   font-weight: bold;
   color: #333;
 `;
@@ -27,7 +27,7 @@ export const TableRowStyled = styled.tr`
 export const TableDataStyled = styled.td`
   padding: .5rem;
   vertical-align: middle; 
-  text-align: center; 
+  text-align: start; 
 `;
 
 export const TableDataVerticalContainer = styled.div`

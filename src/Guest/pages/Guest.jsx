@@ -3,11 +3,46 @@ import photo from '../../assets/dni_cuadrado.jpg'
 import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { IoIosArrowDown as ArrowDownIcon } from "react-icons/io"
 import { IoIosSearch as SearchIcon } from "react-icons/io"
+import { RoomImageStyled, TableDataHorizontalContainer, TableDataStyled, TableDataVerticalContainer } from "../../common/components/Table/DefaultTableStyled"
+import RoomPhoto from '../../assets/dni_cuadrado.jpg'
+import BookingData from '../data/bookingsData.json'
+import { DefaultTable } from "../../common/components/Table/DefaultTable"
 
 
 
 
 export const Guest = () => {
+
+    const headers = ['Guest', 'Order Date', 'Check In', 'Check Out', 'Special Request', 'Room Type', 'Status']
+
+    const itemRow = (booking) => (
+        <>
+            <TableDataStyled>
+                <GuestItemTextStyled>{booking.guestName}</GuestItemTextStyled>
+                #000{booking.id}
+            </TableDataStyled>
+            <TableDataStyled>
+                {booking.orderDate} {booking.orderDateHour}
+            </TableDataStyled>
+            <TableDataStyled>
+                <GuestItemTextStyled>{booking.checkIn}</GuestItemTextStyled>
+                {booking.checkInHour}
+            </TableDataStyled>
+            <TableDataStyled>
+                <GuestItemTextStyled>{booking.checkOut}</GuestItemTextStyled>
+                {booking.checkOutHour}
+            </TableDataStyled>
+            <TableDataStyled>
+                <GuestItemSpecialRequestStyled type={booking.specialRequest}>View Notes</GuestItemSpecialRequestStyled>
+            </TableDataStyled>
+            <TableDataStyled>
+                <GuestItemTextStyled>{booking.type} - {booking.number}</GuestItemTextStyled>
+            </TableDataStyled>
+            <TableDataStyled>
+                <GuestItemStatusStyled type={booking.status}>{booking.status}</GuestItemStatusStyled>
+            </TableDataStyled>
+        </>
+    )
 
     return (
         <GuestStyled>
@@ -19,7 +54,7 @@ export const Guest = () => {
                     <GuestMenuItemStyled>In Progress</GuestMenuItemStyled>
                 </GuestMenuTextStyled>
                 <GuestMenuSearchBarStyled>
-                    <GuestMenuSearchBarInputStyled type="text" placeholder="Search..."/>
+                    <GuestMenuSearchBarInputStyled type="text" placeholder="Search..." />
                     <SearchIcon />
                 </GuestMenuSearchBarStyled>
                 <GuestMenuSortBy>
@@ -27,152 +62,7 @@ export const Guest = () => {
                     <ArrowDownIcon />
                 </GuestMenuSortBy>
             </GuestMenuStyled>
-            <GuestFirstRowStyled>
-                <GuestFirstRowItemStyled>Guest</GuestFirstRowItemStyled>
-                <GuestFirstRowItemStyled>Order Date</GuestFirstRowItemStyled>
-                <GuestFirstRowItemStyled>Check In</GuestFirstRowItemStyled>
-                <GuestFirstRowItemStyled>Check Out</GuestFirstRowItemStyled>
-                <GuestFirstRowItemStyled>Special Request</GuestFirstRowItemStyled>
-                <GuestFirstRowItemStyled>Room Type</GuestFirstRowItemStyled>
-                <GuestFirstRowItemStyled>Status</GuestFirstRowItemStyled>
-            </GuestFirstRowStyled>
-            <GuestItemStyled>
-                <GuestItemGuestStyled>
-                    <GuestItemGuestPhotoStyled src={photo} />
-                    <GuestItemGuestInfoStyled>
-                        <GuestItemTextStyled>Alberto Gil</GuestItemTextStyled>
-                        <GuestItemGuestIdStyled>#000000000</GuestItemGuestIdStyled>
-                    </GuestItemGuestInfoStyled>
-                </GuestItemGuestStyled>
-                <GuestItemOrderDateStyled>Oct 30th 2020 09:21 AM</GuestItemOrderDateStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 2th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>9:45 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 4th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>6:12 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemSpecialRequestStyled>View Notes</GuestItemSpecialRequestStyled>
-                <GuestItemTextStyled>Deluxe A - 02</GuestItemTextStyled>
-                <GuestItemStatusStyled type="refund">Refund</GuestItemStatusStyled>
-                <OptionsIcon />
-            </GuestItemStyled>
-
-            <GuestItemStyled>
-                <GuestItemGuestStyled>
-                    <GuestItemGuestPhotoStyled src={photo} />
-                    <GuestItemGuestInfoStyled>
-                        <GuestItemTextStyled>Alberto Gil</GuestItemTextStyled>
-                        <GuestItemGuestIdStyled>#000000000</GuestItemGuestIdStyled>
-                    </GuestItemGuestInfoStyled>
-                </GuestItemGuestStyled>
-                <GuestItemOrderDateStyled>Oct 30th 2020 09:21 AM</GuestItemOrderDateStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 2th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>9:45 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 4th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>6:12 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemSpecialRequestStyled type="booked">View Notes</GuestItemSpecialRequestStyled>
-                <GuestItemTextStyled>Deluxe A - 02</GuestItemTextStyled>
-                <GuestItemStatusStyled type="booked">Booked</GuestItemStatusStyled>
-                <OptionsIcon />
-            </GuestItemStyled>
-
-            <GuestItemStyled>
-                <GuestItemGuestStyled>
-                    <GuestItemGuestPhotoStyled src={photo} />
-                    <GuestItemGuestInfoStyled>
-                        <GuestItemTextStyled>Alberto Gil</GuestItemTextStyled>
-                        <GuestItemGuestIdStyled>#000000000</GuestItemGuestIdStyled>
-                    </GuestItemGuestInfoStyled>
-                </GuestItemGuestStyled>
-                <GuestItemOrderDateStyled>Oct 30th 2020 09:21 AM</GuestItemOrderDateStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 2th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>9:45 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 4th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>6:12 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemSpecialRequestStyled>View Notes</GuestItemSpecialRequestStyled>
-                <GuestItemTextStyled>Deluxe A - 02</GuestItemTextStyled>
-                <GuestItemStatusStyled type="pending">Pending</GuestItemStatusStyled>
-                <OptionsIcon />
-            </GuestItemStyled>
-
-            <GuestItemStyled>
-                <GuestItemGuestStyled>
-                    <GuestItemGuestPhotoStyled src={photo} />
-                    <GuestItemGuestInfoStyled>
-                        <GuestItemTextStyled>Alberto Gil</GuestItemTextStyled>
-                        <GuestItemGuestIdStyled>#000000000</GuestItemGuestIdStyled>
-                    </GuestItemGuestInfoStyled>
-                </GuestItemGuestStyled>
-                <GuestItemOrderDateStyled>Oct 30th 2020 09:21 AM</GuestItemOrderDateStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 2th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>9:45 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 4th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>6:12 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemSpecialRequestStyled>View Notes</GuestItemSpecialRequestStyled>
-                <GuestItemTextStyled>Deluxe A - 02</GuestItemTextStyled>
-                <GuestItemStatusStyled type="canceled">Canceled</GuestItemStatusStyled>
-                <OptionsIcon />
-            </GuestItemStyled>
-
-            <GuestItemStyled>
-                <GuestItemGuestStyled>
-                    <GuestItemGuestPhotoStyled src={photo} />
-                    <GuestItemGuestInfoStyled>
-                        <GuestItemTextStyled>Alberto Gil</GuestItemTextStyled>
-                        <GuestItemGuestIdStyled>#000000000</GuestItemGuestIdStyled>
-                    </GuestItemGuestInfoStyled>
-                </GuestItemGuestStyled>
-                <GuestItemOrderDateStyled>Oct 30th 2020 09:21 AM</GuestItemOrderDateStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 2th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>9:45 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 4th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>6:12 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemSpecialRequestStyled>View Notes</GuestItemSpecialRequestStyled>
-                <GuestItemTextStyled>Deluxe A - 02</GuestItemTextStyled>
-                <GuestItemStatusStyled type="refund">Refund</GuestItemStatusStyled>
-                <OptionsIcon />
-            </GuestItemStyled>
-
-            <GuestItemStyled>
-                <GuestItemGuestStyled>
-                    <GuestItemGuestPhotoStyled src={photo} />
-                    <GuestItemGuestInfoStyled>
-                        <GuestItemTextStyled>Alberto Gil</GuestItemTextStyled>
-                        <GuestItemGuestIdStyled>#000000000</GuestItemGuestIdStyled>
-                    </GuestItemGuestInfoStyled>
-                </GuestItemGuestStyled>
-                <GuestItemOrderDateStyled>Oct 30th 2020 09:21 AM</GuestItemOrderDateStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 2th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>9:45 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemCheckStyled>
-                    <GuestItemTextStyled>Nov 4th, 2020</GuestItemTextStyled>
-                    <GuestItemCheckHourStyled>6:12 PM</GuestItemCheckHourStyled>
-                </GuestItemCheckStyled>
-                <GuestItemSpecialRequestStyled>View Notes</GuestItemSpecialRequestStyled>
-                <GuestItemTextStyled>Deluxe A - 02</GuestItemTextStyled>
-                <GuestItemStatusStyled type="refund">Refund</GuestItemStatusStyled>
-                <OptionsIcon />
-            </GuestItemStyled>
+            <DefaultTable headers={headers} data={BookingData} itemRow={itemRow} />
         </GuestStyled>
     )
 }

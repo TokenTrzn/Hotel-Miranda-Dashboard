@@ -185,16 +185,16 @@ export const GuestItemSpecialRequestStyled = styled.button`
     padding: .8rem 1.5rem;
     cursor: pointer;
     color: ${props =>
-        props.type === 'booked' ? '#799283' : '#000000'
+        props.type === true ? '#799283' : '#000000'
     };
     font-family: 'Poppins';
     font-size: 1rem;
     font-weight: 600;
     background: ${props =>
-        props.type === 'booked' ? '#ffffff' : '#EEF9F2'
+        props.type === true ? '#ffffff' : '#EEF9F2'
     };
     border: ${props =>
-        props.type === 'booked' ? '1px solid #799283' : 'none'
+        props.type === true ? '1px solid #799283' : 'none'
     };
     border-radius: .5rem;
     text-align: center;
@@ -203,16 +203,14 @@ export const GuestItemSpecialRequestStyled = styled.button`
 export const GuestItemStatusStyled = styled.button`
     cursor: pointer;
     background: ${props => 
-        props.type === 'booked' ? '#E8FFEE' : 
-        props.type === 'refund' ? '#FFEDEC' :
-        props.type === 'pending' ? '#E2E2E2' :
-        props.type === 'canceled' ? '#575757' : 'white'
+        props.type === 'Check In' ? '#E8FFEE' : 
+        props.type === 'Check Out' ? '#FFEDEC' :
+        props.type === 'In Progress' ? '#f3ffc0' : 'white'
     };
     color: ${props => 
-        props.type === 'booked' ? '#5AD07A' : 
-        props.type === 'refund' ? '#E23428' :
-        props.type === 'pending' ? '#6D6D6D' :
-        props.type === 'canceled' ? '#BEBEBE' : 'white'
+        props.type === 'Check In' ? '#5AD07A' : 
+        props.type === 'Check Out' ? '#E23428' :
+        props.type === 'In Progress' ? '#000' : 'white'
     };
     padding: .8rem 1rem;
     font-family: 'Poppins';
