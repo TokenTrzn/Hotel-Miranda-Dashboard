@@ -1,7 +1,7 @@
 import { RoomsItemStatusStyled, RoomsItemTextStyled, RoomsMenuItemStyled, RoomsMenuStyled, RoomsStyled } from "../components/RoomsStyled"
 import RoomPhoto from '../../assets/room_photo.jpg'
 import RoomsData from '../data/roomsData.json'
-import { RoomImageStyled, TableDataHorizontalContainer, TableDataStyled, TableDataVerticalContainer } from "../../common/components/Table/DefaultTableStyled"
+import { ImageStyled, TableDataHorizontalContainer, TableDataStyled, TableDataVerticalContainer } from "../../common/components/Table/DefaultTableStyled"
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 
 export const Rooms = () => {
@@ -12,7 +12,7 @@ export const Rooms = () => {
         <>
             <TableDataStyled>
                 <TableDataHorizontalContainer>
-                    <RoomImageStyled src={RoomPhoto} />
+                    <ImageStyled src={RoomPhoto} />
                     <TableDataVerticalContainer>
                         #000{room.id}
                         <RoomsItemTextStyled>{room.name} - {room.number}</RoomsItemTextStyled>

@@ -1,9 +1,8 @@
-import { GuestFirstRowItemStyled, GuestFirstRowStyled, GuestItemCheckHourStyled, GuestItemCheckStyled, GuestItemGuestIdStyled, GuestItemGuestInfoStyled, GuestItemGuestPhotoStyled, GuestItemGuestStyled, GuestItemOrderDateStyled, GuestItemSpecialRequestStyled, GuestItemStatusStyled, GuestItemStyled, GuestItemTextStyled, GuestMenuItemStyled, GuestMenuSearchBarInputStyled, GuestMenuSearchBarStyled, GuestMenuSortBy, GuestMenuSortByText, GuestMenuStyled, GuestMenuTextStyled, GuestStyled } from "../components/Ui/GuestStyled"
-import photo from '../../assets/dni_cuadrado.jpg'
+import { GuestItemSpecialRequestStyled, GuestItemStatusStyled, GuestItemTextStyled, GuestMenuItemStyled, GuestMenuSearchBarInputStyled, GuestMenuSearchBarStyled, GuestMenuSortBy, GuestMenuSortByText, GuestMenuStyled, GuestMenuTextStyled, GuestStyled } from "../components/Ui/GuestStyled"
 import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { IoIosArrowDown as ArrowDownIcon } from "react-icons/io"
 import { IoIosSearch as SearchIcon } from "react-icons/io"
-import { RoomImageStyled, TableDataHorizontalContainer, TableDataStyled, TableDataVerticalContainer } from "../../common/components/Table/DefaultTableStyled"
+import { TableDataStyled } from "../../common/components/Table/DefaultTableStyled"
 import RoomPhoto from '../../assets/dni_cuadrado.jpg'
 import BookingData from '../data/bookingsData.json'
 import { DefaultTable } from "../../common/components/Table/DefaultTable"

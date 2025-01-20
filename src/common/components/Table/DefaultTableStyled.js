@@ -28,6 +28,10 @@ export const TableDataStyled = styled.td`
   padding: .5rem;
   vertical-align: middle; 
   text-align: start; 
+
+  svg {
+    margin: auto 0;
+  }
 `;
 
 export const TableDataVerticalContainer = styled.div`
@@ -54,17 +58,17 @@ export const GuestImage = styled.img`
   margin-right: .625rem;
 `;
 
-export const RoomImageStyled = styled.img`
-  width: 5rem;
-  height: 3rem;
-  border-radius: 8px;
+export const ImageStyled = styled.img`
+  width: 4rem;
+  height: auto;
+  border-radius: .5rem;
   text-align: center; 
 `;
 
 export const GuestInfo = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: .75rem;
   color: #333;
 
   small {
