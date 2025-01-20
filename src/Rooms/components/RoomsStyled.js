@@ -10,7 +10,6 @@ export const RoomsMenuStyled = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 3rem;
     padding: .5% 2%;
 `
 
@@ -143,8 +142,8 @@ export const RoomsItemRoomProfileIdStyled = styled.p`
 export const RoomsItemStatusStyled = styled.button`
     cursor: pointer;
     background: ${props => 
-        props.type === 'available' ? '#5AD07A' : 
-        props.type === 'booked' ? '#E23428' : 'white'
+        props.type === 'Available' ? '#5AD07A' : 
+        props.type === 'Booked' ? '#E23428' : 'white'
     };
     color: 'white';
     padding: .8rem 1rem;
@@ -152,7 +151,7 @@ export const RoomsItemStatusStyled = styled.button`
     font-size: 1rem;
     font-weight: 600;
     border: none;
-    width: 10%;
+    width: 45%;
     border-radius: .5rem;
     text-align: center;
 `
