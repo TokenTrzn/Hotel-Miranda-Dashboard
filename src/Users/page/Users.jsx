@@ -1,10 +1,12 @@
 import { ImageStyled, TableDataHorizontalContainer, TableDataStyled, TableDataVerticalContainer } from "../../common/components/Table/DefaultTableStyled"
-import { UsersItemStatusStyled, UsersItemTextStyled, UsersMenuItemStyled, UsersMenuSearchBarInputStyled, UsersMenuSearchBarStyled, UsersMenuStyled, UsersStyled } from "../components/UsersStyled"
+import { UsersItemStatusStyled, UsersMenuItemStyled, UsersMenuSearchBarInputStyled, UsersMenuSearchBarStyled, UsersMenuStyled, UsersStyled } from "../components/UsersStyled"
 import UserPhoto from '../../assets/dni_cuadrado.jpg'
+import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 import UsersData from '../data/usersData.json'
 import { MdPhone as PhoneIcon } from "react-icons/md";
 import { IoIosSearch as SearchIcon } from "react-icons/io"
+import { TableIdText, TablePrimaryText } from "../../common/components/Text/TextStyled"
 
 
 
@@ -19,17 +21,25 @@ export const Users = () => {
                 <TableDataHorizontalContainer>
                     <ImageStyled src={UserPhoto} />
                     <TableDataVerticalContainer>
-                        <UsersItemTextStyled>{user.name}</UsersItemTextStyled>
-                        #000{user.id}
+                        <TablePrimaryText>{user.name}</TablePrimaryText>
+                        <TableIdText>#000{user.id}</TableIdText>
                     </TableDataVerticalContainer>
                 </TableDataHorizontalContainer>
             </TableDataStyled>
-            <TableDataStyled>{user.email}</TableDataStyled>
-            <TableDataStyled>{user.startDate}</TableDataStyled>
-            <TableDataStyled>{user.description}</TableDataStyled>
-            <TableDataStyled><PhoneIcon /> {user.contact}</TableDataStyled>
+            <TableDataStyled><TablePrimaryText>{user.email}</TablePrimaryText></TableDataStyled>
+            <TableDataStyled><TablePrimaryText>{user.startDate}</TablePrimaryText></TableDataStyled>
+            <TableDataStyled><TablePrimaryText>{user.description}</TablePrimaryText></TableDataStyled>
+            <TableDataStyled>
+                <TableDataHorizontalContainer>
+                    <PhoneIcon />
+                    <TablePrimaryText>{user.contact}</TablePrimaryText>
+                </TableDataHorizontalContainer>
+            </TableDataStyled>
             <TableDataStyled>
                 <UsersItemStatusStyled type={user.status}>{user.status}</UsersItemStatusStyled>
+            </TableDataStyled>
+            <TableDataStyled>
+                <OptionsIcon/>
             </TableDataStyled>
         </>
     )

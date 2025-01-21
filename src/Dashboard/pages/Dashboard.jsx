@@ -1,10 +1,8 @@
 import { KPI } from "../../common/components/KPI/KPI"
-import { DashboardCalendar } from "../components/Calendar/Calendar";
-import { DashboardCalendarStatsRowStyled, DashboardContainerStyled, DashboardKPIsStyled } from "../components/DashboardStyled"
+import { DashboardContainerStyled, DashboardKPIsStyled } from "../components/DashboardStyled"
 import { ContactKPIContainer, ContactKPIIconItemStyled, ContactKPIIconsStyled, ContactKPIInfoStyled, ContactKPIProfileInfoStyled, ContactKPIProfilePhotoStyled, ContactKPIProfileRowStyled, ContactKPIStyled, ContactKPITextStyled, ContactKPITimeStyled } from '../../Contact/components/ContactStyled'
 import { IoBedOutline as BedIcon } from "react-icons/io5"
 import { LuCalendarCheck as BookingIcon, LuLogIn as CheckInIcon, LuLogOut as CheckOutIcon } from "react-icons/lu";
-import { Graph } from "../components/Graph/Graph";
 import ReviewPhoto from '../../assets/dni_cuadrado.jpg'
 import OkIcon from '../../assets/ok_icon.png'
 import DeleteIcon from '../../assets/delete_icon.png'
@@ -22,10 +20,6 @@ export const Dashboard = () => {
                 <KPI icon={<CheckInIcon />} number='753' text='Check In' />
                 <KPI icon={<CheckOutIcon />} number='516' text='Check Out' />
             </DashboardKPIsStyled>
-            <DashboardCalendarStatsRowStyled>
-                <DashboardCalendar />
-                <Graph />
-            </DashboardCalendarStatsRowStyled>
             <BookingInfo />
             <ContactKPIContainer>
                 <ContactKPIStyled>

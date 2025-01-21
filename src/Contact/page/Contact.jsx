@@ -1,9 +1,34 @@
-import { ContactFirstRowItemStyled, ContactFirstRowStyled, ContactItemActionStyled, ContactItemCommentStyled, ContactItemStyled, ContactItemTextStyled, ContactKPIContainer, ContactKPIIconItemStyled, ContactKPIIconsStyled, ContactKPIInfoStyled, ContactKPIProfileInfoStyled, ContactKPIProfilePhotoStyled, ContactKPIProfileRowStyled, ContactKPIStyled, ContactKPITextStyled, ContactKPITimeStyled, ContactListContainerStyled, ContactMenuItemStyled, ContactMenuStyled, ContactStyled } from "../components/ContactStyled"
+import { ContactItemActionStyled, ContactKPIContainer, ContactKPIIconItemStyled, ContactKPIIconsStyled, ContactKPIInfoStyled, ContactKPIProfileInfoStyled, ContactKPIProfilePhotoStyled, ContactKPIProfileRowStyled, ContactKPIStyled, ContactKPITextStyled, ContactKPITimeStyled, ContactListContainerStyled, ContactMenuItemStyled, ContactMenuStyled, ContactStyled } from "../components/ContactStyled"
 import ReviewPhoto from '../../assets/dni_cuadrado.jpg'
 import OkIcon from '../../assets/ok_icon.png'
 import DeleteIcon from '../../assets/delete_icon.png'
+import ContactData from '../data/contactData.json'
+import { DefaultTable } from "../../common/components/Table/DefaultTable"
+import { TableIdText, TableSecundaryText } from "../../common/components/Text/TextStyled"
+import { TableDataHorizontalContainer, TableDataStyled } from "../../common/components/Table/DefaultTableStyled"
 
 export const Contact = () => {
+
+    const headers = ['Date', 'Customer', 'Comment', 'Action']
+
+    const itemRow = (contact) => (
+        <>
+            <TableDataStyled>
+                <TableIdText>#000{contact.id}</TableIdText>
+                <TableDataHorizontalContainer>
+                <TableSecundaryText>{contact.date} {contact.hour}</TableSecundaryText>
+
+                </TableDataHorizontalContainer>
+            </TableDataStyled>
+            <TableDataStyled>
+                <TableSecundaryText>{contact.name}</TableSecundaryText>
+                <TableSecundaryText>{contact.email}</TableSecundaryText>
+                <TableSecundaryText>{contact.phone}</TableSecundaryText>
+            </TableDataStyled>
+            <TableDataStyled><TableSecundaryText>{contact.comment}</TableSecundaryText></TableDataStyled>
+            <TableDataStyled><ContactItemActionStyled>Archive</ContactItemActionStyled></TableDataStyled>
+        </>
+    )
 
     return (
         <ContactStyled>
@@ -62,77 +87,7 @@ export const Contact = () => {
                     <ContactMenuItemStyled>All Contacts</ContactMenuItemStyled>
                     <ContactMenuItemStyled>Archived</ContactMenuItemStyled>
                 </ContactMenuStyled>
-                <ContactFirstRowStyled>
-                    <ContactFirstRowItemStyled>Date</ContactFirstRowItemStyled>
-                    <ContactFirstRowItemStyled>Customer</ContactFirstRowItemStyled>
-                    <ContactFirstRowItemStyled>Comment</ContactFirstRowItemStyled>
-                    <ContactFirstRowItemStyled>Action</ContactFirstRowItemStyled>
-                </ContactFirstRowStyled>
-                <ContactItemStyled>
-                    <div>
-                        <ContactItemTextStyled>#000123456</ContactItemTextStyled>
-                        <ContactItemTextStyled><span>Nov 21th 2020 09:21 AM</span></ContactItemTextStyled>
-                    </div>
-                    <div>
-                        <ContactItemTextStyled>Alberto Gil</ContactItemTextStyled>
-                        <ContactItemTextStyled><span>alberto.gil.sanjuan@gmail.com</span></ContactItemTextStyled>
-                        <ContactItemTextStyled><span>+34 645 630 341</span></ContactItemTextStyled>
-                    </div>
-                    <ContactItemCommentStyled>We recently had dinner with friends at Dimas Can Zheng and we all walked away with a great experience. Good food, pleasant environment, personal attention through all the evening. Thanks to the team and we will be back</ContactItemCommentStyled>
-                    <ContactItemActionStyled>Archive</ContactItemActionStyled>
-                </ContactItemStyled>
-                <ContactItemStyled>
-                    <div>
-                        <ContactItemTextStyled>#000123456</ContactItemTextStyled>
-                        <ContactItemTextStyled><span>Nov 21th 2020 09:21 AM</span></ContactItemTextStyled>
-                    </div>
-                    <div>
-                        <ContactItemTextStyled>Alberto Gil</ContactItemTextStyled>
-                        <ContactItemTextStyled><span>alberto.gil.sanjuan@gmail.com</span></ContactItemTextStyled>
-                        <ContactItemTextStyled><span>+34 645 630 341</span></ContactItemTextStyled>
-                    </div>
-                    <ContactItemCommentStyled>We recently had dinner with friends at Dimas Can Zheng and we all walked away with a great experience. Good food, pleasant environment, personal attention through all the evening. Thanks to the team and we will be back</ContactItemCommentStyled>
-                    <ContactItemActionStyled>Archive</ContactItemActionStyled>
-                </ContactItemStyled>
-                <ContactItemStyled>
-                    <div>
-                        <ContactItemTextStyled>#000123456</ContactItemTextStyled>
-                        <ContactItemTextStyled><span>Nov 21th 2020 09:21 AM</span></ContactItemTextStyled>
-                    </div>
-                    <div>
-                        <ContactItemTextStyled>Alberto Gil</ContactItemTextStyled>
-                        <ContactItemTextStyled><span>alberto.gil.sanjuan@gmail.com</span></ContactItemTextStyled>
-                        <ContactItemTextStyled><span>+34 645 630 341</span></ContactItemTextStyled>
-                    </div>
-                    <ContactItemCommentStyled>We recently had dinner with friends at Dimas Can Zheng and we all walked away with a great experience. Good food, pleasant environment, personal attention through all the evening. Thanks to the team and we will be back</ContactItemCommentStyled>
-                    <ContactItemActionStyled>Archive</ContactItemActionStyled>
-                </ContactItemStyled>
-                <ContactItemStyled>
-                    <div>
-                        <ContactItemTextStyled>#000123456</ContactItemTextStyled>
-                        <ContactItemTextStyled><span>Nov 21th 2020 09:21 AM</span></ContactItemTextStyled>
-                    </div>
-                    <div>
-                        <ContactItemTextStyled>Alberto Gil</ContactItemTextStyled>
-                        <ContactItemTextStyled><span>alberto.gil.sanjuan@gmail.com</span></ContactItemTextStyled>
-                        <ContactItemTextStyled><span>+34 645 630 341</span></ContactItemTextStyled>
-                    </div>
-                    <ContactItemCommentStyled>We recently had dinner with friends at Dimas Can Zheng and we all walked away with a great experience. Good food, pleasant environment, personal attention through all the evening. Thanks to the team and we will be back</ContactItemCommentStyled>
-                    <ContactItemActionStyled>Archive</ContactItemActionStyled>
-                </ContactItemStyled>
-                <ContactItemStyled>
-                    <div>
-                        <ContactItemTextStyled>#000123456</ContactItemTextStyled>
-                        <ContactItemTextStyled><span>Nov 21th 2020 09:21 AM</span></ContactItemTextStyled>
-                    </div>
-                    <div>
-                        <ContactItemTextStyled>Alberto Gil</ContactItemTextStyled>
-                        <ContactItemTextStyled><span>alberto.gil.sanjuan@gmail.com</span></ContactItemTextStyled>
-                        <ContactItemTextStyled><span>+34 645 630 341</span></ContactItemTextStyled>
-                    </div>
-                    <ContactItemCommentStyled>We recently had dinner with friends at Dimas Can Zheng and we all walked away with a great experience. Good food, pleasant environment, personal attention through all the evening. Thanks to the team and we will be back</ContactItemCommentStyled>
-                    <ContactItemActionStyled>Archive</ContactItemActionStyled>
-                </ContactItemStyled>
+                <DefaultTable headers={headers}  data={ContactData} itemRow={itemRow} />
             </ContactListContainerStyled>
         </ContactStyled>
     )

@@ -1,8 +1,10 @@
-import { RoomsItemStatusStyled, RoomsItemTextStyled, RoomsMenuItemStyled, RoomsMenuStyled, RoomsStyled } from "../components/RoomsStyled"
+import { RoomsItemStatusStyled, RoomsMenuItemStyled, RoomsMenuStyled, RoomsStyled } from "../components/RoomsStyled"
 import RoomPhoto from '../../assets/room_photo.jpg'
 import RoomsData from '../data/roomsData.json'
+import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { ImageStyled, TableDataHorizontalContainer, TableDataStyled, TableDataVerticalContainer } from "../../common/components/Table/DefaultTableStyled"
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
+import { TableIdText, TablePrimaryText } from "../../common/components/Text/TextStyled"
 
 export const Rooms = () => {
 
@@ -14,18 +16,19 @@ export const Rooms = () => {
                 <TableDataHorizontalContainer>
                     <ImageStyled src={RoomPhoto} />
                     <TableDataVerticalContainer>
-                        #000{room.id}
-                        <RoomsItemTextStyled>{room.name} - {room.number}</RoomsItemTextStyled>
+                        <TableIdText> #000{room.id}</TableIdText>
+                        <TablePrimaryText>{room.name} - {room.number}</TablePrimaryText>
                     </TableDataVerticalContainer>
                 </TableDataHorizontalContainer>
             </TableDataStyled>
-            <TableDataStyled>{room.type}</TableDataStyled>
-            <TableDataStyled>{room.amenities}</TableDataStyled>
-            <TableDataStyled>{room.price}</TableDataStyled>
-            <TableDataStyled>{room.offerPrice}</TableDataStyled>
+            <TableDataStyled><TablePrimaryText>{room.type}</TablePrimaryText></TableDataStyled>
+            <TableDataStyled><TablePrimaryText>{room.amenities}</TablePrimaryText></TableDataStyled>
+            <TableDataStyled><TablePrimaryText>{room.price}<span>/Night</span></TablePrimaryText></TableDataStyled>
+            <TableDataStyled><TablePrimaryText>{room.offerPrice}<span>/Night</span></TablePrimaryText></TableDataStyled>
             <TableDataStyled>
                 <RoomsItemStatusStyled type={room.status}>{room.status}</RoomsItemStatusStyled>
             </TableDataStyled>
+            <TableDataStyled><OptionsIcon /></TableDataStyled>
         </>
     )
 

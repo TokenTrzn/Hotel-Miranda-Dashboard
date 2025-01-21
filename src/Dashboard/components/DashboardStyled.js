@@ -12,10 +12,3 @@ export const DashboardKPIsStyled = styled.div`
     align-items: center;
     margin: 2rem 1rem;
 `
-
-export const DashboardCalendarStatsRowStyled = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    margin: 0 1rem;
-`

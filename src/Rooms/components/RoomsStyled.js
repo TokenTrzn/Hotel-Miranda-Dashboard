@@ -139,19 +139,19 @@ export const RoomsItemRoomProfileIdStyled = styled.p`
     margin: 0;
 `
 
-export const RoomsItemStatusStyled = styled.button`
+export const RoomsItemStatusStyled = styled.div`
     cursor: pointer;
     background: ${props => 
         props.type === 'Available' ? '#5AD07A' : 
         props.type === 'Booked' ? '#E23428' : 'white'
     };
-    color: 'white';
+    color: #fff;
     padding: .8rem 1rem;
     font-family: 'Poppins';
     font-size: 1rem;
     font-weight: 600;
     border: none;
-    width: 45%;
+    width: 60%;
     border-radius: .5rem;
     text-align: center;
 `

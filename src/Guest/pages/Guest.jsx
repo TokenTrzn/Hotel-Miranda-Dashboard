@@ -1,11 +1,11 @@
-import { GuestItemSpecialRequestStyled, GuestItemStatusStyled, GuestItemTextStyled, GuestMenuItemStyled, GuestMenuSearchBarInputStyled, GuestMenuSearchBarStyled, GuestMenuSortBy, GuestMenuSortByText, GuestMenuStyled, GuestMenuTextStyled, GuestStyled } from "../components/Ui/GuestStyled"
+import { GuestItemSpecialRequestStyled, GuestItemStatusStyled, GuestMenuItemStyled, GuestMenuSearchBarInputStyled, GuestMenuSearchBarStyled, GuestMenuSortBy, GuestMenuSortByText, GuestMenuStyled, GuestMenuTextStyled, GuestStyled } from "../components/Ui/GuestStyled"
 import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { IoIosArrowDown as ArrowDownIcon } from "react-icons/io"
 import { IoIosSearch as SearchIcon } from "react-icons/io"
 import { TableDataStyled } from "../../common/components/Table/DefaultTableStyled"
-import RoomPhoto from '../../assets/dni_cuadrado.jpg'
 import BookingData from '../data/bookingsData.json'
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
+import { TableIdText, TablePrimaryText, TableSecundaryText, TableSecundaryTextSmall } from "../../common/components/Text/TextStyled"
 
 
 
@@ -17,29 +17,30 @@ export const Guest = () => {
     const itemRow = (booking) => (
         <>
             <TableDataStyled>
-                <GuestItemTextStyled>{booking.guestName}</GuestItemTextStyled>
-                #000{booking.id}
+                <TablePrimaryText>{booking.guestName}</TablePrimaryText>
+                <TableIdText>#000{booking.id}</TableIdText>
             </TableDataStyled>
             <TableDataStyled>
-                {booking.orderDate} {booking.orderDateHour}
+                <TableSecundaryText>{booking.orderDate} {booking.orderDateHour}</TableSecundaryText>
             </TableDataStyled>
             <TableDataStyled>
-                <GuestItemTextStyled>{booking.checkIn}</GuestItemTextStyled>
-                {booking.checkInHour}
+                <TablePrimaryText>{booking.checkIn}</TablePrimaryText>
+                <TableSecundaryTextSmall>{booking.checkInHour}</TableSecundaryTextSmall>
             </TableDataStyled>
             <TableDataStyled>
-                <GuestItemTextStyled>{booking.checkOut}</GuestItemTextStyled>
-                {booking.checkOutHour}
+                <TablePrimaryText>{booking.checkOut}</TablePrimaryText>
+                <TableSecundaryTextSmall>{booking.checkOutHour}</TableSecundaryTextSmall>
             </TableDataStyled>
             <TableDataStyled>
                 <GuestItemSpecialRequestStyled type={booking.specialRequest}>View Notes</GuestItemSpecialRequestStyled>
             </TableDataStyled>
             <TableDataStyled>
-                <GuestItemTextStyled>{booking.type} - {booking.number}</GuestItemTextStyled>
+                <TablePrimaryText>{booking.type} - {booking.number}</TablePrimaryText>
             </TableDataStyled>
             <TableDataStyled>
                 <GuestItemStatusStyled type={booking.status}>{booking.status}</GuestItemStatusStyled>
             </TableDataStyled>
+            <TableDataStyled><OptionsIcon/></TableDataStyled>
         </>
     )
 

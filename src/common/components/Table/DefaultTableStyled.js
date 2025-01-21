@@ -31,6 +31,7 @@ export const TableDataStyled = styled.td`
 
   svg {
     margin: auto 0;
+    padding-right: 5%;
   }
 `;
 
@@ -59,7 +60,7 @@ export const GuestImage = styled.img`
 `;
 
 export const ImageStyled = styled.img`
-  width: 4rem;
+  width: 5rem;
   height: auto;
   border-radius: .5rem;
   text-align: center; 
@@ -70,10 +71,6 @@ export const GuestInfo = styled.div`
   flex-direction: column;
   font-size: .75rem;
   color: #333;
-
-  small {
-    color: #888;
-  }
 `;
 
 export const CustomerInfo = styled.div`

@@ -70,19 +70,17 @@ export const UsersItemTextStyled = styled.p`
     }
 `
 
-export const UsersItemStatusStyled = styled.button`
+export const UsersItemStatusStyled = styled.div`
     cursor: pointer;
-    background: ${props => 
+    color: ${props => 
         props.type === 'ACTIVE' ? '#5AD07A' : 
         props.type === 'INACTIVE' ? '#E23428' : 'white'
     };
-    color: 'white';
     padding: .8rem 1rem;
     font-family: 'Poppins';
     font-size: 1rem;
     font-weight: 600;
     border: none;
-    width: 100%;
     border-radius: .5rem;
     text-align: center;
 `

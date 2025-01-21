@@ -181,7 +181,7 @@ export const GuestItemCheckHourStyled = styled.p`
     margin: 0; 
 `
 
-export const GuestItemSpecialRequestStyled = styled.button`
+export const GuestItemSpecialRequestStyled = styled.div`
     padding: .8rem 1.5rem;
     cursor: pointer;
     color: ${props =>
@@ -198,9 +198,10 @@ export const GuestItemSpecialRequestStyled = styled.button`
     };
     border-radius: .5rem;
     text-align: center;
+    width: 60%;
 `
 
-export const GuestItemStatusStyled = styled.button`
+export const GuestItemStatusStyled = styled.div`
     cursor: pointer;
     background: ${props => 
         props.type === 'Check In' ? '#E8FFEE' : 
@@ -219,4 +220,5 @@ export const GuestItemStatusStyled = styled.button`
     border: none;
     border-radius: .5rem;
     text-align: center;
+    width: 60%;
 `

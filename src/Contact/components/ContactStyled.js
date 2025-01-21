@@ -211,18 +211,12 @@ export const ContactItemCommentStyled = styled.p`
     font-weight: 600;
     color: #393939;
     margin: 0;
-    width: 40%;
 `
 
-export const ContactItemActionStyled = styled.button`
-    cursor: pointer;
-    background: #FFEDEC;
+export const ContactItemActionStyled = styled.p`
     color: #E23428;
-    padding: .8rem 1rem;
+    font-weight: 700;
+    font-size: 1.125rem;
     font-family: 'Poppins';
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: .5rem;
-    text-align: center;
+    cursor: pointer;
 `
