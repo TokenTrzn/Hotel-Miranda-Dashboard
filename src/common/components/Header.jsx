@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { NavStyled, NavContainerIconsStyled } from "./HeaderStyled"
 import { HiOutlineMenuAlt2 as MenuIcon } from "react-icons/hi"
 import { IoArrowBack as ArrowBackIcon } from "react-icons/io5"
@@ -9,6 +9,17 @@ import { IoIosLogOut as LogOutIcon } from "react-icons/io"
 export const Header = ({ onToggleSideBarMenu }) => {
 
     const navigate = useNavigate()
+    const location = useLocation()
+
+    const routeTitles = {
+        '/dashboard': 'Dashboard',
+        '/guest': 'Booking',
+        '/rooms': 'Rooms',
+        '/contact': 'Contact',
+        '/users': 'Users',
+    }
+
+    const currentTitle = routeTitles[location.pathname] || 'Dashboard'
 
     const handleLogout = () => {
         navigate('/')
@@ -21,7 +32,7 @@ export const Header = ({ onToggleSideBarMenu }) => {
                     <MenuIcon onClick={onToggleSideBarMenu} /> : 
                     <ArrowBackIcon onClick={onToggleSideBarMenu} />
                 }                
-                <h2>Dashboard</h2>
+                <h2>{currentTitle}</h2>
             </NavContainerIconsStyled>
             <NavContainerIconsStyled className='secondary'>
                 <ContactIcon />
