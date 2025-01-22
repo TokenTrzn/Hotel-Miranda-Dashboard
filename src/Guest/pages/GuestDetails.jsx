@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { GuestDetailsAmenitiesContainerStyled, GuestDetailsAmenitiesItemStyled, GuestDetailsAmenitiesTextStyled, GuestDetailsFieldBoldInfoStyled, GuestDetailsFieldInfoStyled, GuestDetailsFieldTitleStyled, GuestDetailsHorizontalContainer, GuestDetailsIdStyled, GuestDetailsInfoStyled, GuestDetailsNameStyled, GuestDetailsPhotoContainerStyled, GuestDetailsPhotoDescriptionStyled, GuestDetailsPhotoImageStyled, GuestDetailsPhotoTagStyled, GuestDetailsPhotoTitleStyled, GuestDetailsStyled } from '../components/Ui/GuestDetailsStyled'
 import { IoWifi as WifiIcon } from "react-icons/io5";
 import { useParams } from 'react-router-dom';
-import { StyledBookingDays } from '../../Dashboard/components/BookingInfo/BookingInfoStyled';
 import BookingsData from  '../data/bookingsData.json'
 
 export const GuestDetails = () => {

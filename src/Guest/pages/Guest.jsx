@@ -6,7 +6,7 @@ import { TableDataStyled } from "../../common/components/Table/DefaultTableStyle
 import BookingData from '../data/bookingsData.json'
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 import { TableIdText, TablePrimaryText, TableSecundaryText, TableSecundaryTextSmall } from "../../common/components/Text/TextStyled"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { CloseButton, Overlay, Popup } from "../../common/components/PopUp/PopUpStyled"
 
@@ -45,7 +45,7 @@ export const Guest = () => {
             <TableDataStyled>
                 <GuestItemStatusStyled type={booking.status}>{booking.status}</GuestItemStatusStyled>
             </TableDataStyled>
-            <TableDataStyled><OptionsIcon onClick={() => navigate(`guest/details/${booking.id}`)} /></TableDataStyled>
+            <TableDataStyled><OptionsIcon onClick={() => navigate(`/guest/details/${booking.id}`)} /></TableDataStyled>
         </>
     )
 
@@ -72,7 +72,7 @@ export const Guest = () => {
             {popUpData && (
                 <Overlay>
                     <Popup>
-                        <h3>Special Request</h3>
+                        <h2>Special Request</h2>
                         <p>{popUpData}</p>
                         <CloseButton onClick={() => setPopUpData(null)}>Close</CloseButton>
                     </Popup>

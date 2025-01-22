@@ -18,38 +18,40 @@ export const Popup = styled.div`
   padding: 2rem;
   border-radius: .75rem; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  width: 80%; 
   max-width: 600px; 
   text-align: center;
 
-  h3 {
-    font-size: 1.5rem;
+  h2 {
+    font-family: 'Poppins';
+    font-size: 2rem;
     color: #135846;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
   p {
+    font-family: 'Poppins';
     font-size: 1rem;
     color: #555;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin: 1rem 2rem;
+    text-align: justify;
   }
 `
 
 export const CloseButton = styled.button`
   margin-top: 1rem; 
   padding: 0.5rem 1rem;
-  background: #135846;
-  color: #fff;
-  border: none;
+  background: #fff;
+  color: #125846;
+  border: 2px solid #135846;
   border-radius: .5rem; 
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #0e4636;
+    background-color: #135846;
+    color: #fff;
   }
 
   &:focus {

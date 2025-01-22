@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 export const InputStyled = styled.input`
     padding: .5rem 1rem;
-    background: #d5d5d5;
+    background: #fff;
     color: #222222;
-    border-radius: .6rem;
+    border-radius: .5rem;
     margin-bottom: 1rem;
-    border: 1px solid #135846;
+    border: 2px solid #135846;
 `

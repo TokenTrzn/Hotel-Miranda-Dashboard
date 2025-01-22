@@ -4,7 +4,6 @@ import {
     SideBarCopyrightStyled, SideBarCopyrightTitleStyled, SideBarCopyrightTextStyled
 } from "./SideBarStyled"
 import hotelIcon from '../../../assets/hotel_icon.png'
-import photo from '../../../assets/dni_cuadrado.jpg'
 import {
     LuLayoutDashboard as DashboardIcon,
     LuCalendarCheck as BookingIcon,
@@ -14,37 +13,28 @@ import {
 } from "react-icons/lu"
 import { IoIosArrowDown as ArrowDownIcon } from "react-icons/io"
 import { Link } from "react-router-dom"
-import { useState, useContext } from "react"
-import { AuthContext } from "../../../login/AuthContext"
+import { useState } from "react"
+import { EditUserPopup } from "./components/EditUserInfoPopUp"
 
 
 
 export const SideBarMenu = () => {
 
-    /*
-    const { state, dispatch } = useContext(AuthContext);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [user, setUser] = useState({
+        name: 'Alberto Gil',
+        email: 'alberto.gil.sanjuan@gmail.com',
+        image: 'src/assets/dni_cuadrado.jpg'
+    })
 
-    const [name, setName] = useState(state.user.name);
-    const [email, setEmail] = useState(state.user.email);
+    const [isEditing, setIsEditing] = useState(false)
 
-    const handleEditClick = () => {
-        setIsModalOpen(true);
+    const handleShowPopUp = () => setIsEditing(true);
+    const handleClosePopUp = () => setIsEditing(false);
+
+    const handleSave = (updatedUser) => {
+        setUser(updatedUser);
+        setIsEditing(false);
     };
-
-    const handleSave = () => {
-        dispatch({
-            type: 'updateUser',
-            payload: { name, email },
-        });
-        setIsModalOpen(false);
-    };
-
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-    };
-
-    */
 
     return (
         <SideBarStyled>
@@ -88,17 +78,19 @@ export const SideBarMenu = () => {
             </Link>
             <SideBarProfileStyled>
                 <SideBarProfilePhotoStyled>
-                    <img src={photo} />
+                    <img src={user.image} />
                 </SideBarProfilePhotoStyled>
-                <SideBarProfileNameStyled>Alberto Gil</SideBarProfileNameStyled>
-                <SideBarProfileEmailStyled>alberto.gil.sanjuan@gmail.com</SideBarProfileEmailStyled>
-                <SideBarProfileButtonStyled>Editar</SideBarProfileButtonStyled>
+                <SideBarProfileNameStyled>{user.name}</SideBarProfileNameStyled>
+                <SideBarProfileEmailStyled>{user.email}</SideBarProfileEmailStyled>
+                <SideBarProfileButtonStyled onClick={handleShowPopUp} >Editar</SideBarProfileButtonStyled>
             </SideBarProfileStyled>
             <SideBarCopyrightStyled>
                 <SideBarCopyrightTitleStyled>Travl Hotel Admin Dashboard</SideBarCopyrightTitleStyled>
                 <SideBarCopyrightTextStyled>© 2025 All Rights Reserved</SideBarCopyrightTextStyled>
                 <SideBarCopyrightTextStyled>Made with ♥ by TokenTrzn</SideBarCopyrightTextStyled>
             </SideBarCopyrightStyled>
+
+            {isEditing && (<EditUserPopup user={user} onClose={handleClosePopUp} onSave={handleSave} />)}
         </SideBarStyled>
     )
 }

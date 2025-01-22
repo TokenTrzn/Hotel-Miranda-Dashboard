@@ -32,7 +32,7 @@ export const ContactKPIStyled = styled.div`
 
     &:hover {
         box-shadow: 0px 6px 12px #d5d5d5;
-
+        
         svg {
             color: #ffffff;
             background: #E23428;

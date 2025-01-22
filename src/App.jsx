@@ -4,13 +4,13 @@ import { PrivateRoute } from './login/PrivateRoute'
 import { Layout } from './common/Layout'
 import { Login } from './Login/pages/Login'
 import { Dashboard } from './Dashboard/pages/Dashboard'
-import { Guest } from './Guest/pages/Guest'
+import { Guest } from './guest/pages/Guest'
 import { Rooms } from './Rooms/pages/Rooms'
 import { Contact } from './Contact/page/Contact'
 import { Users } from './Users/page/Users'
 import { NewRoomForm } from './rooms/pages/NewRoomForm'
-import { AuthProvider } from './login/AuthContext'
 import { GuestDetails } from './guest/pages/GuestDetails'
+import { AuthProvider } from './Login/AuthContext'
 
 function App() {
 
