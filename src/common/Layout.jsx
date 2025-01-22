@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
-import { Header, } from "./components/Header"
-import { SideBarMenu } from "./components/SideBarMenu"
+import { Header, } from "./components/header/Header"
+import { SideBarMenu } from "./components/sideBarMenu/SideBarMenu"
 import { useState } from 'react'
 import { LayoutContainerStyled, ContentStyled } from "./LayoutStyled"
 

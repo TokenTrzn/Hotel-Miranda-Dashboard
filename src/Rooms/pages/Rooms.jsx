@@ -5,10 +5,14 @@ import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { ImageStyled, TableDataHorizontalContainer, TableDataStyled, TableDataVerticalContainer } from "../../common/components/Table/DefaultTableStyled"
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 import { TableIdText, TablePrimaryText } from "../../common/components/Text/TextStyled"
+import { DefaultCreateButton } from "../../common/components/defaultCreateButton/DefaultCreateButton"
+import { Link, useNavigate } from "react-router-dom"
+
 
 export const Rooms = () => {
 
     const headers = ['Room Name', 'Room Type', 'Amenities', 'Price', 'Offer Price', 'Status']
+    const navigate = useNavigate() 
 
     const itemRow = (room) => (
         <>
@@ -36,6 +40,9 @@ export const Rooms = () => {
         <RoomsStyled>
             <RoomsMenuStyled>
                 <RoomsMenuItemStyled>All Rooms</RoomsMenuItemStyled>
+                <Link to='/new-room'>
+                    <DefaultCreateButton />
+                </Link>
             </RoomsMenuStyled>
             <DefaultTable headers={headers} data={RoomsData} itemRow={itemRow} />
         </RoomsStyled>

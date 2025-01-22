@@ -202,7 +202,6 @@ export const GuestItemSpecialRequestStyled = styled.div`
 `
 
 export const GuestItemStatusStyled = styled.div`
-    cursor: pointer;
     background: ${props => 
         props.type === 'Check In' ? '#E8FFEE' : 
         props.type === 'Check Out' ? '#FFEDEC' :

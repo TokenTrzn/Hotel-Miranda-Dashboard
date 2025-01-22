@@ -6,13 +6,18 @@ import { TableDataStyled } from "../../common/components/Table/DefaultTableStyle
 import BookingData from '../data/bookingsData.json'
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 import { TableIdText, TablePrimaryText, TableSecundaryText, TableSecundaryTextSmall } from "../../common/components/Text/TextStyled"
+import { Link, useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { CloseButton, Overlay, Popup } from "../../common/components/PopUp/PopUpStyled"
 
 
 
 
 export const Guest = () => {
+    const navigate = useNavigate() 
 
     const headers = ['Guest', 'Order Date', 'Check In', 'Check Out', 'Special Request', 'Room Type', 'Status']
+    const [popUpData, setPopUpData] = useState(null)
 
     const itemRow = (booking) => (
         <>
@@ -32,7 +37,7 @@ export const Guest = () => {
                 <TableSecundaryTextSmall>{booking.checkOutHour}</TableSecundaryTextSmall>
             </TableDataStyled>
             <TableDataStyled>
-                <GuestItemSpecialRequestStyled type={booking.specialRequest}>View Notes</GuestItemSpecialRequestStyled>
+                <GuestItemSpecialRequestStyled type={booking.specialRequest} onClick={() => setPopUpData(booking.description)}>View Notes</GuestItemSpecialRequestStyled>
             </TableDataStyled>
             <TableDataStyled>
                 <TablePrimaryText>{booking.type} - {booking.number}</TablePrimaryText>
@@ -40,7 +45,7 @@ export const Guest = () => {
             <TableDataStyled>
                 <GuestItemStatusStyled type={booking.status}>{booking.status}</GuestItemStatusStyled>
             </TableDataStyled>
-            <TableDataStyled><OptionsIcon/></TableDataStyled>
+            <TableDataStyled><OptionsIcon onClick={() => navigate(`guest/details/${booking.id}`)} /></TableDataStyled>
         </>
     )
 
@@ -63,6 +68,16 @@ export const Guest = () => {
                 </GuestMenuSortBy>
             </GuestMenuStyled>
             <DefaultTable headers={headers} data={BookingData} itemRow={itemRow} />
+
+            {popUpData && (
+                <Overlay>
+                    <Popup>
+                        <h3>Special Request</h3>
+                        <p>{popUpData}</p>
+                        <CloseButton onClick={() => setPopUpData(null)}>Close</CloseButton>
+                    </Popup>
+                </Overlay>
+            )}
         </GuestStyled>
     )
 }

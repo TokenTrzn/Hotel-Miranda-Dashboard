@@ -19,10 +19,13 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
         if (email === EMAIL && password == PASS) {
+            /*
             dispatch({
                 type: 'login',
                 payload: { name: 'Alberto Gil', email: {EMAIL} }
             })
+                */
+            localStorage.setItem("isAuthenticated", "true");
             navigate('/dashboard')
         } else {
             alert('Error')

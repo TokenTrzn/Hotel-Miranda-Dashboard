@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom"
 import { TableMenuText } from "../Text/TextStyled"
 import { TableHeaderStyled, TableRowStyled, TableStyled } from "./DefaultTableStyled"
 
 
 export const DefaultTable = ({ headers, data, itemRow }) => {
+const navigate = useNavigate()
 
     return (
         <TableStyled>

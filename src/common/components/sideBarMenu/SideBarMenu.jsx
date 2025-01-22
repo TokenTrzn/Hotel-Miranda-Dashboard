@@ -3,8 +3,8 @@ import {
     SideBarProfileStyled, SideBarProfilePhotoStyled, SideBarProfileNameStyled, SideBarProfileEmailStyled, SideBarProfileButtonStyled,
     SideBarCopyrightStyled, SideBarCopyrightTitleStyled, SideBarCopyrightTextStyled
 } from "./SideBarStyled"
-import hotelIcon from '../../assets/hotel_icon.png'
-import photo from '../../assets/dni_cuadrado.jpg'
+import hotelIcon from '../../../assets/hotel_icon.png'
+import photo from '../../../assets/dni_cuadrado.jpg'
 import {
     LuLayoutDashboard as DashboardIcon,
     LuCalendarCheck as BookingIcon,
@@ -15,7 +15,7 @@ import {
 import { IoIosArrowDown as ArrowDownIcon } from "react-icons/io"
 import { Link } from "react-router-dom"
 import { useState, useContext } from "react"
-import { AuthContext } from "../../login/AuthContext"
+import { AuthContext } from "../../../login/AuthContext"
 
 
 
