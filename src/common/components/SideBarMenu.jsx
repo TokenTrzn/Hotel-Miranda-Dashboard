@@ -14,10 +14,37 @@ import {
 } from "react-icons/lu"
 import { IoIosArrowDown as ArrowDownIcon } from "react-icons/io"
 import { Link } from "react-router-dom"
+import { useState, useContext } from "react"
+import { AuthContext } from "../../login/AuthContext"
 
 
 
 export const SideBarMenu = () => {
+
+    /*
+    const { state, dispatch } = useContext(AuthContext);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const [name, setName] = useState(state.user.name);
+    const [email, setEmail] = useState(state.user.email);
+
+    const handleEditClick = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleSave = () => {
+        dispatch({
+            type: 'updateUser',
+            payload: { name, email },
+        });
+        setIsModalOpen(false);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
+    */
 
     return (
         <SideBarStyled>

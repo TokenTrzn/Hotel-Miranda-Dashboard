@@ -1,5 +1,7 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { AuthProvider } from './login/AuthContext'
+import { PrivateRoute } from './login/PrivateRoute'
 import { Layout } from './common/Layout'
 import { Login } from './Login/pages/Login'
 import { Dashboard } from './Dashboard/pages/Dashboard'
@@ -15,13 +17,13 @@ function App() {
       <BrowserRouter>
         <Routes>
             <Route path='' element={<Login />} />
-            <Route element={<Layout />}>
-              <Route path='/dashboard' element={<Dashboard />} />
-              <Route path='/guest' element={<Guest />} />
-              <Route path='/rooms' element={<Rooms />} />
-              <Route path='/contact' element={<Contact />} />
-              <Route path='/users' element={<Users/>} />
-            </Route>
+          <Route element={<Layout />}>
+            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/guest' element={<Guest />} />
+            <Route path='/rooms' element={<Rooms />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/users' element={<Users />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
