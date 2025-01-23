@@ -25,7 +25,7 @@ export const Users = () => {
     }, [users])
 
 
-    const headers = ['Name', 'Email', 'Start Date', 'Description', 'Contact', 'Status']
+    const headers = ['Name', 'Email', 'Start Date', 'Description', 'Contact', 'Status', '']
 
     const itemRow = (user) => (
         <>

@@ -3,20 +3,28 @@ import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { IoIosArrowDown as ArrowDownIcon } from "react-icons/io"
 import { IoIosSearch as SearchIcon } from "react-icons/io"
 import { TableDataStyled } from "../../common/components/Table/DefaultTableStyled"
-import BookingData from '../data/bookingsData.json'
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 import { TableIdText, TablePrimaryText, TableSecundaryText, TableSecundaryTextSmall } from "../../common/components/Text/TextStyled"
 import { useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { CloseButton, Overlay, Popup } from "../../common/components/PopUp/PopUpStyled"
-
-
-
+import { useDispatch, useSelector } from "react-redux"
+import { fetchBookingsThunk } from "../features/GuestThunk"
 
 export const Guest = () => {
-    const navigate = useNavigate() 
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const bookings = useSelector((state) => state.bookings.bookings)
 
-    const headers = ['Guest', 'Order Date', 'Check In', 'Check Out', 'Special Request', 'Room Type', 'Status']
+    useEffect(() => {
+        dispatch(fetchBookingsThunk())
+    }, [dispatch])
+
+    useEffect(() => {
+        console.log('Rooms state updated:', bookings)
+    }, [bookings])
+
+    const headers = ['Guest', 'Order Date', 'Check In', 'Check Out', 'Special Request', 'Room Type', 'Status', '']
     const [popUpData, setPopUpData] = useState(null)
 
     const itemRow = (booking) => (
@@ -37,7 +45,7 @@ export const Guest = () => {
                 <TableSecundaryTextSmall>{booking.checkOutHour}</TableSecundaryTextSmall>
             </TableDataStyled>
             <TableDataStyled>
-                <GuestItemSpecialRequestStyled type={booking.specialRequest} onClick={() => setPopUpData(booking.description)}>View Notes</GuestItemSpecialRequestStyled>
+                <GuestItemSpecialRequestStyled type={booking.specialRequest.value} onClick={() => setPopUpData(booking.description)}>View Notes</GuestItemSpecialRequestStyled>
             </TableDataStyled>
             <TableDataStyled>
                 <TablePrimaryText>{booking.type} - {booking.number}</TablePrimaryText>
@@ -67,7 +75,7 @@ export const Guest = () => {
                     <ArrowDownIcon />
                 </GuestMenuSortBy>
             </GuestMenuStyled>
-            <DefaultTable headers={headers} data={BookingData} itemRow={itemRow} />
+            <DefaultTable headers={headers} data={bookings} itemRow={itemRow} />
 
             {popUpData && (
                 <Overlay>

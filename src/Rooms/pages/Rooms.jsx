@@ -34,7 +34,7 @@ export const Rooms = () => {
         dispatch(updateRoomThunk(room))
     }
 
-    const headers = ['Room Name', 'Room Type', 'Amenities', 'Price', 'Offer Price', 'Status']
+    const headers = ['Room Name', 'Room Type', 'Amenities', 'Price', 'Offer Price', 'Status', '']
 
     const itemRow = (room) => (
         <>
