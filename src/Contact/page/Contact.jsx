@@ -2,12 +2,26 @@ import { ContactItemActionStyled, ContactKPIContainer, ContactKPIIconItemStyled,
 import ReviewPhoto from '../../assets/dni_cuadrado.jpg'
 import OkIcon from '../../assets/ok_icon.png'
 import DeleteIcon from '../../assets/delete_icon.png'
-import ContactData from '../data/contactData.json'
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 import { TableIdText, TableSecundaryText } from "../../common/components/Text/TextStyled"
 import { TableDataHorizontalContainer, TableDataStyled } from "../../common/components/Table/DefaultTableStyled"
+import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
+import { fetchContactsThunk } from "../features/ContactThunk"
 
 export const Contact = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const contacts = useSelector((state) => state.contacts.contacts)
+
+    useEffect(() => {
+        dispatch(fetchContactsThunk())
+    }, [dispatch])
+
+    useEffect(() => {
+        console.log('Contacts state updated:', contacts)
+    }, [contacts])
 
     const headers = ['Date', 'Customer', 'Comment', 'Action']
 
@@ -87,7 +101,7 @@ export const Contact = () => {
                     <ContactMenuItemStyled>All Contacts</ContactMenuItemStyled>
                     <ContactMenuItemStyled>Archived</ContactMenuItemStyled>
                 </ContactMenuStyled>
-                <DefaultTable headers={headers}  data={ContactData} itemRow={itemRow} />
+                <DefaultTable headers={headers}  data={contacts} itemRow={itemRow} />
             </ContactListContainerStyled>
         </ContactStyled>
     )
