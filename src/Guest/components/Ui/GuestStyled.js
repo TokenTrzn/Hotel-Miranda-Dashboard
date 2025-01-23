@@ -10,14 +10,13 @@ export const GuestMenuStyled = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     padding: .5% 2%;
 `
 
 export const GuestMenuTextStyled = styled.div`
     display: flex;
-    gap: 2rem;    
-    border-bottom: 1px solid #D4D4D4;
+    padding: 0 1rem;
 `
 
 export const GuestMenuSearchBarStyled = styled.div`
@@ -75,6 +74,7 @@ export const GuestMenuItemStyled = styled.p`
     color: #6E6E6E;
     padding-right: 1rem;
     cursor: pointer;
+    border-bottom: 1px solid #D4D4D4;
 
     svg {
         cursor: pointer;
@@ -82,7 +82,7 @@ export const GuestMenuItemStyled = styled.p`
 
     &:hover {
         color: #135846;
-        border-bottom: 1px solid #135846;
+        border-color: #135846;
     }
 `
 

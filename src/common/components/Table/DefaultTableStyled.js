@@ -6,7 +6,7 @@ export const TableStyled = styled.table`
   border-collapse: collapse;
   text-align: left;
   color: #000;
-`;
+`
 
 export const TableHeaderStyled = styled.th`
   background-color: #FFFFFF;
@@ -14,7 +14,7 @@ export const TableHeaderStyled = styled.th`
   text-align: start;
   font-weight: bold;
   color: #333;
-`;
+`
 
 export const TableRowStyled = styled.tr`
   background-color: #FFFFFF;
@@ -22,7 +22,7 @@ export const TableRowStyled = styled.tr`
   &:hover {
     background-color: #f1f1f1;
   }
-`;
+`
 
 export const TableDataStyled = styled.td`
   padding: .5rem;
@@ -32,8 +32,9 @@ export const TableDataStyled = styled.td`
   svg {
     margin: auto 0;
     padding-right: 5%;
+    cursor: pointer;
   }
-`;
+`
 
 export const TableDataVerticalContainer = styled.div`
     padding-left: 2rem;
@@ -50,28 +51,28 @@ export const TableDataHorizontalContainer = styled.div`
 export const GuestContainerStyled = styled.div`
   display: flex;
   align-items: center;
-`;
+`
 
 export const GuestImage = styled.img`
   width: 3rem;
   height: 3rem;
   border-radius: .5rem;
   margin-right: .625rem;
-`;
+`
 
 export const ImageStyled = styled.img`
   width: 5rem;
   height: auto;
   border-radius: .5rem;
   text-align: center; 
-`;
+`
 
 export const GuestInfo = styled.div`
   display: flex;
   flex-direction: column;
   font-size: .75rem;
   color: #333;
-`;
+`
 
 export const CustomerInfo = styled.div`
   display: flex;
@@ -82,4 +83,4 @@ export const CustomerInfo = styled.div`
     font-size: 0.9rem;
     color: #555;
   }
-`;
+`

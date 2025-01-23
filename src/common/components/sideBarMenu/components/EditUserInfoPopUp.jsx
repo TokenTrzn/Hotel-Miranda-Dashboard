@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CloseButton, Overlay, Popup } from "../../PopUp/PopUpStyled";
+import { Overlay, Popup } from "../../PopUp/PopUpStyled";
 import { EditUserInfoFormButtonStyled, EditUserInfoFormHorizontalContainerStyled, EditUserInfoFormItemStyled, EditUserInfoFormStyled } from "./EditUserInfoPopUpStyled";
 
 export const EditUserPopup = ({ user, onClose, onSave }) => {

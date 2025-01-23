@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { BackButton, Form, FormButton, FormField, FormInput, FormLabel, FormOption, FormPhotoInput, FormSelect, FormStatus, FormTextarea, FormTitle } from "../components/NewRoomFormStyled";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addRoomThunk } from "../features/RoomsThunk";
 
 
 export const NewRoomForm = () => {
     const navigate = useNavigate()
-
+    const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         id: "",
         photos: [],
@@ -64,11 +66,9 @@ export const NewRoomForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         formData.id = `#${Math.floor(Math.random() * 1000000)}`;
-        const rooms = JSON.parse(localStorage.getItem('rooms')) || [];
-        rooms.push(formData);
-        localStorage.setItem('rooms', JSON.stringify(rooms));
+        dispatch(addRoomThunk(formData));
         navigate("/rooms");
-    };
+      };
 
     return (
         <Form onSubmit={handleSubmit}>
@@ -97,7 +97,6 @@ export const NewRoomForm = () => {
             <FormField>
                 <FormLabel>Description</FormLabel>
                 <FormTextarea name="description" value={formData.description} onChange={handleInputChange} required />
-
             </FormField>
             <FormField>
                 <FormLabel>Offer</FormLabel>

@@ -1,18 +1,41 @@
 import { RoomsItemStatusStyled, RoomsMenuItemStyled, RoomsMenuStyled, RoomsStyled } from "../components/RoomsStyled"
 import RoomPhoto from '../../assets/room_photo.jpg'
-import RoomsData from '../data/roomsData.json'
 import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { ImageStyled, TableDataHorizontalContainer, TableDataStyled, TableDataVerticalContainer } from "../../common/components/Table/DefaultTableStyled"
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 import { TableIdText, TablePrimaryText } from "../../common/components/Text/TextStyled"
 import { DefaultCreateButton } from "../../common/components/defaultCreateButton/DefaultCreateButton"
 import { Link, useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect, useState } from "react"
+import { fetchRoomsThunk, updateRoomThunk } from "../features/RoomsThunk"
+import { ButtonOption, OptionsContainerStyled } from "../../common/components/options/OptionsStyled"
 
 
 export const Rooms = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const rooms = useSelector((state) => state.rooms.rooms);
+
+    useEffect(() => {
+        dispatch(fetchRoomsThunk());
+    }, [dispatch]);
+
+    useEffect(() => {
+        console.log('Rooms state updated:', rooms);
+    }, [rooms]);
+
+    const [showOptions, setShowOptions] = useState(null)
+
+    const toggleMenuOptions = (itemId) => {
+        setShowOptions((prev) => (prev === itemId ? null : itemId))
+    }
+
+    const handleUpdate = (room) => {
+        dispatch(updateRoomThunk(room))
+    }
 
     const headers = ['Room Name', 'Room Type', 'Amenities', 'Price', 'Offer Price', 'Status']
-    const navigate = useNavigate() 
 
     const itemRow = (room) => (
         <>
@@ -32,7 +55,14 @@ export const Rooms = () => {
             <TableDataStyled>
                 <RoomsItemStatusStyled type={room.status}>{room.status}</RoomsItemStatusStyled>
             </TableDataStyled>
-            <TableDataStyled><OptionsIcon /></TableDataStyled>
+            <TableDataStyled>
+                <OptionsIcon />
+                {showOptions && (
+                    <OptionsContainerStyled>
+                        <ButtonOption>Update</ButtonOption>
+                    </OptionsContainerStyled>
+                )}
+            </TableDataStyled>
         </>
     )
 
@@ -44,7 +74,7 @@ export const Rooms = () => {
                     <DefaultCreateButton />
                 </Link>
             </RoomsMenuStyled>
-            <DefaultTable headers={headers} data={RoomsData} itemRow={itemRow} />
+            <DefaultTable headers={headers} data={rooms} itemRow={itemRow} />
         </RoomsStyled>
     )
 }

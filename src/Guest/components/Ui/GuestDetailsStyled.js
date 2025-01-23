@@ -8,6 +8,7 @@ export const GuestDetailsStyled = styled.div`
 export const GuestDetailsInfoStyled = styled.div`
     display: flex;
     flex-direction: column;
+    width: 49%;
 `
 
 export const GuestDetailsNameStyled = styled.p`
@@ -93,14 +94,20 @@ export const GuestDetailsPhotoContainerStyled = styled.div`
 `
 
 export const GuestDetailsPhotoImageStyled = styled.img`
-    position: absolute;
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 50%;
 `
 
 export const GuestDetailsPhotoTagStyled = styled.div`
     position: absolute;
-
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    background: #5ad07a;
+    padding: .5rem 3rem;
+    right: 0;
+    transform: rotate(45deg);
 `
 
 export const GuestDetailsPhotoTitleStyled = styled.p`

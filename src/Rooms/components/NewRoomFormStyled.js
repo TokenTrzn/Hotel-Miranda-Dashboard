@@ -16,7 +16,7 @@ export const FormTitle = styled.p`
   font-size: 1.5rem;
   font-weight: 600;
   color: #135846;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 
 export const FormField = styled.div`
@@ -40,12 +40,14 @@ export const FormInput = styled.input`
   font-family: 'Poppins';
   font-size: 1rem;
   outline: none;
+  color: #393939;
 `;
 
 export const FormSelect = styled.select`
   padding: .5rem;
   border: 1px solid #D4D4D4;
   background: #fff;
+  color: #393939;
   border-radius: .5rem;
   font-family: 'Poppins';
   font-size: 1rem;
@@ -60,6 +62,7 @@ export const FormOption = styled.option`
 export const FormTextarea = styled.textarea`
   padding: .5rem;
   border: 1px solid #D4D4D4;
+  color: #393939;
   border-radius: .5rem;
   font-family: 'Poppins';
   font-size: 1rem;
@@ -77,16 +80,19 @@ export const FormStatus = styled.div`
 export const FormButton = styled.button`
   padding: .75rem 1.5rem;
   cursor: pointer;
-  color: #ffffff;
-  background: #135846;
-  border: none;
+  color: #135846;
+  background: #fff;
+  border: 2px solid #135846;
   border-radius: .5rem;
   font-family: 'Poppins';
   font-size: 1rem;
+  font-weight: 700;
   text-align: center;
+  margin-top: 2rem;
 
   &:hover {
     background: #0E4D3A;
+    color: #fff;
   }
 `;
 
@@ -97,21 +103,24 @@ export const FormPhotoInput = styled.input`
   font-family: 'Poppins';
   font-size: 1rem;
   outline: none;
+  color: #393939;
 `;
 
 export const BackButton = styled.button`
   padding: .75rem 1.5rem;
   cursor: pointer;
-  color: #ffffff;
-  background: #E23428;
-  border: none;
+  color: #E23428;
+  background: #fff;
+  border: 2px solid #E23428;
   border-radius: .5rem;
   font-family: 'Poppins';
   font-size: 1rem;
+  font-weight: 700;
   text-align: center;
   margin-top: 1rem;
 
   &:hover {
-    background: #B3211B;
+    background: #E23428;
+    color: #fff;
   }
 `;

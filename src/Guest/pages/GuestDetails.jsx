@@ -1,58 +1,68 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { GuestDetailsAmenitiesContainerStyled, GuestDetailsAmenitiesItemStyled, GuestDetailsAmenitiesTextStyled, GuestDetailsFieldBoldInfoStyled, GuestDetailsFieldInfoStyled, GuestDetailsFieldTitleStyled, GuestDetailsHorizontalContainer, GuestDetailsIdStyled, GuestDetailsInfoStyled, GuestDetailsNameStyled, GuestDetailsPhotoContainerStyled, GuestDetailsPhotoDescriptionStyled, GuestDetailsPhotoImageStyled, GuestDetailsPhotoTagStyled, GuestDetailsPhotoTitleStyled, GuestDetailsStyled } from '../components/Ui/GuestDetailsStyled'
 import { IoWifi as WifiIcon } from "react-icons/io5";
-import { useParams } from 'react-router-dom';
-import BookingsData from  '../data/bookingsData.json'
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import BookingsData from '../data/bookingsData.json'
+import RoomPhoto from '../../assets/room_photo.jpg'
 
 export const GuestDetails = () => {
 
-    const [booking, setBooking] = useState()
+    const navigate = useNavigate()
+    const location = useLocation()
 
     const { id } = useParams()
 
+    const guestInfo = BookingsData.find(
+        (booking) => booking.id === id
+    )
+
     useEffect(() => {
-        const selectedBooking = BookingsData.find((booking) => booking.id == parseInt(id))
-        setBooking(selectedBooking)
-    }, [id])
+        if (guestInfo) {
+            navigate(location.pathname, {
+                replace: true,
+                state: { guestName: GuestDetails.name }
+            })
+        }
+    }, [id, navigate, location.pathname, guestInfo])
 
     return (
         <GuestDetailsStyled>
             <GuestDetailsInfoStyled>
-                <GuestDetailsNameStyled>{booking.guestName}</GuestDetailsNameStyled>
-                <GuestDetailsIdStyled>#000{booking.id}</GuestDetailsIdStyled>
+                <GuestDetailsNameStyled>{guestInfo.guestName}</GuestDetailsNameStyled>
+                <GuestDetailsIdStyled>#000{guestInfo.id}</GuestDetailsIdStyled>
                 <GuestDetailsHorizontalContainer>
                     <GuestDetailsInfoStyled>
                         <GuestDetailsFieldTitleStyled>Check In</GuestDetailsFieldTitleStyled>
-                        <GuestDetailsFieldInfoStyled>{booking.checkIn} | {booking.checkInHour}</GuestDetailsFieldInfoStyled>
+                        <GuestDetailsFieldInfoStyled>{guestInfo.checkIn} | {guestInfo.checkInHour}</GuestDetailsFieldInfoStyled>
                     </GuestDetailsInfoStyled>
                     <GuestDetailsInfoStyled>
                         <GuestDetailsFieldTitleStyled>Check Out</GuestDetailsFieldTitleStyled>
-                        <GuestDetailsFieldInfoStyled>{booking.checkOut} | {booking.checkOutHour}</GuestDetailsFieldInfoStyled>
+                        <GuestDetailsFieldInfoStyled>{guestInfo.checkOut} | {guestInfo.checkOutHour}</GuestDetailsFieldInfoStyled>
                     </GuestDetailsInfoStyled>
                 </GuestDetailsHorizontalContainer>
                 <GuestDetailsHorizontalContainer>
                     <GuestDetailsInfoStyled>
                         <GuestDetailsFieldTitleStyled>Room Info</GuestDetailsFieldTitleStyled>
-                        <GuestDetailsFieldBoldInfoStyled>{booking.type} - {booking.number}</GuestDetailsFieldBoldInfoStyled>
+                        <GuestDetailsFieldBoldInfoStyled>{guestInfo.type} - {guestInfo.number}</GuestDetailsFieldBoldInfoStyled>
                     </GuestDetailsInfoStyled>
                     <GuestDetailsInfoStyled>
                         <GuestDetailsFieldTitleStyled>Price</GuestDetailsFieldTitleStyled>
-                        <GuestDetailsFieldBoldInfoStyled>{BookingsData.price} <span>/Night</span></GuestDetailsFieldBoldInfoStyled>
+                        <GuestDetailsFieldBoldInfoStyled>{guestInfo.price} <span>/Night</span></GuestDetailsFieldBoldInfoStyled>
                     </GuestDetailsInfoStyled>
                 </GuestDetailsHorizontalContainer>
-                <GuestDetailsFieldInfoStyled>{booking.description}</GuestDetailsFieldInfoStyled>
+                <GuestDetailsFieldInfoStyled>{guestInfo.description}</GuestDetailsFieldInfoStyled>
+                <GuestDetailsAmenitiesContainerStyled>
+                    <GuestDetailsAmenitiesItemStyled>
+                        <WifiIcon />
+                        <GuestDetailsAmenitiesTextStyled>{guestInfo.amenities}</GuestDetailsAmenitiesTextStyled>
+                    </GuestDetailsAmenitiesItemStyled>
+                </GuestDetailsAmenitiesContainerStyled>
             </GuestDetailsInfoStyled>
-            <GuestDetailsAmenitiesContainerStyled>
-                <GuestDetailsAmenitiesItemStyled>
-                    <WifiIcon />
-                    <GuestDetailsAmenitiesTextStyled>{booking.amenities}</GuestDetailsAmenitiesTextStyled>
-                </GuestDetailsAmenitiesItemStyled>
-            </GuestDetailsAmenitiesContainerStyled>
             <GuestDetailsPhotoContainerStyled>
-                <GuestDetailsPhotoImageStyled />
+                <GuestDetailsPhotoImageStyled src={RoomPhoto} />
                 <GuestDetailsPhotoTagStyled>BOOKED</GuestDetailsPhotoTagStyled>
-                <GuestDetailsPhotoTitleStyled>{booking.type}</GuestDetailsPhotoTitleStyled>
-                <GuestDetailsPhotoDescriptionStyled>{booking.description}</GuestDetailsPhotoDescriptionStyled>
+                <GuestDetailsPhotoTitleStyled>{guestInfo.type}</GuestDetailsPhotoTitleStyled>
+                <GuestDetailsPhotoDescriptionStyled>{guestInfo.description}</GuestDetailsPhotoDescriptionStyled>
             </GuestDetailsPhotoContainerStyled>
         </GuestDetailsStyled>
     )

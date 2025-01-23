@@ -1,5 +1,4 @@
-import React, { useState, useContext } from 'react'
-import { AuthContext } from '../AuthContext'
+import { useState } from 'react'
 import { InputStyled } from "../components/UI/InputStyled"
 import { FormStyled } from "../components/UI/FormStyled"
 import { ButtonStyled } from "../components/UI/ButtonStyled"
@@ -19,12 +18,6 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
         if (email === EMAIL && password == PASS) {
-            /*
-            dispatch({
-                type: 'login',
-                payload: { name: 'Alberto Gil', email: {EMAIL} }
-            })
-                */
             localStorage.setItem("isAuthenticated", "true");
             navigate('/dashboard')
         } else {

@@ -20,6 +20,7 @@ export const Popup = styled.div`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   max-width: 600px; 
   text-align: center;
+  width: 60%;
 
   h2 {
     font-family: 'Poppins';
