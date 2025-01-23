@@ -3,15 +3,27 @@ import { UsersItemStatusStyled, UsersMenuItemStyled, UsersMenuSearchBarInputStyl
 import UserPhoto from '../../assets/dni_cuadrado.jpg'
 import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
-import UsersData from '../data/usersData.json'
-import { MdPhone as PhoneIcon } from "react-icons/md";
+import { MdPhone as PhoneIcon } from "react-icons/md"
 import { IoIosSearch as SearchIcon } from "react-icons/io"
 import { TableIdText, TablePrimaryText } from "../../common/components/Text/TextStyled"
-
-
-
+import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
+import { fetchUsersThunk } from "../features/UsersThunk"
 
 export const Users = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const users = useSelector((state) => state.users.users)
+
+    useEffect(() => {
+            dispatch(fetchUsersThunk())
+    }, [dispatch])
+
+    useEffect(() => {
+        console.log('Users State Updated: ', users)
+    }, [users])
+
 
     const headers = ['Name', 'Email', 'Start Date', 'Description', 'Contact', 'Status']
 
@@ -56,7 +68,7 @@ export const Users = () => {
                     <SearchIcon />
                 </UsersMenuSearchBarStyled>
             </UsersMenuStyled>
-            <DefaultTable headers={headers} data={UsersData} itemRow={itemRow} />
+            <DefaultTable headers={headers} data={users} itemRow={itemRow} />
         </UsersStyled>
     )
 }

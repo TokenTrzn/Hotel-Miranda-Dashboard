@@ -11,19 +11,18 @@ import { useEffect, useState } from "react"
 import { fetchRoomsThunk, updateRoomThunk } from "../features/RoomsThunk"
 import { ButtonOption, OptionsContainerStyled } from "../../common/components/options/OptionsStyled"
 
-
 export const Rooms = () => {
     const navigate = useNavigate()
-    const dispatch = useDispatch();
-    const rooms = useSelector((state) => state.rooms.rooms);
+    const dispatch = useDispatch()
+    const rooms = useSelector((state) => state.rooms.rooms)
 
     useEffect(() => {
-        dispatch(fetchRoomsThunk());
-    }, [dispatch]);
+        dispatch(fetchRoomsThunk())
+    }, [dispatch])
 
     useEffect(() => {
-        console.log('Rooms state updated:', rooms);
-    }, [rooms]);
+        console.log('Rooms state updated:', rooms)
+    }, [rooms])
 
     const [showOptions, setShowOptions] = useState(null)
 
