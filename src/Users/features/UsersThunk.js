@@ -12,7 +12,7 @@ export const fetchUsersThunk = createAsyncThunk('users/fetchUsers', async () => 
   export const fetchUserByIdThunk = createAsyncThunk('users/fetchUserById', async (id) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({ id });
+        resolve(UsersData.filter((user) => user.id === id));
       }, 200);
     });
   });

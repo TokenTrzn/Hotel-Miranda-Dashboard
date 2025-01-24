@@ -12,7 +12,7 @@ export const fetchBookingsThunk = createAsyncThunk('bookings/fetchBookings', asy
   export const fetchBookingByIdThunk = createAsyncThunk('bookings/fetchBookingById', async (id) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({ id })
+        resolve(BookingsData.filter((booking) => booking.id === id))
       }, 200)
     })
   })

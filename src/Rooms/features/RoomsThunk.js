@@ -12,7 +12,7 @@ export const fetchRoomsThunk = createAsyncThunk('rooms/fetchRooms', async () => 
 export const fetchRoomByIdThunk = createAsyncThunk('rooms/fetchRoomById', async (id) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve({ id });
+      resolve(RoomsData.filter((room) => room.id === id));
     }, 200);
   });
 });

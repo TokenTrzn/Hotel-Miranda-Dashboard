@@ -12,7 +12,7 @@ export const fetchContactsThunk = createAsyncThunk('contact/fetchContacts', asyn
   export const fetchContactByIdThunk = createAsyncThunk('contact/fetchContactById', async (id) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({ id })
+        resolve(ContactData.filter((contact) => contact.id === id))
       }, 200)
     })
   })
