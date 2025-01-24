@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { roomsSlice } from '../rooms/features/RoomsSlice'
 import { usersSlice } from '../users/features/UsersSlice'
-import { bookingsSlice } from '../guest/features/GuestSlice'
+import { bookingsSlice } from '../bookings/features/BookingsSlice'
 import { contactSlice } from '../contact/features/ContactSlice'
 
 export const store = configureStore({

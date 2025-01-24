@@ -1,4 +1,4 @@
-import { GuestItemSpecialRequestStyled, GuestItemStatusStyled, GuestMenuItemStyled, GuestMenuSearchBarInputStyled, GuestMenuSearchBarStyled, GuestMenuSortBy, GuestMenuSortByText, GuestMenuStyled, GuestMenuTextStyled, GuestStyled } from "../components/Ui/GuestStyled"
+import { BookingItemSpecialRequestStyled, BookingItemStatusStyled, BookingMenuItemStyled, BookingMenuSearchBarInputStyled, BookingMenuSearchBarStyled, BookingMenuSortBy, BookingMenuSortByText, BookingMenuStyled, BookingMenuTextStyled, BookingStyled } from "../components/Ui/BookingsStyled"
 import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { IoIosArrowDown as ArrowDownIcon } from "react-icons/io"
 import { IoIosSearch as SearchIcon } from "react-icons/io"
@@ -9,9 +9,9 @@ import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { CloseButton, Overlay, Popup } from "../../common/components/PopUp/PopUpStyled"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchBookingsThunk } from "../features/GuestThunk"
+import { fetchBookingsThunk } from "../features/BookingsThunk"
 
-export const Guest = () => {
+export const Booking = () => {
     const dispatch = useDispatch()
     const bookings = useSelector((state) => state.bookings.bookings)
 
@@ -44,13 +44,13 @@ export const Guest = () => {
                 <TableSecundaryTextSmall>{booking.checkOutHour}</TableSecundaryTextSmall>
             </TableDataStyled>
             <TableDataStyled>
-                <GuestItemSpecialRequestStyled type={booking.specialRequest} onClick={() => setPopUpData(booking.description)}>View Notes</GuestItemSpecialRequestStyled>
+                <BookingItemSpecialRequestStyled type={booking.specialRequest} onClick={() => setPopUpData(booking.description)}>View Notes</BookingItemSpecialRequestStyled>
             </TableDataStyled>
             <TableDataStyled>
                 <TablePrimaryText>{booking.type} - {booking.number}</TablePrimaryText>
             </TableDataStyled>
             <TableDataStyled>
-                <GuestItemStatusStyled type={booking.status}>{booking.status}</GuestItemStatusStyled>
+                <BookingItemStatusStyled type={booking.status}>{booking.status}</BookingItemStatusStyled>
             </TableDataStyled>
             <TableDataStyled>
                 <Link to={`details/${booking.id}`}>
@@ -61,23 +61,23 @@ export const Guest = () => {
     )
 
     return (
-        <GuestStyled>
-            <GuestMenuStyled>
-                <GuestMenuTextStyled>
-                    <GuestMenuItemStyled>All Bookings</GuestMenuItemStyled>
-                    <GuestMenuItemStyled>Checking In</GuestMenuItemStyled>
-                    <GuestMenuItemStyled>Checking Out</GuestMenuItemStyled>
-                    <GuestMenuItemStyled>In Progress</GuestMenuItemStyled>
-                </GuestMenuTextStyled>
-                <GuestMenuSearchBarStyled>
-                    <GuestMenuSearchBarInputStyled type="text" placeholder="Search..." />
+        <BookingStyled>
+            <BookingMenuStyled>
+                <BookingMenuTextStyled>
+                    <BookingMenuItemStyled>All Bookings</BookingMenuItemStyled>
+                    <BookingMenuItemStyled>Checking In</BookingMenuItemStyled>
+                    <BookingMenuItemStyled>Checking Out</BookingMenuItemStyled>
+                    <BookingMenuItemStyled>In Progress</BookingMenuItemStyled>
+                </BookingMenuTextStyled>
+                <BookingMenuSearchBarStyled>
+                    <BookingMenuSearchBarInputStyled type="text" placeholder="Search..." />
                     <SearchIcon />
-                </GuestMenuSearchBarStyled>
-                <GuestMenuSortBy>
-                    <GuestMenuSortByText>Newest</GuestMenuSortByText>
+                </BookingMenuSearchBarStyled>
+                <BookingMenuSortBy>
+                    <BookingMenuSortByText>Newest</BookingMenuSortByText>
                     <ArrowDownIcon />
-                </GuestMenuSortBy>
-            </GuestMenuStyled>
+                </BookingMenuSortBy>
+            </BookingMenuStyled>
             <DefaultTable headers={headers} data={bookings} itemRow={itemRow} />
 
             {popUpData && (
@@ -89,6 +89,6 @@ export const Guest = () => {
                     </Popup>
                 </Overlay>
             )}
-        </GuestStyled>
+        </BookingStyled>
     )
 }

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { addBookingThunk, deleteBookingThunk, fetchBookingByIdThunk, fetchBookingsThunk, updateBookingThunk } from "./GuestThunk"
+import { addBookingThunk, deleteBookingThunk, fetchBookingByIdThunk, fetchBookingsThunk, updateBookingThunk } from "./BookingsThunk"
 
 export const bookingsSlice = createSlice({
     name: 'bookings',

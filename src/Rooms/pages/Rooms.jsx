@@ -5,14 +5,13 @@ import { ImageStyled, TableDataHorizontalContainer, TableDataStyled, TableDataVe
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 import { TableIdText, TablePrimaryText } from "../../common/components/Text/TextStyled"
 import { DefaultCreateButton } from "../../common/components/defaultCreateButton/DefaultCreateButton"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { fetchRoomsThunk, updateRoomThunk } from "../features/RoomsThunk"
 import { ButtonOption, OptionsContainerStyled } from "../../common/components/options/OptionsStyled"
 
 export const Rooms = () => {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const rooms = useSelector((state) => state.rooms.rooms)
 
@@ -55,10 +54,11 @@ export const Rooms = () => {
                 <RoomsItemStatusStyled type={room.status}>{room.status}</RoomsItemStatusStyled>
             </TableDataStyled>
             <TableDataStyled>
-                <OptionsIcon />
+                <OptionsIcon onClick={toggleMenuOptions} />
                 {showOptions && (
                     <OptionsContainerStyled>
-                        <ButtonOption>Update</ButtonOption>
+                        <ButtonOption onClick={handleUpdate}>Update</ButtonOption>
+                        <ButtonOption>Delete</ButtonOption>
                     </OptionsContainerStyled>
                 )}
             </TableDataStyled>

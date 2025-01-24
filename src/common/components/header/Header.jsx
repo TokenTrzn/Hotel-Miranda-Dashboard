@@ -13,7 +13,7 @@ export const Header = ({ onToggleSideBarMenu }) => {
 
     const routeTitles = {
         '/dashboard': 'Dashboard',
-        '/guest': 'Booking',
+        '/booking': 'Booking',
         '/rooms': 'Rooms',
         '/contact': 'Contact',
         '/users': 'Users',

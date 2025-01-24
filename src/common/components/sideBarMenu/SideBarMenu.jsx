@@ -51,7 +51,7 @@ export const SideBarMenu = () => {
                     <p>Dashboard</p>
                 </SidebarItemStyled>
             </Link>
-            <Link to={'/guest'}>
+            <Link to={'/booking'}>
                 <SidebarItemStyled>
                     <BookingIcon />
                     <p>Booking</p>

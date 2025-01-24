@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
-export const GuestStyled = styled.div`
+export const BookingStyled = styled.div`
     display: flex;
     flex-direction: column;
 `
 
-export const GuestMenuStyled = styled.div`
+export const BookingMenuStyled = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -14,12 +14,12 @@ export const GuestMenuStyled = styled.div`
     padding: .5% 2%;
 `
 
-export const GuestMenuTextStyled = styled.div`
+export const BookingMenuTextStyled = styled.div`
     display: flex;
     padding: 0 1rem;
 `
 
-export const GuestMenuSearchBarStyled = styled.div`
+export const BookingMenuSearchBarStyled = styled.div`
     width: 20%;
     border: 1px solid #135846;
     border-radius: .5rem;
@@ -34,7 +34,7 @@ export const GuestMenuSearchBarStyled = styled.div`
     }
 `
 
-export const GuestMenuSearchBarInputStyled = styled.input`
+export const BookingMenuSearchBarInputStyled = styled.input`
     font-family: 'Poppins';
     font-weight: 500;
     font-size: 1rem;
@@ -44,7 +44,7 @@ export const GuestMenuSearchBarInputStyled = styled.input`
     color: #000000;
 `
 
-export const GuestMenuSortBy = styled.div`
+export const BookingMenuSortBy = styled.div`
     padding: .5rem 1rem;
     display: flex;
     align-items: center;
@@ -58,7 +58,7 @@ export const GuestMenuSortBy = styled.div`
     }
 `
 
-export const GuestMenuSortByText = styled.p`
+export const BookingMenuSortByText = styled.p`
     color: #135846;
     font-size: 1rem;
     font-weight: 600;
@@ -67,7 +67,7 @@ export const GuestMenuSortByText = styled.p`
     padding-right: 1rem;
 `
 
-export const GuestMenuItemStyled = styled.p`
+export const BookingMenuItemStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 1rem;
@@ -86,7 +86,7 @@ export const GuestMenuItemStyled = styled.p`
     }
 `
 
-export const GuestFirstRowStyled = styled.div`
+export const BookingFirstRowStyled = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -96,7 +96,7 @@ export const GuestFirstRowStyled = styled.div`
     margin: 0 1rem;
 `
 
-export const GuestFirstRowItemStyled = styled.p`
+export const BookingFirstRowItemStyled = styled.p`
     font-family: 'Poppins';
     font-size: 1rem;
     font-weight: 700;
@@ -104,7 +104,7 @@ export const GuestFirstRowItemStyled = styled.p`
     margin: 0;
 `
 
-export const GuestItemStyled = styled.div`
+export const BookingItemStyled = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -122,7 +122,7 @@ export const GuestItemStyled = styled.div`
     }
 `
 
-export const GuestItemTextStyled = styled.p`
+export const BookingItemTextStyled = styled.p`
     font-family: 'Poppins';
     font-size: 1rem;
     font-weight: 600;
@@ -130,27 +130,27 @@ export const GuestItemTextStyled = styled.p`
     margin: 0;
 `
 
-export const GuestItemGuestStyled = styled.div`
+export const BookingItemBookingStyled = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 `
 
-export const GuestItemGuestPhotoStyled = styled.img`
+export const BookingItemBookingPhotoStyled = styled.img`
     width: auto;
     height: 4rem;
     margin-right: .5rem;
     border-radius: .5rem;
 `
 
-export const GuestItemGuestInfoStyled = styled.div`
+export const BookingItemBookingInfoStyled = styled.div`
     display:flex;
     flex-direction: column;
     margin: auto 0;
     text-align: start;
 `
 
-export const GuestItemGuestIdStyled = styled.p`
+export const BookingItemBookingIdStyled = styled.p`
     font-family: 'Poppins';
     font-size: .875rem;
     font-weight: 500;
@@ -158,7 +158,7 @@ export const GuestItemGuestIdStyled = styled.p`
     margin: 0;
 `
 
-export const GuestItemOrderDateStyled = styled.p`
+export const BookingItemOrderDateStyled = styled.p`
     font-family: 'Poppins';
     font-size: 1rem;
     font-weight: 500;
@@ -166,14 +166,14 @@ export const GuestItemOrderDateStyled = styled.p`
     margin: 0;
 `
 
-export const GuestItemCheckStyled = styled.div`
+export const BookingItemCheckStyled = styled.div`
     display:flex;
     flex-direction: column;
     margin: auto 0;
     text-align: start;
 `
 
-export const GuestItemCheckHourStyled = styled.p`
+export const BookingItemCheckHourStyled = styled.p`
     font-family: 'Poppins';
     font-size: .875rem;
     font-weight: 500;
@@ -181,7 +181,7 @@ export const GuestItemCheckHourStyled = styled.p`
     margin: 0; 
 `
 
-export const GuestItemSpecialRequestStyled = styled.div`
+export const BookingItemSpecialRequestStyled = styled.div`
     padding: .8rem 1.5rem;
     cursor: pointer;
     color: ${props =>
@@ -201,7 +201,7 @@ export const GuestItemSpecialRequestStyled = styled.div`
     width: 60%;
 `
 
-export const GuestItemStatusStyled = styled.div`
+export const BookingItemStatusStyled = styled.div`
     background: ${props => 
         props.type === 'Check In' ? '#E8FFEE' : 
         props.type === 'Check Out' ? '#FFEDEC' :

@@ -1,17 +1,17 @@
 import styled from "styled-components"
 
-export const GuestDetailsStyled = styled.div`
+export const BookingDetailsStyled = styled.div`
     display: flex;
     flex-direction: row;
 `
 
-export const GuestDetailsInfoStyled = styled.div`
+export const BookingDetailsInfoStyled = styled.div`
     display: flex;
     flex-direction: column;
     width: 49%;
 `
 
-export const GuestDetailsNameStyled = styled.p`
+export const BookingDetailsNameStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 700;
     font-size: 1.875rem;
@@ -19,7 +19,7 @@ export const GuestDetailsNameStyled = styled.p`
 
 `
 
-export const GuestDetailsIdStyled = styled.p`
+export const BookingDetailsIdStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 400;
     font-size: .875rem;
@@ -27,26 +27,26 @@ export const GuestDetailsIdStyled = styled.p`
     
 `
 
-export const GuestDetailsHorizontalContainer = styled.div`
+export const BookingDetailsHorizontalContainer = styled.div`
     display: flex;
     flex-direction: row;
 `
 
-export const GuestDetailsFieldTitleStyled = styled.p`
+export const BookingDetailsFieldTitleStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 400;
     font-size: 0.875rem;
     color: #6E6E6E;
 `
 
-export const GuestDetailsFieldInfoStyled = styled.p`
+export const BookingDetailsFieldInfoStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 500;
     font-size: 1rem;
     color: #393939;
 `
 
-export const GuestDetailsFieldBoldInfoStyled = styled.p`
+export const BookingDetailsFieldBoldInfoStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 1.6rem;
@@ -59,13 +59,13 @@ export const GuestDetailsFieldBoldInfoStyled = styled.p`
     }
 `
 
-export const GuestDetailsAmenitiesContainerStyled = styled.div`
+export const BookingDetailsAmenitiesContainerStyled = styled.div`
     display: flex;
     flex-direction: row;
     gap: 1rem;
 `
 
-export const GuestDetailsAmenitiesItemStyled = styled.div`
+export const BookingDetailsAmenitiesItemStyled = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -80,25 +80,25 @@ export const GuestDetailsAmenitiesItemStyled = styled.div`
     }
 `
 
-export const GuestDetailsAmenitiesTextStyled = styled.p`
+export const BookingDetailsAmenitiesTextStyled = styled.p`
     font-family: 'Poppins';
     font-size: .875rem;
     font-weight: 500;
     color: #135846;
 `
 
-export const GuestDetailsPhotoContainerStyled = styled.div`
+export const BookingDetailsPhotoContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
 `
 
-export const GuestDetailsPhotoImageStyled = styled.img`
+export const BookingDetailsPhotoImageStyled = styled.img`
     height: auto;
     width: 50%;
 `
 
-export const GuestDetailsPhotoTagStyled = styled.div`
+export const BookingDetailsPhotoTagStyled = styled.div`
     position: absolute;
     font-family: 'Poppins';
     font-size: 1.2rem;
@@ -110,14 +110,14 @@ export const GuestDetailsPhotoTagStyled = styled.div`
     transform: rotate(45deg);
 `
 
-export const GuestDetailsPhotoTitleStyled = styled.p`
+export const BookingDetailsPhotoTitleStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 1.6rem;
     color: #fff;
 `
 
-export const GuestDetailsPhotoDescriptionStyled = styled.p`
+export const BookingDetailsPhotoDescriptionStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 400;
     font-size: .875rem;
