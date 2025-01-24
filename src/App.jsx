@@ -13,6 +13,7 @@ import { GuestDetails } from './guest/pages/GuestDetails'
 import { AuthProvider } from './login/AuthContext'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
+import { NewUserForm } from './users/page/NewUserForm'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/new-room' element={<PrivateRoute element={<NewRoomForm />} />} />
                 <Route path='/contact' element={<PrivateRoute element={<Contact />} />} />
                 <Route path='/users' element={<PrivateRoute element={<Users />} />} />
+                <Route path='/new-user' element={<PrivateRoute element={<NewUserForm />} />} />
               </Route>
             </Routes>
           </BrowserRouter>

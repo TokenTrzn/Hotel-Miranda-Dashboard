@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const Form = styled.form`
+export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -11,12 +11,11 @@ export const Form = styled.form`
   margin: 2rem auto;
 `
 
-export const FormTitle = styled.p`
+export const FormTitle = styled.h2`
   font-family: 'Poppins';
   font-size: 1.5rem;
-  font-weight: 600;
   color: #135846;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `
 
 export const FormField = styled.div`
@@ -36,22 +35,22 @@ export const FormInput = styled.input`
   padding: .5rem;
   border: 1px solid #D4D4D4;
   border-radius: .5rem;
-  background: #fff;
   font-family: 'Poppins';
   font-size: 1rem;
   outline: none;
+  background: #fff;
   color: #393939;
 `
 
 export const FormSelect = styled.select`
   padding: .5rem;
   border: 1px solid #D4D4D4;
-  background: #fff;
-  color: #393939;
   border-radius: .5rem;
   font-family: 'Poppins';
   font-size: 1rem;
   outline: none;
+  background: #fff;
+  color: #393939;
 `
 
 export const FormOption = styled.option`
@@ -62,19 +61,19 @@ export const FormOption = styled.option`
 export const FormTextarea = styled.textarea`
   padding: .5rem;
   border: 1px solid #D4D4D4;
-  color: #393939;
   border-radius: .5rem;
   font-family: 'Poppins';
   font-size: 1rem;
-  background: #fff;
   outline: none;
   resize: none;
+  background: #fff;
+  color: #393939;
 `
 
 export const FormStatus = styled.div`
     color: black;
-  display: flex;
-  gap: 1rem;
+    display: flex;
+    gap: 1rem;
 `
 
 export const FormButton = styled.button`

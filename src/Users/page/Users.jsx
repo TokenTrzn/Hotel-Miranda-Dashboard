@@ -7,12 +7,12 @@ import { MdPhone as PhoneIcon } from "react-icons/md"
 import { IoIosSearch as SearchIcon } from "react-icons/io"
 import { TableIdText, TablePrimaryText } from "../../common/components/Text/TextStyled"
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useEffect } from "react"
 import { fetchUsersThunk } from "../features/UsersThunk"
+import { DefaultCreateButton } from "../../common/components/defaultCreateButton/DefaultCreateButton"
 
 export const Users = () => {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const users = useSelector((state) => state.users.users)
 
@@ -67,6 +67,9 @@ export const Users = () => {
                     <UsersMenuSearchBarInputStyled type="text" placeholder="Search..." />
                     <SearchIcon />
                 </UsersMenuSearchBarStyled>
+                <Link to='/new-user'>
+                    <DefaultCreateButton />
+                </Link>
             </UsersMenuStyled>
             <DefaultTable headers={headers} data={users} itemRow={itemRow} />
         </UsersStyled>

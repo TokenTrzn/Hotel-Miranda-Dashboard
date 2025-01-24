@@ -94,7 +94,7 @@ export const UsersMenuSearchBarStyled = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: .5rem 1rem;
-    margin-left: 4rem;
+    margin: 0 8%;
 
     svg {
         color: #000000

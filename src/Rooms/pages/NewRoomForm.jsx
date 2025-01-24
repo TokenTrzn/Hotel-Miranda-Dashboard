@@ -13,7 +13,7 @@ export const NewRoomForm = () => {
         photos: [],
         number: "",
         name: "",
-        type: "Double Bed",
+        type: "",
         description: "",
         offer: "NO",
         price: "",
@@ -72,7 +72,7 @@ export const NewRoomForm = () => {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <FormTitle>New Room Form</FormTitle>
+            <FormTitle>Add New Room</FormTitle>
             <FormField>
                 <FormLabel>Photos (3-5)</FormLabel>
                 <FormPhotoInput type="file" name="photos" onChange={handlePhotoChange} multiple />
@@ -86,7 +86,7 @@ export const NewRoomForm = () => {
                 <FormSelect name="type" value={formData.type} onChange={handleInputChange}>
                     <FormOption value="Single Bed">Single Bed</FormOption>
                     <FormOption value="Double Bed">Double Bed</FormOption>
-                    <FormOption value="Double Superior">Double Superior</FormOption>
+                    <FormOption value="Double Superior">Huge Bed</FormOption>
                     <FormOption value="Suite">Suite</FormOption>
                 </FormSelect>
             </FormField>
@@ -127,12 +127,7 @@ export const NewRoomForm = () => {
             </FormField>
             <FormField>
                 <FormLabel>Amenities</FormLabel>
-                <FormSelect name="amenities" value={formData.amenities} onChange={handleInputChange}>
-                    <FormOption value="AC, Shower, Double Bed, Towel, Bathup, Coffee Set, LED TV, Wifi">AC, Shower, Double Bed, Towel, Bathup, Coffee Set, LED TV, Wifi</FormOption>
-                    <FormOption value="Bathtub, Sea View, WiFi, Coffee Set">Bathtub, Sea View, WiFi, Coffee Set</FormOption>
-                    <FormOption value="Shower, Single Bed, Towel, TV, Wifi">Shower, Single Bed, Towel, TV, Wifi</FormOption>
-                    <FormOption value="Shower, Double Bed, Towel, TV, Wifi">Shower, Double Bed, Towel, TV, Wifi</FormOption>
-                </FormSelect>
+                <FormInput type="text" name="amenities" value={formData.amenities} onChange={handleInputChange} required />
             </FormField>
             <FormButton type="submit">Guardar</FormButton>
             <BackButton type="button" onClick={() => navigate(-1)}>Volver</BackButton>

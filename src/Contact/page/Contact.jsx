@@ -5,13 +5,11 @@ import DeleteIcon from '../../assets/delete_icon.png'
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 import { TableIdText, TableSecundaryText } from "../../common/components/Text/TextStyled"
 import { TableDataHorizontalContainer, TableDataStyled } from "../../common/components/Table/DefaultTableStyled"
-import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { fetchContactsThunk } from "../features/ContactThunk"
 
 export const Contact = () => {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const contacts = useSelector((state) => state.contacts.contacts)
 

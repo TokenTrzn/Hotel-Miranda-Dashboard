@@ -5,14 +5,13 @@ import { IoIosSearch as SearchIcon } from "react-icons/io"
 import { TableDataStyled } from "../../common/components/Table/DefaultTableStyled"
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 import { TableIdText, TablePrimaryText, TableSecundaryText, TableSecundaryTextSmall } from "../../common/components/Text/TextStyled"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { CloseButton, Overlay, Popup } from "../../common/components/PopUp/PopUpStyled"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchBookingsThunk } from "../features/GuestThunk"
 
 export const Guest = () => {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const bookings = useSelector((state) => state.bookings.bookings)
 
@@ -45,7 +44,7 @@ export const Guest = () => {
                 <TableSecundaryTextSmall>{booking.checkOutHour}</TableSecundaryTextSmall>
             </TableDataStyled>
             <TableDataStyled>
-                <GuestItemSpecialRequestStyled type={booking.specialRequest.value} onClick={() => setPopUpData(booking.description)}>View Notes</GuestItemSpecialRequestStyled>
+                <GuestItemSpecialRequestStyled type={booking.specialRequest} onClick={() => setPopUpData(booking.description)}>View Notes</GuestItemSpecialRequestStyled>
             </TableDataStyled>
             <TableDataStyled>
                 <TablePrimaryText>{booking.type} - {booking.number}</TablePrimaryText>
@@ -53,7 +52,11 @@ export const Guest = () => {
             <TableDataStyled>
                 <GuestItemStatusStyled type={booking.status}>{booking.status}</GuestItemStatusStyled>
             </TableDataStyled>
-            <TableDataStyled><OptionsIcon onClick={() => navigate(`/guest/details/${booking.id}`)} /></TableDataStyled>
+            <TableDataStyled>
+                <Link to={`details/${booking.id}`}>
+                    <OptionsIcon />
+                </Link>
+            </TableDataStyled>
         </>
     )
 

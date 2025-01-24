@@ -30,6 +30,7 @@ export const TableDataStyled = styled.td`
   text-align: start; 
 
   svg {
+    color: #000;
     margin: auto 0;
     padding-right: 5%;
     cursor: pointer;
