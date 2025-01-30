@@ -205,12 +205,12 @@ export const BookingItemStatusStyled = styled.div`
     background: ${props => 
         props.type === 'Check In' ? '#E8FFEE' : 
         props.type === 'Check Out' ? '#FFEDEC' :
-        props.type === 'In Progress' ? '#f3ffc0' : 'white'
+        props.type === 'In Progress' ? '#F3FFC0' : '#ffffff'
     };
     color: ${props => 
         props.type === 'Check In' ? '#5AD07A' : 
         props.type === 'Check Out' ? '#E23428' :
-        props.type === 'In Progress' ? '#000' : 'white'
+        props.type === 'In Progress' ? '#000000' : '#ffffff'
     };
     padding: .8rem 1rem;
     font-family: 'Poppins';

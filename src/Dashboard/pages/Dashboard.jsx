@@ -13,7 +13,7 @@ import { BookingInfo } from "../components/BookingInfo/BookingInfo";
 export const Dashboard = () => {
 
     return (
-        <DashboardContainerStyled>
+        <DashboardContainerStyled data-cy='dashboard'>
             <DashboardKPIsStyled>
                 <KPI icon={<BedIcon />} number='8.461' text='New Booking' />
                 <KPI icon={<BookingIcon />} number='963' text='Scheduled Room' />

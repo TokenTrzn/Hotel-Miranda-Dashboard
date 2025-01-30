@@ -29,10 +29,10 @@ export const Login = () => {
         <FormStyled onSubmit={handleLogin}>
             <h1>Iniciar Sesión</h1>
             <label>Correo Electrónico</label>
-            <InputStyled type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <InputStyled type='email' value={email} onChange={(e) => setEmail(e.target.value)} data-cy='emailInput' />
             <label>Contraseña</label>
-            <InputStyled type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
-            <ButtonStyled>Iniciar Sesión</ButtonStyled>
+            <InputStyled type='password' value={password} onChange={(e) => setPassword(e.target.value)} data-cy='passwordInput' />
+            <ButtonStyled data-cy='submitButton' >Iniciar Sesión</ButtonStyled>
             <CredentialsStyled>Correo: a@gmail.com</CredentialsStyled>
             <CredentialsStyled>Contraseña: 1234</CredentialsStyled>
         </FormStyled>
