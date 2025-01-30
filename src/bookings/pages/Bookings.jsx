@@ -61,7 +61,7 @@ export const Booking = () => {
     )
 
     return (
-        <BookingStyled>
+        <BookingStyled data-cy='bookings'>
             <BookingMenuStyled>
                 <BookingMenuTextStyled>
                     <BookingMenuItemStyled>All Bookings</BookingMenuItemStyled>
