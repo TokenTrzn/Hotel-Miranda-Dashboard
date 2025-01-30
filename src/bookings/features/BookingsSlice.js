@@ -3,7 +3,12 @@ import { addBookingThunk, deleteBookingThunk, fetchBookingByIdThunk, fetchBookin
 
 export const bookingsSlice = createSlice({
     name: 'bookings',
-    initialState: { bookings: [], booking: null },
+    initialState: { 
+        bookings: [], 
+        booking: null,
+        status: 'idle',
+        error: null, 
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchBookingsThunk.fulfilled, (state, action) => {
