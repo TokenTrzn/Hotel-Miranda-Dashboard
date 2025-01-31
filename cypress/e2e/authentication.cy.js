@@ -1,11 +1,11 @@
-context('Authentication Test', () => {
+describe('Authentication Test', () => {
   beforeEach(() => {
 
     cy.visit('http://localhost:5173')
   })
 
   it('Test Navigation Before Login', () => {
-    cy.visit('http://localhost:5173/bookings')
+    cy.visit('http://localhost:5173/booking')
 
     cy.get('[data-cy=emailInput]').should('be.visible')
   })

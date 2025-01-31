@@ -219,5 +219,5 @@ export const BookingItemStatusStyled = styled.div`
     border: none;
     border-radius: .5rem;
     text-align: center;
-    width: 60%;
+    width: 80%;
 `

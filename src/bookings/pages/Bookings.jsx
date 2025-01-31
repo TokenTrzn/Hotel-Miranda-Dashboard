@@ -10,21 +10,18 @@ import { useEffect, useState } from "react"
 import { CloseButton, Overlay, Popup } from "../../common/components/PopUp/PopUpStyled"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchBookingsThunk } from "../features/BookingsThunk"
+import { getAllBookings } from "../features/BookingsSlice"
 
 export const Booking = () => {
     const dispatch = useDispatch()
-    const bookings = useSelector((state) => state.bookings.bookings)
+    const [popUpData, setPopUpData] = useState(null)
+    const bookings = useSelector(getAllBookings)
+
+    const headers = ['Guest', 'Order Date', 'Check In', 'Check Out', 'Special Request', 'Room Type', 'Status', '']
 
     useEffect(() => {
         dispatch(fetchBookingsThunk())
     }, [dispatch])
-
-    useEffect(() => {
-        console.log('Rooms state updated:', bookings)
-    }, [bookings])
-
-    const headers = ['Guest', 'Order Date', 'Check In', 'Check Out', 'Special Request', 'Room Type', 'Status', '']
-    const [popUpData, setPopUpData] = useState(null)
 
     const itemRow = (booking) => (
         <>

@@ -8,7 +8,8 @@ export const BookingDetailsStyled = styled.div`
 export const BookingDetailsInfoStyled = styled.div`
     display: flex;
     flex-direction: column;
-    width: 49%;
+    width: 100%;
+    padding: 1rem 1rem;
 `
 
 export const BookingDetailsNameStyled = styled.p`
@@ -16,7 +17,8 @@ export const BookingDetailsNameStyled = styled.p`
     font-weight: 700;
     font-size: 1.875rem;
     color: #212121;
-
+    margin: 0;
+    padding: 0 1rem;
 `
 
 export const BookingDetailsIdStyled = styled.p`
@@ -24,6 +26,8 @@ export const BookingDetailsIdStyled = styled.p`
     font-weight: 400;
     font-size: .875rem;
     color: #799283;
+    margin: 0;
+    padding: 0 1rem;
     
 `
 
@@ -37,6 +41,8 @@ export const BookingDetailsFieldTitleStyled = styled.p`
     font-weight: 400;
     font-size: 0.875rem;
     color: #6E6E6E;
+    margin: 0;
+    padding: 0 2rem;
 `
 
 export const BookingDetailsFieldInfoStyled = styled.p`
@@ -44,6 +50,8 @@ export const BookingDetailsFieldInfoStyled = styled.p`
     font-weight: 500;
     font-size: 1rem;
     color: #393939;
+    margin: 0;
+    padding: 1rem 2rem;
 `
 
 export const BookingDetailsFieldBoldInfoStyled = styled.p`
@@ -51,6 +59,8 @@ export const BookingDetailsFieldBoldInfoStyled = styled.p`
     font-weight: 600;
     font-size: 1.6rem;
     color: #393939;
+    margin: 0;
+    padding: 0 2rem;
 
     span {
         font-size: .875rem;
@@ -63,6 +73,7 @@ export const BookingDetailsAmenitiesContainerStyled = styled.div`
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    padding: 1rem 2rem;
 `
 
 export const BookingDetailsAmenitiesItemStyled = styled.div`
@@ -70,13 +81,22 @@ export const BookingDetailsAmenitiesItemStyled = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    padding: .5rem 1rem;
+    padding: 1rem;
     background: #E8FFEE;
     border: none;
     border-radius: .5rem;
+    color: #125846;
+    font-family: 'Poppins';
+    font-size: .875rem;
+    font-weight: 500;
 
     svg {
-        color: #125846;
+        padding-right: 1rem;
+    }
+
+    &:hover {
+        background: #125846;
+        color: #ffffff
     }
 `
 
