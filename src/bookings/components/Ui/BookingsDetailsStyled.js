@@ -2,14 +2,22 @@ import styled from "styled-components"
 
 export const BookingDetailsStyled = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 `
 
 export const BookingDetailsInfoStyled = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding: 1rem 1rem;
+    gap: 1rem;
+
+    .amenitiesTitle {
+        padding-left: 3rem;
+    }
+    
+    .description {
+        padding: 1rem 3rem;
+    }
 `
 
 export const BookingDetailsNameStyled = styled.p`
@@ -18,7 +26,7 @@ export const BookingDetailsNameStyled = styled.p`
     font-size: 1.875rem;
     color: #212121;
     margin: 0;
-    padding: 0 1rem;
+    padding: 0 3rem;
 `
 
 export const BookingDetailsIdStyled = styled.p`
@@ -27,7 +35,7 @@ export const BookingDetailsIdStyled = styled.p`
     font-size: .875rem;
     color: #799283;
     margin: 0;
-    padding: 0 1rem;
+    padding: 0 3rem;
     
 `
 
@@ -73,7 +81,7 @@ export const BookingDetailsAmenitiesContainerStyled = styled.div`
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    padding: 1rem 2rem;
+    padding: 0 3rem;
 `
 
 export const BookingDetailsAmenitiesItemStyled = styled.div`
@@ -142,4 +150,25 @@ export const BookingDetailsPhotoDescriptionStyled = styled.p`
     font-weight: 400;
     font-size: .875rem;
     color: #a5a5a5;
+`
+
+export const BackButton = styled.button`
+  padding: .75rem 1.5rem;
+  cursor: pointer;
+  color: #E23428;
+  background: #fff;
+  border: 2px solid #E23428;
+  border-radius: .5rem;
+  font-family: 'Poppins';
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  width: 20%;
+  margin-top: 2rem;
+  margin-left: 3rem;
+
+  &:hover {
+    background: #E23428;
+    color: #fff;
+  }
 `

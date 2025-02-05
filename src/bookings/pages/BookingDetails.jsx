@@ -1,23 +1,24 @@
 import { useEffect, useState } from 'react'
-import { BookingDetailsAmenitiesContainerStyled, BookingDetailsAmenitiesItemStyled, BookingDetailsFieldBoldInfoStyled, BookingDetailsFieldInfoStyled, BookingDetailsFieldTitleStyled, BookingDetailsHorizontalContainer, BookingDetailsIdStyled, BookingDetailsInfoStyled, BookingDetailsNameStyled, BookingDetailsStyled } from '../components/Ui/BookingsDetailsStyled'
+import { BookingDetailsAmenitiesContainerStyled, BookingDetailsAmenitiesItemStyled, BookingDetailsFieldBoldInfoStyled, BookingDetailsFieldInfoStyled, BookingDetailsFieldTitleStyled, BookingDetailsHorizontalContainer, BookingDetailsIdStyled, BookingDetailsInfoStyled, BookingDetailsNameStyled, BookingDetailsStyled, BackButton } from '../components/Ui/BookingsDetailsStyled'
 import { IoWifi as WifiIcon } from "react-icons/io5"
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBookingByIdThunk } from '../features/BookingsThunk'
 import { getAllBookingsStatus } from '../features/BookingsSlice'
 
 export const BookingDetails = () => {
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const { id } = useParams()
     const booking = useSelector((state) => state.bookings.booking)
     const BookingStatus = useSelector(getAllBookingsStatus)
     const [loading, setLoading] = useState(true)
 
-    
+
     useEffect(() => {
         console.log(BookingStatus)
         if (BookingStatus === 'idle') {
-            dispatch(fetchBookingByIdThunk(id))
+            dispatch(fetchBookingByIdThunk(parseInt(id)))
         } else if (BookingStatus === 'fulfilled') {
             setLoading(false)
             console.log(booking)
@@ -33,8 +34,10 @@ export const BookingDetails = () => {
             {loading === true ? <></> :
                 <BookingDetailsStyled key={id}>
                     <BookingDetailsInfoStyled>
-                        <BookingDetailsNameStyled>{booking.guestName}</BookingDetailsNameStyled>
-                        <BookingDetailsIdStyled>#000{id}</BookingDetailsIdStyled>
+                        <div>
+                            <BookingDetailsNameStyled>{booking.guestName}</BookingDetailsNameStyled>
+                            <BookingDetailsIdStyled>#000000{id}</BookingDetailsIdStyled>
+                        </div>
                         <BookingDetailsHorizontalContainer>
                             <BookingDetailsInfoStyled>
                                 <BookingDetailsFieldTitleStyled>Check In</BookingDetailsFieldTitleStyled>
@@ -55,13 +58,16 @@ export const BookingDetails = () => {
                                 <BookingDetailsFieldBoldInfoStyled>{booking.price} <span>/Night</span></BookingDetailsFieldBoldInfoStyled>
                             </BookingDetailsInfoStyled>
                         </BookingDetailsHorizontalContainer>
-                        <BookingDetailsFieldInfoStyled>{booking.description}</BookingDetailsFieldInfoStyled>
+                        <BookingDetailsFieldInfoStyled className='description'>{booking.description}</BookingDetailsFieldInfoStyled>
+                        <BookingDetailsFieldTitleStyled className='amenitiesTitle'>Amenities</BookingDetailsFieldTitleStyled>
                         <BookingDetailsAmenitiesContainerStyled>
                             <BookingDetailsAmenitiesItemStyled>
                                 <WifiIcon /> {booking.amenities}
                             </BookingDetailsAmenitiesItemStyled>
                         </BookingDetailsAmenitiesContainerStyled>
+                            <BackButton type="button" onClick={() => navigate(-1)}>Volver</BackButton>
                     </BookingDetailsInfoStyled>
+
                 </BookingDetailsStyled>
             }
         </>
