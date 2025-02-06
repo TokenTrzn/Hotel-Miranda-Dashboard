@@ -70,11 +70,11 @@ export const UsersItemTextStyled = styled.p`
     }
 `
 
-export const UsersItemStatusStyled = styled.div`
+export const UsersItemStatusStyled = styled.div<{ $status: 'ACTIVE' | 'INACTIVE'}>`
     cursor: pointer;
     color: ${props => 
-        props.type === 'ACTIVE' ? '#5AD07A' : 
-        props.type === 'INACTIVE' ? '#E23428' : 'white'
+        props.$status === 'ACTIVE' ? '#5AD07A' : 
+        props.$status === 'INACTIVE' ? '#E23428' : 'white'
     };
     padding: .8rem 1rem;
     font-family: 'Poppins';

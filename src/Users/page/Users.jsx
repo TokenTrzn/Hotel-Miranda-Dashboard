@@ -48,7 +48,7 @@ export const Users = () => {
                 </TableDataHorizontalContainer>
             </TableDataStyled>
             <TableDataStyled>
-                <UsersItemStatusStyled type={user.status}>{user.status}</UsersItemStatusStyled>
+                <UsersItemStatusStyled $status={user.status}>{user.status}</UsersItemStatusStyled>
             </TableDataStyled>
             <TableDataStyled>
                 <OptionsIcon/>
