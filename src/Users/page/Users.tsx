@@ -12,7 +12,7 @@ import React, { useEffect, useState } from "react"
 import { fetchUsersThunk } from "../features/UsersThunk"
 import { DefaultCreateButton } from "../../common/components/defaultCreateButton/DefaultCreateButton"
 import { AppDispatch, RootState } from "../../store/store"
-import { getAllUsers, getAllUsersStatus } from "../features/UsersSlice"
+import { getAllUsers, getAllUsersError, getAllUsersStatus } from "../features/UsersSlice"
 import { UserInterface } from "../interfaces/UserInterface"
 
 export const Users: React.FC = () => {
@@ -22,6 +22,8 @@ export const Users: React.FC = () => {
     const usersData = useSelector<RootState, UserInterface[]>(getAllUsers)
     const [users, setUsers] = useState<UserInterface[]>(usersData)
     const status = useSelector<RootState, string>(getAllUsersStatus)
+    const error = useSelector<RootState, string | null>(getAllUsersError)
+
 
     useEffect(() => {
         if (status === 'idle') {
