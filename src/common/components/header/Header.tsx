@@ -1,3 +1,4 @@
+import React from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { NavStyled, NavContainerIconsStyled } from "./HeaderStyled"
 import { HiOutlineMenuAlt2 as MenuIcon } from "react-icons/hi"
@@ -7,7 +8,6 @@ import { LuBellRing as MessageIcon } from "react-icons/lu"
 import { IoIosLogOut as LogOutIcon } from "react-icons/io"
 
 export const Header = ({ onToggleSideBarMenu }) => {
-
     const navigate = useNavigate()
     const location = useLocation()
 

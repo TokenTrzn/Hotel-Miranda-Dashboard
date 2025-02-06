@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
 import { Header, } from "./components/header/Header"
 import { SideBarMenu } from "./components/sideBarMenu/SideBarMenu"
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { LayoutContainerStyled, ContentStyled } from "./LayoutStyled"
 
 export const Layout = () => {

@@ -1,3 +1,4 @@
+import React from "react"
 import { KPIStyled, KPIInfoStyled, KPITextStyled, KPINumberStyled } from "./KPIStyled"
 
 export const KPI = ({ icon, number, text }) => {

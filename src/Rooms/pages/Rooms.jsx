@@ -15,18 +15,10 @@ export const Rooms = () => {
     const dispatch = useDispatch()
     const rooms = useSelector((state) => state.rooms.rooms)
 
-    useEffect(() => {
-        dispatch(fetchRoomsThunk())
-    }, [dispatch])
+    const [showOptions, setShowOptions] = useState(false)
 
-    useEffect(() => {
-        console.log('Rooms state updated:', rooms)
-    }, [rooms])
-
-    const [showOptions, setShowOptions] = useState(null)
-
-    const toggleMenuOptions = (itemId) => {
-        setShowOptions((prev) => (prev === itemId ? null : itemId))
+    const toggleMenuOptions = () => {
+        setShowOptions(!showOptions)
     }
 
     const handleUpdate = (room) => {
@@ -34,6 +26,14 @@ export const Rooms = () => {
     }
 
     const headers = ['Room Name', 'Room Type', 'Amenities', 'Price', 'Offer Price', 'Status', '']
+
+    useEffect(() => {
+        dispatch(fetchRoomsThunk())
+    }, [dispatch])
+
+    useEffect(() => {
+        console.log('Rooms state updated:', rooms)
+    }, [rooms])
 
     const itemRow = (room) => (
         <>

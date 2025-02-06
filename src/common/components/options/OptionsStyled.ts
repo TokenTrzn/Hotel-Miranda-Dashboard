@@ -1,18 +1,18 @@
 import styled from "styled-components"
 
-export const OptionsContainerStyled = styled.div`
+export const OptionsContainerStyled = styled.div<{ $display: 'none' | 'flex' }>`
     z-index: 1;
     position: absolute;
+    display: flex;
     top: 50%;
-    left: 0;
+    left: 93%;
     transform: translate(-50%, 25%);
-    display: ${props => props.display};
+    display: ${props => props.$display};
     flex-direction: column;
     gap: 0.5rem;
     padding: 1em;
     font-family: 'Poppins';
-    border-radius: 0.75rem;
-    background: #fff;
+    background: #a5a5a5;
 `
 
 export const ButtonOption = styled.button`

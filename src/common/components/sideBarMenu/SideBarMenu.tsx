@@ -1,3 +1,4 @@
+import React from "react"
 import {
     SideBarStyled, SideBarHeaderStyled, SideBarTitleStyled, SidebarItemStyled,
     SideBarProfileStyled, SideBarProfilePhotoStyled, SideBarProfileNameStyled, SideBarProfileEmailStyled, SideBarProfileButtonStyled,
