@@ -1,5 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import UsersData from '../data/usersData.json'
 import { UserInterface } from '../interfaces/UserInterface'
 
 export const fetchUsersThunk = createAsyncThunk<UserInterface[]>('users/fetchUsers', async () => {

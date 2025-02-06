@@ -6,5 +6,6 @@ export interface NewUserInterface {
     startDate: string;
     description: string;
     contact: string;
-    status: 'ACTIVE' | 'INACTIVE'
+    status: 'ACTIVE' | 'INACTIVE';
+    password: string;
 }

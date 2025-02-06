@@ -1,7 +1,12 @@
+import React from "react"
 import { DefaultCreateButtonStyled, DefaultCreateButtonText } from "./DefaultCreateButtonStyled"
 import { IoAdd as AddIcon } from "react-icons/io5"
 
-export const DefaultCreateButton = ({ onClick }) => {
+interface DefaultCreateButtonProps<T> {
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+export const DefaultCreateButton = <T,>({ onClick }: DefaultCreateButtonProps<T>) => {
 
     return (
         <>

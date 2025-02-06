@@ -1,8 +1,15 @@
 import { TableMenuText } from "../Text/TextStyled"
 import { TableHeaderStyled, TableRowStyled, TableStyled } from "./DefaultTableStyled"
+import React from "react"
+
+interface DefaultTableProps<T> {
+    headers: string[],
+    data: T[],
+    itemRow: (item: T) => JSX.Element
+}
 
 
-export const DefaultTable = ({ headers, data, itemRow }) => {
+export const DefaultTable = <T,>({ headers, data, itemRow }: DefaultTableProps<T>) => {
 
     return (
         <TableStyled>

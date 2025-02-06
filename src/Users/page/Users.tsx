@@ -1,28 +1,41 @@
 import { ImageStyled, TableDataHorizontalContainer, TableDataStyled, TableDataVerticalContainer } from "../../common/components/Table/DefaultTableStyled"
 import { UsersItemStatusStyled, UsersMenuItemStyled, UsersMenuSearchBarInputStyled, UsersMenuSearchBarStyled, UsersMenuStyled, UsersStyled } from "../components/UsersStyled"
-import UserPhoto from '../../assets/dni_cuadrado.jpg'
 import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { DefaultTable } from "../../common/components/Table/DefaultTable"
 import { MdPhone as PhoneIcon } from "react-icons/md"
 import { IoIosSearch as SearchIcon } from "react-icons/io"
 import { TableIdText, TablePrimaryText } from "../../common/components/Text/TextStyled"
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
-import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import React, { useEffect, useState } from "react"
 import { fetchUsersThunk } from "../features/UsersThunk"
 import { DefaultCreateButton } from "../../common/components/defaultCreateButton/DefaultCreateButton"
+import { AppDispatch, RootState } from "../../store/store"
+import UserPhoto from '../../assets/dni_cuadrado.jpg'
 
-export const Users = () => {
-    const dispatch = useDispatch()
-    const users = useSelector((state) => state.users.users)
+export const Users: React.FC = () => {
+    const dispatch: AppDispatch = useDispatch()
+    const navigate = useNavigate()
+    const [loading, setLoading] = useState(true)
+    const { users, status } = useSelector((state: RootState) => state.users)
 
     useEffect(() => {
-            dispatch(fetchUsersThunk())
+        dispatch(fetchUsersThunk())
     }, [dispatch])
 
     useEffect(() => {
-        console.log('Users State Updated: ', users)
-    }, [users])
+        if (status === 'idle') {
+            dispatch(fetchUsersThunk())
+        } else if (status === 'fulfilled') {
+            setLoading(false)
+        } else if (status === 'pending') {
+            setLoading(true)
+        }
+    }, [dispatch, status])
+
+    const handleNewUserClick = (): void => {
+        navigate('/new-user')
+    }
 
 
     const headers = ['Name', 'Email', 'Start Date', 'Description', 'Contact', 'Status', '']
@@ -51,7 +64,7 @@ export const Users = () => {
                 <UsersItemStatusStyled $status={user.status}>{user.status}</UsersItemStatusStyled>
             </TableDataStyled>
             <TableDataStyled>
-                <OptionsIcon/>
+                <OptionsIcon />
             </TableDataStyled>
         </>
     )
@@ -67,9 +80,7 @@ export const Users = () => {
                     <UsersMenuSearchBarInputStyled type="text" placeholder="Search..." />
                     <SearchIcon />
                 </UsersMenuSearchBarStyled>
-                <Link to='/new-user'>
-                    <DefaultCreateButton />
-                </Link>
+                <DefaultCreateButton onClick={handleNewUserClick} />
             </UsersMenuStyled>
             <DefaultTable headers={headers} data={users} itemRow={itemRow} />
         </UsersStyled>

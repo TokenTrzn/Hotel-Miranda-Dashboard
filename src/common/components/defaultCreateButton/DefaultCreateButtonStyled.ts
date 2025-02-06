@@ -25,8 +25,7 @@ export const DefaultCreateButtonStyled = styled.button`
         p,
         svg {
             color: #fff;
-        }
-        
+        }        
     }
 `
 
@@ -40,15 +39,15 @@ export const DefaultCreateButtonText = styled.p`
     text-decoration: none;
 
     &:hover {
-        text-decoration: none; /* Sin subrayado en hover */
+        text-decoration: none;
     }
 
     &:focus {
-        text-decoration: none; /* Sin subrayado al enfocarse */
-        outline: none; /* Elimina bordes de enfoque, si no son deseados */
+        text-decoration: none; 
+        outline: none;
     }
 
     &:active {
-        text-decoration: none; /* Sin subrayado al hacer clic */
+        text-decoration: none;
     }
 `
