@@ -14,7 +14,7 @@
         "status": "Check In",
         "price": "$115.04",
         "description": "mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Toni Nickerson",
@@ -31,7 +31,7 @@
         "status": "In Progress",
         "price": "$110.42",
         "description": "augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Ronny Starling",
@@ -48,7 +48,7 @@
         "status": "In Progress",
         "price": "$111.62",
         "description": "luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Clari Restall",
@@ -65,7 +65,7 @@
         "status": "Check Out",
         "price": "$118.78",
         "description": "ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Georgetta De Moreno",
@@ -82,7 +82,7 @@
         "status": "In Progress",
         "price": "$111.47",
         "description": "et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Faber Pascoe",
@@ -99,7 +99,7 @@
         "status": "Check Out",
         "price": "$114.99",
         "description": "ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Rorie Wallas",
@@ -116,7 +116,7 @@
         "status": "In Progress",
         "price": "$113.05",
         "description": "pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Hana Basilone",
@@ -133,7 +133,7 @@
         "status": "Check In",
         "price": "$111.03",
         "description": "sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Pernell Gauntley",
@@ -150,7 +150,7 @@
         "status": "Check In",
         "price": "$106.88",
         "description": "consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Beverly Schule",
@@ -167,7 +167,7 @@
         "status": "In Progress",
         "price": "$116.55",
         "description": "ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Issie Edgeson",
@@ -184,7 +184,7 @@
         "status": "Check Out",
         "price": "$118.63",
         "description": "amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Clarisse Kruger",
@@ -201,7 +201,7 @@
         "status": "Check In",
         "price": "$104.29",
         "description": "sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Rudolph Albion",
@@ -218,7 +218,7 @@
         "status": "Check Out",
         "price": "$114.35",
         "description": "nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Anatollo D'Agostino",
@@ -235,7 +235,7 @@
         "status": "In Progress",
         "price": "$115.14",
         "description": "tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Susy Kaes",
@@ -252,7 +252,7 @@
         "status": "Check Out",
         "price": "$102.78",
         "description": "sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Rennie Leonardi",
@@ -269,7 +269,7 @@
         "status": "In Progress",
         "price": "$104.90",
         "description": "nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Peta Robens",
@@ -286,7 +286,7 @@
         "status": "Check Out",
         "price": "$105.65",
         "description": "habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Imojean Reeken",
@@ -303,7 +303,7 @@
         "status": "In Progress",
         "price": "$119.59",
         "description": "neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Sheelah Cordall",
@@ -320,7 +320,7 @@
         "status": "In Progress",
         "price": "$112.72",
         "description": "id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Onida Filipowicz",
@@ -337,7 +337,7 @@
         "status": "Check Out",
         "price": "$111.31",
         "description": "at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique tortor eu pede",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Selig Ker",
@@ -354,7 +354,7 @@
         "status": "In Progress",
         "price": "$104.55",
         "description": "ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Amalita Calfe",
@@ -371,7 +371,7 @@
         "status": "In Progress",
         "price": "$106.78",
         "description": "id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Yves Bastistini",
@@ -388,7 +388,7 @@
         "status": "Check In",
         "price": "$108.73",
         "description": "pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Michelle Pietruszewicz",
@@ -405,7 +405,7 @@
         "status": "In Progress",
         "price": "$100.12",
         "description": "nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Cyrille Derdes",
@@ -422,7 +422,7 @@
         "status": "In Progress",
         "price": "$101.76",
         "description": "erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Tabitha Jackman",
@@ -439,7 +439,7 @@
         "status": "In Progress",
         "price": "$111.94",
         "description": "ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Errol Rosbottom",
@@ -456,7 +456,7 @@
         "status": "In Progress",
         "price": "$106.56",
         "description": "sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Etan Jewer",
@@ -473,7 +473,7 @@
         "status": "In Progress",
         "price": "$119.85",
         "description": "sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Myron Crosio",
@@ -490,7 +490,7 @@
         "status": "In Progress",
         "price": "$102.27",
         "description": "velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Lucita Joplin",
@@ -507,7 +507,7 @@
         "status": "In Progress",
         "price": "$107.85",
         "description": "phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Zacharie Vigne",
@@ -524,7 +524,7 @@
         "status": "Check In",
         "price": "$113.00",
         "description": "amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Lory Glyde",
@@ -541,7 +541,7 @@
         "status": "In Progress",
         "price": "$119.14",
         "description": "sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Tyne Medland",
@@ -558,7 +558,7 @@
         "status": "In Progress",
         "price": "$102.63",
         "description": "augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Demott Trytsman",
@@ -575,7 +575,7 @@
         "status": "In Progress",
         "price": "$106.34",
         "description": "nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Jori Crampton",
@@ -592,7 +592,7 @@
         "status": "Check In",
         "price": "$110.84",
         "description": "et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Ailee Aggett",
@@ -609,7 +609,7 @@
         "status": "In Progress",
         "price": "$101.39",
         "description": "nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Douglas Toynbee",
@@ -626,7 +626,7 @@
         "status": "In Progress",
         "price": "$117.80",
         "description": "nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Murdoch Markie",
@@ -643,7 +643,7 @@
         "status": "In Progress",
         "price": "$101.07",
         "description": "quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Magdaia Dripps",
@@ -660,7 +660,7 @@
         "status": "In Progress",
         "price": "$106.93",
         "description": "a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Humfrey Leil",
@@ -677,7 +677,7 @@
         "status": "In Progress",
         "price": "$118.15",
         "description": "turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Clemmie Boost",
@@ -694,7 +694,7 @@
         "status": "Check In",
         "price": "$109.64",
         "description": "sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Keely Lindenman",
@@ -711,7 +711,7 @@
         "status": "In Progress",
         "price": "$109.82",
         "description": "neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Merilyn Arboin",
@@ -728,7 +728,7 @@
         "status": "In Progress",
         "price": "$115.52",
         "description": "integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Britte Poate",
@@ -745,7 +745,7 @@
         "status": "Check In",
         "price": "$113.54",
         "description": "turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Raina Ebbens",
@@ -762,7 +762,7 @@
         "status": "Check In",
         "price": "$111.44",
         "description": "fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Brandais Brahm",
@@ -779,7 +779,7 @@
         "status": "Check In",
         "price": "$117.81",
         "description": "varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Bayard Berney",
@@ -796,7 +796,7 @@
         "status": "Check Out",
         "price": "$110.62",
         "description": "vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Heath Caplin",
@@ -813,7 +813,7 @@
         "status": "Check In",
         "price": "$100.76",
         "description": "curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Courtenay Gilby",
@@ -830,7 +830,7 @@
         "status": "Check Out",
         "price": "$112.58",
         "description": "parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Cosetta Cranton",
@@ -847,7 +847,7 @@
         "status": "Check Out",
         "price": "$107.94",
         "description": "neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Chet Hotton",
@@ -864,7 +864,7 @@
         "status": "Check In",
         "price": "$112.80",
         "description": "pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Lynelle Pinkard",
@@ -881,7 +881,7 @@
         "status": "In Progress",
         "price": "$118.35",
         "description": "leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Bryan Cockran",
@@ -898,7 +898,7 @@
         "status": "Check In",
         "price": "$102.70",
         "description": "erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Sheffy Rickard",
@@ -915,7 +915,7 @@
         "status": "In Progress",
         "price": "$117.43",
         "description": "convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Arlen Pariso",
@@ -932,7 +932,7 @@
         "status": "Check In",
         "price": "$116.62",
         "description": "ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Benson Fellgate",
@@ -949,7 +949,7 @@
         "status": "In Progress",
         "price": "$108.53",
         "description": "proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Lanny Kidman",
@@ -966,7 +966,7 @@
         "status": "In Progress",
         "price": "$108.45",
         "description": "diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Gloriana Beavington",
@@ -983,7 +983,7 @@
         "status": "In Progress",
         "price": "$119.72",
         "description": "et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Avie Sawyer",
@@ -1000,7 +1000,7 @@
         "status": "In Progress",
         "price": "$116.46",
         "description": "platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Dannie Dabbs",
@@ -1017,7 +1017,7 @@
         "status": "In Progress",
         "price": "$119.03",
         "description": "at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Carin Ciccerale",
@@ -1034,7 +1034,7 @@
         "status": "Check Out",
         "price": "$118.24",
         "description": "aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Louella Radenhurst",
@@ -1051,7 +1051,7 @@
         "status": "Check Out",
         "price": "$106.64",
         "description": "morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Mikey Blamey",
@@ -1068,7 +1068,7 @@
         "status": "In Progress",
         "price": "$117.24",
         "description": "dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Lynnette Taig",
@@ -1085,7 +1085,7 @@
         "status": "Check In",
         "price": "$105.82",
         "description": "sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Rosana Heineking",
@@ -1102,7 +1102,7 @@
         "status": "Check In",
         "price": "$111.91",
         "description": "habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Liane Vasic",
@@ -1119,7 +1119,7 @@
         "status": "Check Out",
         "price": "$110.46",
         "description": "in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Jelene Illing",
@@ -1136,7 +1136,7 @@
         "status": "Check In",
         "price": "$111.83",
         "description": "dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Kingsley Northcliffe",
@@ -1153,7 +1153,7 @@
         "status": "Check Out",
         "price": "$105.49",
         "description": "nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Leontine Rasch",
@@ -1170,7 +1170,7 @@
         "status": "In Progress",
         "price": "$107.95",
         "description": "ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Neil Eastup",
@@ -1187,7 +1187,7 @@
         "status": "In Progress",
         "price": "$105.08",
         "description": "luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Renee Gask",
@@ -1204,7 +1204,7 @@
         "status": "In Progress",
         "price": "$115.92",
         "description": "in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Jeromy Dearnaly",
@@ -1221,7 +1221,7 @@
         "status": "In Progress",
         "price": "$107.48",
         "description": "integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Corly Gebhard",
@@ -1238,7 +1238,7 @@
         "status": "In Progress",
         "price": "$112.74",
         "description": "aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Camille Pye",
@@ -1255,7 +1255,7 @@
         "status": "In Progress",
         "price": "$103.60",
         "description": "porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Josephine MacAughtrie",
@@ -1272,7 +1272,7 @@
         "status": "In Progress",
         "price": "$109.23",
         "description": "rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Linzy Guilbert",
@@ -1289,7 +1289,7 @@
         "status": "Check Out",
         "price": "$113.00",
         "description": "proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Manny Able",
@@ -1306,7 +1306,7 @@
         "status": "In Progress",
         "price": "$104.77",
         "description": "sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Rori Goatcher",
@@ -1323,7 +1323,7 @@
         "status": "In Progress",
         "price": "$109.61",
         "description": "lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Sylvester Swarbrigg",
@@ -1340,7 +1340,7 @@
         "status": "In Progress",
         "price": "$105.70",
         "description": "rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Honey Foynes",
@@ -1357,7 +1357,7 @@
         "status": "In Progress",
         "price": "$101.93",
         "description": "nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Mora Brok",
@@ -1374,7 +1374,7 @@
         "status": "Check In",
         "price": "$103.51",
         "description": "sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Cletus Puxley",
@@ -1391,7 +1391,7 @@
         "status": "Check In",
         "price": "$119.59",
         "description": "nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Ernst Spurett",
@@ -1408,7 +1408,7 @@
         "status": "Check Out",
         "price": "$109.48",
         "description": "nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Veronique Beck",
@@ -1425,7 +1425,7 @@
         "status": "In Progress",
         "price": "$115.59",
         "description": "lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Rowan Bloschke",
@@ -1442,7 +1442,7 @@
         "status": "In Progress",
         "price": "$103.68",
         "description": "orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Monro Corkitt",
@@ -1459,7 +1459,7 @@
         "status": "Check In",
         "price": "$110.47",
         "description": "quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Filippa Stainsby",
@@ -1476,7 +1476,7 @@
         "status": "Check In",
         "price": "$101.99",
         "description": "a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Natalya Fireman",
@@ -1493,7 +1493,7 @@
         "status": "Check Out",
         "price": "$116.47",
         "description": "varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Zebedee Pesticcio",
@@ -1510,7 +1510,7 @@
         "status": "In Progress",
         "price": "$112.91",
         "description": "nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Saw Eliot",
@@ -1527,7 +1527,7 @@
         "status": "Check Out",
         "price": "$109.43",
         "description": "elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Shaina Billyeald",
@@ -1544,7 +1544,7 @@
         "status": "In Progress",
         "price": "$116.46",
         "description": "quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Danna Farman",
@@ -1561,7 +1561,7 @@
         "status": "In Progress",
         "price": "$103.22",
         "description": "interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Denyse Mitchelhill",
@@ -1578,7 +1578,7 @@
         "status": "Check In",
         "price": "$101.13",
         "description": "ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Jessika Fallis",
@@ -1595,7 +1595,7 @@
         "status": "Check In",
         "price": "$106.43",
         "description": "in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Maurizio Davison",
@@ -1612,7 +1612,7 @@
         "status": "Check Out",
         "price": "$109.06",
         "description": "ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac",
-        "amenities": "Wifi"
+        "amenities": ["Wifi", "Wifi"]
     },
     {
         "guestName": "Babs Hartshorn",
@@ -1629,7 +1629,7 @@
         "status": "In Progress",
         "price": "$117.65",
         "description": "nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Francene Mundee",
@@ -1646,7 +1646,7 @@
         "status": "Check Out",
         "price": "$111.99",
         "description": "malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Morgan Spinozzi",
@@ -1663,7 +1663,7 @@
         "status": "Check Out",
         "price": "$102.60",
         "description": "morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     },
     {
         "guestName": "Marjory Hodjetts",
@@ -1680,7 +1680,7 @@
         "status": "Check In",
         "price": "$115.78",
         "description": "sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero",
-        "amenities": "Double Bed"
+        "amenities": ["Double Bed", "Wifi"]
     },
     {
         "guestName": "Klarrisa Tomkowicz",
@@ -1697,6 +1697,6 @@
         "status": "Check In",
         "price": "$101.97",
         "description": "sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur",
-        "amenities": "Mini Bar"
+        "amenities": ["Mini Bar", "Wifi"]
     }
 ]

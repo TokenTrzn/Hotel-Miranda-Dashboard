@@ -5,7 +5,7 @@
         "number": 60839,
         "name": "Deluxe A",
         "type": "Double Bed",
-        "amenities": "Shower",
+        "amenities": ["Shower", "Wifi", "Double Bed"],
         "price": "$114.20",
         "offerPrice": "$93.96",
         "status": "Booked"
@@ -16,7 +16,7 @@
         "number": 21699,
         "name": "Deluxe S",
         "type": "Single Bed",
-        "amenities": "Coffee Set",
+        "amenities": ["Coffee Set", "Wifi", "Double Bed"],
         "price": "$102.53",
         "offerPrice": "$84.54",
         "status": "Booked"
@@ -27,7 +27,7 @@
         "number": 88769,
         "name": "VIP S",
         "type": "Single Bed",
-        "amenities": "Wifi",
+        "amenities": ["Wifi", "Wifi", "Double Bed"],
         "price": "$117.88",
         "offerPrice": "$97.10",
         "status": "Booked"
@@ -38,7 +38,7 @@
         "number": 6432,
         "name": "Deluxe S",
         "type": "Single Bed",
-        "amenities": "Bathup",
+        "amenities": ["Bathup", "Wifi", "Double Bed"],
         "price": "$113.83",
         "offerPrice": "$83.11",
         "status": "Booked"
@@ -49,7 +49,7 @@
         "number": 16890,
         "name": "VIP S",
         "type": "King Bed",
-        "amenities": "Bathup",
+        "amenities": ["Bathup", "Wifi", "Double Bed"],
         "price": "$117.89",
         "offerPrice": "$91.09",
         "status": "Booked"
@@ -60,7 +60,7 @@
         "number": 26107,
         "name": "VIP A",
         "type": "Queen Bed",
-        "amenities": "Shower",
+        "amenities": ["Shower", "Wifi", "Double Bed"],
         "price": "$106.80",
         "offerPrice": "$98.31",
         "status": "Available"
@@ -71,7 +71,7 @@
         "number": 31499,
         "name": "Deluxe S",
         "type": "Double Bed",
-        "amenities": "Coffee Set",
+        "amenities": ["Coffee Set", "Wifi", "Double Bed"],
         "price": "$111.34",
         "offerPrice": "$98.08",
         "status": "Booked"
@@ -82,7 +82,7 @@
         "number": 81761,
         "name": "VIP S",
         "type": "Queen Bed",
-        "amenities": "Towel",
+        "amenities": ["Towel", "Wifi", "Double Bed"],
         "price": "$107.76",
         "offerPrice": "$92.84",
         "status": "Booked"
@@ -93,7 +93,7 @@
         "number": 7808,
         "name": "VIP A",
         "type": "Double Bed",
-        "amenities": "Double Bed",
+        "amenities": ["Double Bed", "Wifi", "Double Bed"],
         "price": "$118.01",
         "offerPrice": "$94.18",
         "status": "Available"
@@ -104,7 +104,7 @@
         "number": 21389,
         "name": "VIP A",
         "type": "King Bed",
-        "amenities": "Towel",
+        "amenities": ["Towel", "Wifi", "Double Bed"],
         "price": "$102.58",
         "offerPrice": "$93.10",
         "status": "Booked"
@@ -115,7 +115,7 @@
         "number": 8327,
         "name": "VIP S",
         "type": "Double Bed",
-        "amenities": "Shower",
+        "amenities": ["Shower", "Wifi", "Double Bed"],
         "price": "$106.04",
         "offerPrice": "$81.97",
         "status": "Available"
@@ -126,7 +126,7 @@
         "number": 37975,
         "name": "VIP S",
         "type": "Queen Bed",
-        "amenities": "LED TV",
+        "amenities": ["LED TV", "Wifi", "Double Bed"],
         "price": "$115.17",
         "offerPrice": "$90.66",
         "status": "Available"
@@ -137,7 +137,7 @@
         "number": 72196,
         "name": "VIP A",
         "type": "King Bed",
-        "amenities": "Bathup",
+        "amenities": ["Bathup", "Wifi", "Double Bed"],
         "price": "$109.38",
         "offerPrice": "$83.70",
         "status": "Booked"
@@ -148,7 +148,7 @@
         "number": 79068,
         "name": "Deluxe A",
         "type": "King Bed",
-        "amenities": "AC",
+        "amenities": ["AC", "Wifi", "Double Bed"],
         "price": "$114.68",
         "offerPrice": "$87.98",
         "status": "Booked"
@@ -159,7 +159,7 @@
         "number": 64584,
         "name": "VIP A",
         "type": "Single Bed",
-        "amenities": "Coffee Set",
+        "amenities": ["Coffee Set", "Wifi", "Double Bed"],
         "price": "$112.09",
         "offerPrice": "$88.70",
         "status": "Booked"
@@ -170,7 +170,7 @@
         "number": 17512,
         "name": "Deluxe A",
         "type": "Single Bed",
-        "amenities": "Shower",
+        "amenities": ["Shower", "Wifi", "Double Bed"],
         "price": "$119.50",
         "offerPrice": "$94.75",
         "status": "Booked"
@@ -181,7 +181,7 @@
         "number": 49131,
         "name": "Deluxe A",
         "type": "King Bed",
-        "amenities": "LED TV",
+        "amenities": ["LED TV", "Wifi", "Double Bed"],
         "price": "$116.42",
         "offerPrice": "$86.37",
         "status": "Booked"
@@ -192,7 +192,7 @@
         "number": 71313,
         "name": "Deluxe S",
         "type": "Double Bed",
-        "amenities": "Coffee Set",
+        "amenities": ["Coffee Set", "Wifi", "Double Bed"],
         "price": "$115.22",
         "offerPrice": "$81.44",
         "status": "Booked"
@@ -203,7 +203,7 @@
         "number": 72338,
         "name": "Deluxe S",
         "type": "King Bed",
-        "amenities": "Bathup",
+        "amenities": ["Bathup", "Wifi", "Double Bed"],
         "price": "$109.28",
         "offerPrice": "$96.25",
         "status": "Booked"
@@ -214,7 +214,7 @@
         "number": 59452,
         "name": "Deluxe S",
         "type": "Single Bed",
-        "amenities": "Shower",
+        "amenities": ["Shower", "Wifi", "Double Bed"],
         "price": "$117.08",
         "offerPrice": "$89.69",
         "status": "Available"
@@ -225,7 +225,7 @@
         "number": 54986,
         "name": "VIP A",
         "type": "King Bed",
-        "amenities": "Double Bed",
+        "amenities": ["Double Bed", "Wifi", "Double Bed"],
         "price": "$119.22",
         "offerPrice": "$98.97",
         "status": "Booked"
@@ -236,7 +236,7 @@
         "number": 3929,
         "name": "VIP A",
         "type": "Double Bed",
-        "amenities": "LED TV",
+        "amenities": ["LED TV", "Wifi", "Double Bed"],
         "price": "$110.26",
         "offerPrice": "$97.41",
         "status": "Available"
@@ -247,7 +247,7 @@
         "number": 94937,
         "name": "Deluxe A",
         "type": "King Bed",
-        "amenities": "Double Bed",
+        "amenities": ["Double Bed", "Wifi", "Double Bed"],
         "price": "$117.77",
         "offerPrice": "$80.06",
         "status": "Booked"
@@ -258,7 +258,7 @@
         "number": 66031,
         "name": "VIP S",
         "type": "Single Bed",
-        "amenities": "LED TV",
+        "amenities": ["LED TV", "Wifi", "Double Bed"],
         "price": "$102.48",
         "offerPrice": "$87.21",
         "status": "Available"
@@ -269,7 +269,7 @@
         "number": 42925,
         "name": "VIP S",
         "type": "King Bed",
-        "amenities": "Double Bed",
+        "amenities": ["Double Bed", "Wifi", "Double Bed"],
         "price": "$110.26",
         "offerPrice": "$90.59",
         "status": "Booked"
@@ -280,7 +280,7 @@
         "number": 1199,
         "name": "VIP A",
         "type": "Queen Bed",
-        "amenities": "Shower",
+        "amenities": ["Shower", "Wifi", "Double Bed"],
         "price": "$117.95",
         "offerPrice": "$86.17",
         "status": "Available"
@@ -291,7 +291,7 @@
         "number": 11514,
         "name": "Deluxe A",
         "type": "Double Bed",
-        "amenities": "AC",
+        "amenities": ["AC", "Wifi", "Double Bed"],
         "price": "$118.71",
         "offerPrice": "$96.17",
         "status": "Available"
@@ -302,7 +302,7 @@
         "number": 89855,
         "name": "Deluxe A",
         "type": "Double Bed",
-        "amenities": "AC",
+        "amenities": ["AC", "Wifi", "Double Bed"],
         "price": "$116.21",
         "offerPrice": "$88.45",
         "status": "Available"
@@ -313,7 +313,7 @@
         "number": 81089,
         "name": "Deluxe A",
         "type": "Queen Bed",
-        "amenities": "Towel",
+        "amenities": ["Towel", "Wifi", "Double Bed"],
         "price": "$108.16",
         "offerPrice": "$80.02",
         "status": "Available"
@@ -324,7 +324,7 @@
         "number": 64494,
         "name": "VIP S",
         "type": "King Bed",
-        "amenities": "Coffee Set",
+        "amenities": ["Coffee Set", "Wifi", "Double Bed"],
         "price": "$101.75",
         "offerPrice": "$95.06",
         "status": "Booked"
@@ -335,7 +335,7 @@
         "number": 85554,
         "name": "VIP S",
         "type": "King Bed",
-        "amenities": "Bathup",
+        "amenities": ["Bathup", "Wifi", "Double Bed"],
         "price": "$102.03",
         "offerPrice": "$87.41",
         "status": "Available"
@@ -346,7 +346,7 @@
         "number": 13292,
         "name": "Deluxe A",
         "type": "Single Bed",
-        "amenities": "Shower",
+        "amenities": ["Shower", "Wifi", "Double Bed"],
         "price": "$114.41",
         "offerPrice": "$84.98",
         "status": "Available"
@@ -357,7 +357,7 @@
         "number": 69672,
         "name": "Deluxe A",
         "type": "Queen Bed",
-        "amenities": "Bathup",
+        "amenities": ["Bathup", "Wifi", "Double Bed"],
         "price": "$102.55",
         "offerPrice": "$93.30",
         "status": "Booked"
@@ -368,7 +368,7 @@
         "number": 84684,
         "name": "VIP A",
         "type": "Double Bed",
-        "amenities": "AC",
+        "amenities": ["AC", "Wifi", "Double Bed"],
         "price": "$118.62",
         "offerPrice": "$94.87",
         "status": "Booked"
@@ -379,7 +379,7 @@
         "number": 75595,
         "name": "VIP S",
         "type": "Queen Bed",
-        "amenities": "Bathup",
+        "amenities": ["Bathup", "Wifi", "Double Bed"],
         "price": "$108.31",
         "offerPrice": "$91.97",
         "status": "Available"
@@ -390,7 +390,7 @@
         "number": 89769,
         "name": "VIP A",
         "type": "Double Bed",
-        "amenities": "Double Bed",
+        "amenities": ["Double Bed", "Wifi", "Double Bed"],
         "price": "$108.49",
         "offerPrice": "$96.80",
         "status": "Booked"
@@ -401,7 +401,7 @@
         "number": 87122,
         "name": "VIP S",
         "type": "Double Bed",
-        "amenities": "Coffee Set",
+        "amenities": ["Coffee Set", "Wifi", "Double Bed"],
         "price": "$106.95",
         "offerPrice": "$96.91",
         "status": "Available"
@@ -412,7 +412,7 @@
         "number": 92953,
         "name": "VIP A",
         "type": "Single Bed",
-        "amenities": "Double Bed",
+        "amenities": ["Double Bed", "Wifi", "Double Bed"],
         "price": "$109.86",
         "offerPrice": "$80.92",
         "status": "Available"
@@ -423,7 +423,7 @@
         "number": 95009,
         "name": "Deluxe A",
         "type": "Double Bed",
-        "amenities": "LED TV",
+        "amenities": ["LED TV", "Wifi", "Double Bed"],
         "price": "$110.37",
         "offerPrice": "$80.65",
         "status": "Available"
@@ -434,7 +434,7 @@
         "number": 43241,
         "name": "VIP S",
         "type": "Single Bed",
-        "amenities": "Coffee Set",
+        "amenities": ["Coffee Set", "Wifi", "Double Bed"],
         "price": "$115.42",
         "offerPrice": "$91.54",
         "status": "Available"
@@ -445,7 +445,7 @@
         "number": 82616,
         "name": "Deluxe S",
         "type": "Single Bed",
-        "amenities": "LED TV",
+        "amenities": ["LED TV", "Wifi", "Double Bed"],
         "price": "$119.25",
         "offerPrice": "$92.92",
         "status": "Available"
@@ -456,7 +456,7 @@
         "number": 62298,
         "name": "VIP S",
         "type": "Queen Bed",
-        "amenities": "Coffee Set",
+        "amenities": ["Coffee Set", "Wifi", "Double Bed"],
         "price": "$117.16",
         "offerPrice": "$97.69",
         "status": "Booked"
@@ -467,7 +467,7 @@
         "number": 50966,
         "name": "VIP S",
         "type": "Queen Bed",
-        "amenities": "Bathup",
+        "amenities": ["Bathup", "Wifi", "Double Bed"],
         "price": "$112.61",
         "offerPrice": "$88.40",
         "status": "Booked"
@@ -478,7 +478,7 @@
         "number": 31292,
         "name": "Deluxe S",
         "type": "Double Bed",
-        "amenities": "Towel",
+        "amenities": ["Towel", "Wifi", "Double Bed"],
         "price": "$111.18",
         "offerPrice": "$84.10",
         "status": "Booked"
@@ -489,7 +489,7 @@
         "number": 99162,
         "name": "Deluxe S",
         "type": "Queen Bed",
-        "amenities": "Shower",
+        "amenities": ["Shower", "Wifi", "Double Bed"],
         "price": "$113.06",
         "offerPrice": "$89.80",
         "status": "Booked"
@@ -500,7 +500,7 @@
         "number": 46550,
         "name": "VIP A",
         "type": "Queen Bed",
-        "amenities": "Shower",
+        "amenities": ["Shower", "Wifi", "Double Bed"],
         "price": "$110.84",
         "offerPrice": "$98.90",
         "status": "Booked"
@@ -511,7 +511,7 @@
         "number": 49380,
         "name": "Deluxe A",
         "type": "King Bed",
-        "amenities": "Bathup",
+        "amenities": ["Bathup", "Wifi", "Double Bed"],
         "price": "$113.98",
         "offerPrice": "$85.29",
         "status": "Available"
@@ -522,7 +522,7 @@
         "number": 35008,
         "name": "VIP S",
         "type": "Queen Bed",
-        "amenities": "Wifi",
+        "amenities": ["Wifi", "Wifi", "Double Bed"],
         "price": "$111.01",
         "offerPrice": "$87.18",
         "status": "Available"
@@ -533,7 +533,7 @@
         "number": 45590,
         "name": "VIP A",
         "type": "Double Bed",
-        "amenities": "Bathup",
+        "amenities": ["Bathup", "Wifi", "Double Bed"],
         "price": "$116.34",
         "offerPrice": "$98.31",
         "status": "Booked"
@@ -544,7 +544,7 @@
         "number": 13704,
         "name": "Deluxe S",
         "type": "King Bed",
-        "amenities": "AC",
+        "amenities": ["AC", "Wifi", "Double Bed"],
         "price": "$112.37",
         "offerPrice": "$86.83",
         "status": "Booked"

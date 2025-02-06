@@ -139,11 +139,11 @@ export const RoomsItemRoomProfileIdStyled = styled.p`
     margin: 0;
 `
 
-export const RoomsItemStatusStyled = styled.div`
+export const RoomsItemStatusStyled = styled.div<{ $type: 'Available' | 'Booked'}>`
     cursor: pointer;
     background: ${props => 
-        props.type === 'Available' ? '#5AD07A' : 
-        props.type === 'Booked' ? '#E23428' : 'white'
+        props.$type === 'Available' ? '#5AD07A' : 
+        props.$type === 'Booked' ? '#E23428' : 'white'
     };
     color: #fff;
     padding: .8rem 1rem;

@@ -1,13 +1,12 @@
 import styled from "styled-components"
 
-export const OptionsContainerStyled = styled.div<{ $display: 'none' | 'flex' }>`
+export const OptionsContainerStyled = styled.div`
     z-index: 1;
     position: absolute;
     display: flex;
     top: 50%;
     left: 93%;
     transform: translate(-50%, 25%);
-    display: ${props => props.$display};
     flex-direction: column;
     gap: 0.5rem;
     padding: 1em;
