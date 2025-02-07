@@ -50,45 +50,51 @@ export const Rooms: React.FC = () => {
 
     const itemRow = (room: RoomInterface) => (
         <>
-            {loading === true ? <></> :
-                <RoomsStyled>
-                    <TableDataStyled>
-                        <TableDataHorizontalContainer>
-                            <ImageStyled src={RoomPhoto} />
-                            <TableDataVerticalContainer>
-                                <TableIdText> #000{room.id}</TableIdText>
-                                <TablePrimaryText>{room.name} - {room.number}</TablePrimaryText>
-                            </TableDataVerticalContainer>
-                        </TableDataHorizontalContainer>
-                    </TableDataStyled>
-                    <TableDataStyled><TablePrimaryText>{room.type}</TablePrimaryText></TableDataStyled>
-                    <TableDataStyled><TablePrimaryText>{room.amenities}</TablePrimaryText></TableDataStyled>
-                    <TableDataStyled><TablePrimaryText>{room.price}<span>/Night</span></TablePrimaryText></TableDataStyled>
-                    <TableDataStyled><TablePrimaryText>{room.offerPrice}<span>/Night</span></TablePrimaryText></TableDataStyled>
-                    <TableDataStyled>
-                        <RoomsItemStatusStyled $type={room.status}>{room.status}</RoomsItemStatusStyled>
-                    </TableDataStyled>
-                    <TableDataStyled>
-                        <OptionsIcon onClick={toggleMenuOptions} />
-                        {showOptions === false ? <></> :
-                            <OptionsContainerStyled>
-                                <ButtonOption onClick={() => handleUpdate(room)}>Update</ButtonOption>
-                                <ButtonOption>Delete</ButtonOption>
-                            </OptionsContainerStyled>
-                        }
-                    </TableDataStyled>
-                </RoomsStyled>
-            }
+            <TableDataStyled>
+                <TableDataHorizontalContainer>
+                    <ImageStyled src={RoomPhoto} />
+                    <TableDataVerticalContainer>
+                        <TableIdText> #000{room.id}</TableIdText>
+                        <TablePrimaryText>{room.name} - {room.number}</TablePrimaryText>
+                    </TableDataVerticalContainer>
+                </TableDataHorizontalContainer>
+            </TableDataStyled>
+            <TableDataStyled><TablePrimaryText>{room.type}</TablePrimaryText></TableDataStyled>
+            <TableDataStyled>
+                {room.amenities.map((amenitie) => (
+                    <TablePrimaryText>
+                        {amenitie}
+                    </TablePrimaryText>
+                ))}
+            </TableDataStyled>
+            <TableDataStyled><TablePrimaryText>{room.price}<span>/Night</span></TablePrimaryText></TableDataStyled>
+            <TableDataStyled><TablePrimaryText>{room.offerPrice}<span>/Night</span></TablePrimaryText></TableDataStyled>
+            <TableDataStyled>
+                <RoomsItemStatusStyled $type={room.status}>{room.status}</RoomsItemStatusStyled>
+            </TableDataStyled>
+            <TableDataStyled>
+                <OptionsIcon onClick={toggleMenuOptions} />
+                {showOptions === false ? <></> :
+                    <OptionsContainerStyled>
+                        <ButtonOption onClick={() => handleUpdate(room)}>Update</ButtonOption>
+                        <ButtonOption>Delete</ButtonOption>
+                    </OptionsContainerStyled>
+                }
+            </TableDataStyled>
         </>
     )
 
     return (
-        <RoomsStyled>
-            <RoomsMenuStyled>
-                <RoomsMenuItemStyled>All Rooms</RoomsMenuItemStyled>
-                <DefaultCreateButton onClick={handleNewUserClick} />
-            </RoomsMenuStyled>
-            <DefaultTable headers={headers} data={rooms} itemRow={itemRow} />
-        </RoomsStyled>
+        <>
+            {loading === true ? <></> :
+                <RoomsStyled>
+                    <RoomsMenuStyled>
+                        <RoomsMenuItemStyled>All Rooms</RoomsMenuItemStyled>
+                        <DefaultCreateButton onClick={handleNewUserClick} />
+                    </RoomsMenuStyled>
+                    <DefaultTable headers={headers} data={rooms} itemRow={itemRow} />
+                </RoomsStyled>
+            }
+        </>
     )
 }

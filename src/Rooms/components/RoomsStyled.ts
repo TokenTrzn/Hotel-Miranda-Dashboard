@@ -140,7 +140,6 @@ export const RoomsItemRoomProfileIdStyled = styled.p`
 `
 
 export const RoomsItemStatusStyled = styled.div<{ $type: 'Available' | 'Booked'}>`
-    cursor: pointer;
     background: ${props => 
         props.$type === 'Available' ? '#5AD07A' : 
         props.$type === 'Booked' ? '#E23428' : 'white'
