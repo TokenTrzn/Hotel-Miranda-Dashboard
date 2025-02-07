@@ -23,11 +23,12 @@ export const Contact: React.FC = () => {
     const error = useSelector<RootState, string | null>(getAllContactsError)
 
     useEffect(() => {
+        
+        console.log(contactsData)
+        console.log(contacts)
         if (status === 'idle') {
             dispatch(fetchContactsThunk())
         } else if (status === 'fulfilled') {
-            console.log(contactsData)
-            console.log(contacts)
             setContacts(contactsData)
             setLoading(false)
         } else if (status === 'pending') {
@@ -52,7 +53,7 @@ export const Contact: React.FC = () => {
                 <TableSecundaryText>{contact.phone}</TableSecundaryText>
             </TableDataStyled>
             <TableDataStyled><TableSecundaryText>{contact.comment}</TableSecundaryText></TableDataStyled>
-            <TableDataStyled><ContactItemActionStyled>Archive</ContactItemActionStyled></TableDataStyled>
+            <TableDataStyled><ContactItemActionStyled $isArchived={contact.isArchived}>{contact.isArchived ? 'Publish' : 'Archive'}</ContactItemActionStyled></TableDataStyled>
         </>
     )
 

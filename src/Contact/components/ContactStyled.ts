@@ -213,8 +213,10 @@ export const ContactItemCommentStyled = styled.p`
     margin: 0;
 `
 
-export const ContactItemActionStyled = styled.p`
-    color: #E23428;
+export const ContactItemActionStyled = styled.p<{ $isArchived: true | false}>`
+    color: ${props =>
+        props.$isArchived === false ? '#E23428' : 
+        props.$isArchived === true ? '#3c3c3c' : '#000' }  ;
     font-weight: 700;
     font-size: 1.125rem;
     font-family: 'Poppins';
