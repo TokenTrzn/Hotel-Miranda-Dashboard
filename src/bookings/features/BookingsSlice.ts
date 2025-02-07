@@ -80,5 +80,6 @@ export const bookingsSlice = createSlice({
 })
 
 export const getAllBookings = (state: RootState): BookingInterface[] => state.bookings.bookings
+export const getBooking = (state: RootState): BookingInterface | null => state.bookings.booking
 export const getAllBookingsStatus = (state: RootState) => state.bookings.status
 export const getAllBookingsError = (state: RootState) => state.bookings.error

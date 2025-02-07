@@ -4,32 +4,41 @@ import { IoWifi as WifiIcon } from "react-icons/io5"
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBookingByIdThunk } from '../features/BookingsThunk'
-import { getAllBookingsStatus } from '../features/BookingsSlice'
-import { AppDispatch } from '../../store/store'
+import { getAllBookingsError, getAllBookingsStatus, getBooking } from '../features/BookingsSlice'
+import { AppDispatch, RootState } from '../../store/store'
 import { BookingInterface } from '../interfaces/BookingInterface'
 
-export const BookingDetails = () => {
-    const navigate = useNavigate()
-    const dispatch: AppDispatch = useDispatch()
-    const { id } = useParams()
-    const booking = useSelector((state: BookingInterface) => state.bookings.booking)
-    const BookingStatus = useSelector(getAllBookingsStatus)
-    const [loading, setLoading] = useState<boolean>(true)
+type Params = {
+    id: string;
+}
 
+export const BookingDetails: React.FC = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
+    const { id } = useParams<Params>();
+    const [loading, setLoading] = useState<boolean>(true);
+    const booking = useSelector<RootState, BookingInterface | null>(getBooking);
+    const status = useSelector<RootState, string>(getAllBookingsStatus);
+    const error = useSelector<RootState, string | null>(getAllBookingsError)
 
     useEffect(() => {
-        if (BookingStatus === 'idle') {
-            dispatch(fetchBookingByIdThunk(id))
-        } else if (BookingStatus === 'fulfilled') {
-            setLoading(false)
-        } else if (BookingStatus === 'pending') {
-            setLoading(true)
+        if (id) {
+            const bookingId = parseInt(id, 10)
+            if (!isNaN(bookingId)) {
+                if (status === 'idle') {
+                    dispatch(fetchBookingByIdThunk(bookingId))
+                } else if (status === 'fulfilled') {
+                    setLoading(false)
+                } else if (status === 'pending') {
+                    setLoading(true)
+                }
+            }
         }
-    }, [dispatch, id, BookingStatus])
+    }, [dispatch, id, status])
 
     return (
         <>
-            {loading === true ? <></> :
+            {loading === true || !booking ? <></> :
                 <BookingDetailsStyled key={id}>
                     <BookingDetailsInfoStyled>
                         <div>
@@ -63,7 +72,7 @@ export const BookingDetails = () => {
                                 <WifiIcon /> {booking.amenities}
                             </BookingDetailsAmenitiesItemStyled>
                         </BookingDetailsAmenitiesContainerStyled>
-                            <BackButton type="button" onClick={() => navigate(-1)}>Volver</BackButton>
+                        <BackButton type="button" onClick={() => navigate(-1)}>Volver</BackButton>
                     </BookingDetailsInfoStyled>
 
                 </BookingDetailsStyled>
