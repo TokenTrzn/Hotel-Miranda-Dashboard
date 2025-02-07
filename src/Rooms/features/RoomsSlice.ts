@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { addRoomThunk, deleteRoomThunk, fetchRoomByIdThunk, fetchRoomsThunk, updateRoomThunk } from "./RoomsThunk"
-import { RoomData, RoomInterface } from '../interfaces/RoomInterface'
+import { RoomInitialState, RoomInterface } from '../interfaces/RoomInterface'
 import { RootState } from "../../store/store"
 
 export const roomsSlice = createSlice({
@@ -10,7 +10,7 @@ export const roomsSlice = createSlice({
         room: null,
         status: 'idle',
         error: null
-    } as RoomData,
+    } as RoomInitialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
@@ -66,6 +66,7 @@ export const roomsSlice = createSlice({
             })
 
             .addCase(deleteRoomThunk.fulfilled, (state, action: PayloadAction<number>) => {
+                state.status = 'fulfilled'
                 state.rooms = state.rooms.filter(room => room.id !== action.payload)
             })
             .addCase(deleteRoomThunk.pending, (state) => {

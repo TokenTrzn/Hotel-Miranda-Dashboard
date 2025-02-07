@@ -33,7 +33,7 @@ export const Rooms: React.FC = () => {
         dispatch(updateRoomThunk(room))
     }
 
-    const headers = ['Room Name', 'Room Type', 'Amenities', 'Price', 'Offer Price', 'Status', '']
+    const headers: string[] = ['Room Name', 'Room Type', 'Amenities', 'Price', 'Offer Price', 'Status', '']
 
     useEffect(() => {
         if (status === 'idle') {
@@ -46,11 +46,9 @@ export const Rooms: React.FC = () => {
         }
     }, [dispatch, status, roomsData])
 
-    const handleNewUserClick = (): void => {
-        navigate('/new-room')
-    }
+    const handleNewUserClick = (): void => navigate('/new-room')
 
-    const itemRow = (room) => (
+    const itemRow = (room: RoomInterface) => (
         <>
             {loading === true ? <></> :
                 <RoomsStyled>
@@ -74,7 +72,7 @@ export const Rooms: React.FC = () => {
                         <OptionsIcon onClick={toggleMenuOptions} />
                         {showOptions === false ? <></> :
                             <OptionsContainerStyled>
-                                <ButtonOption onClick={handleUpdate}>Update</ButtonOption>
+                                <ButtonOption onClick={() => handleUpdate(room)}>Update</ButtonOption>
                                 <ButtonOption>Delete</ButtonOption>
                             </OptionsContainerStyled>
                         }

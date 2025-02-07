@@ -15,3 +15,10 @@ export interface BookingInterface {
     description: string;
     amenities: string[];
 }
+
+export interface BookingInitialState {
+    bookings: BookingInterface[];
+    booking: BookingInterface | null;
+    status: 'idle' | 'fulfilled' | 'pending' | 'rejected';
+    error: string | null
+}

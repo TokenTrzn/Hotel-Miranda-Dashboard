@@ -26,6 +26,8 @@ export const Contact: React.FC = () => {
         if (status === 'idle') {
             dispatch(fetchContactsThunk())
         } else if (status === 'fulfilled') {
+            console.log(contactsData)
+            console.log(contacts)
             setContacts(contactsData)
             setLoading(false)
         } else if (status === 'pending') {

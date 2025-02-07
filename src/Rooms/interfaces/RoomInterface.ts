@@ -10,7 +10,7 @@ export interface RoomInterface {
     status: 'Booked' | 'Available'
 }
 
-export interface RoomData {
+export interface RoomInitialState {
     rooms: RoomInterface[];
     room: RoomInterface | null;
     status: 'idle' | 'fulfilled' | 'pending' | 'rejected';

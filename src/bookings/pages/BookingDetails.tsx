@@ -1,33 +1,31 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BookingDetailsAmenitiesContainerStyled, BookingDetailsAmenitiesItemStyled, BookingDetailsFieldBoldInfoStyled, BookingDetailsFieldInfoStyled, BookingDetailsFieldTitleStyled, BookingDetailsHorizontalContainer, BookingDetailsIdStyled, BookingDetailsInfoStyled, BookingDetailsNameStyled, BookingDetailsStyled, BackButton } from '../components/Ui/BookingsDetailsStyled'
 import { IoWifi as WifiIcon } from "react-icons/io5"
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBookingByIdThunk } from '../features/BookingsThunk'
 import { getAllBookingsStatus } from '../features/BookingsSlice'
+import { AppDispatch } from '../../store/store'
+import { BookingInterface } from '../interfaces/BookingInterface'
 
 export const BookingDetails = () => {
     const navigate = useNavigate()
-    const dispatch = useDispatch()
+    const dispatch: AppDispatch = useDispatch()
     const { id } = useParams()
-    const booking = useSelector((state) => state.bookings.booking)
+    const booking = useSelector((state: BookingInterface) => state.bookings.booking)
     const BookingStatus = useSelector(getAllBookingsStatus)
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState<boolean>(true)
 
 
     useEffect(() => {
-        console.log(BookingStatus)
         if (BookingStatus === 'idle') {
-            dispatch(fetchBookingByIdThunk(parseInt(id)))
+            dispatch(fetchBookingByIdThunk(id))
         } else if (BookingStatus === 'fulfilled') {
             setLoading(false)
-            console.log(booking)
         } else if (BookingStatus === 'pending') {
             setLoading(true)
         }
     }, [dispatch, id, BookingStatus])
-
-    console.log(booking)
 
     return (
         <>

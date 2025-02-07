@@ -181,36 +181,36 @@ export const BookingItemCheckHourStyled = styled.p`
     margin: 0; 
 `
 
-export const BookingItemSpecialRequestStyled = styled.div`
+export const BookingItemSpecialRequestStyled = styled.div<{ $type: 'true' | 'false' }>`
     padding: .8rem 1.5rem;
     cursor: pointer;
     color: ${props =>
-        props.type === 'true' ? '#799283' : '#000000'
+        props.$type === 'true' ? '#799283' : '#000000'
     };
     font-family: 'Poppins';
     font-size: 1rem;
     font-weight: 600;
     background: ${props =>
-        props.type === 'true' ? '#ffffff' : '#EEF9F2'
+        props.$type === 'true' ? '#ffffff' : '#EEF9F2'
     };
     border: ${props =>
-        props.type === 'true' ? '1px solid #799283' : 'none'
+        props.$type === 'true' ? '1px solid #799283' : 'none'
     };
     border-radius: .5rem;
     text-align: center;
     width: 60%;
 `
 
-export const BookingItemStatusStyled = styled.div`
+export const BookingItemStatusStyled = styled.div<{ $type: 'Check In' | 'Check Out' | 'In Progress' }>`
     background: ${props => 
-        props.type === 'Check In' ? '#E8FFEE' : 
-        props.type === 'Check Out' ? '#FFEDEC' :
-        props.type === 'In Progress' ? '#F3FFC0' : '#ffffff'
+        props.$type === 'Check In' ? '#E8FFEE' : 
+        props.$type === 'Check Out' ? '#FFEDEC' :
+        props.$type === 'In Progress' ? '#F3FFC0' : '#ffffff'
     };
     color: ${props => 
-        props.type === 'Check In' ? '#5AD07A' : 
-        props.type === 'Check Out' ? '#E23428' :
-        props.type === 'In Progress' ? '#000000' : '#ffffff'
+        props.$type === 'Check In' ? '#5AD07A' : 
+        props.$type === 'Check Out' ? '#E23428' :
+        props.$type === 'In Progress' ? '#000000' : '#ffffff'
     };
     padding: .8rem 1rem;
     font-family: 'Poppins';
