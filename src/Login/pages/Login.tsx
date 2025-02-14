@@ -1,17 +1,17 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { InputStyled } from "../components/UI/InputStyled"
 import { FormStyled } from "../components/UI/FormStyled"
 import { ButtonStyled } from "../components/UI/ButtonStyled"
 import { useNavigate } from "react-router-dom"
 import { CredentialsStyled } from '../components/UI/CredentialsStyled'
 
-export const Login = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+export const Login: React.FC = () => {
+    const [email, setEmail] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
     //const { dispatch } = useContext(AuthContext);
 
-    const EMAIL = 'a@gmail.com'
-    const PASS = '1234'
+    const EMAIL: string = 'a@gmail.com'
+    const PASS: string = '1234'
 
     const navigate = useNavigate()
 

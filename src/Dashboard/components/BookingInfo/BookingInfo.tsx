@@ -1,7 +1,8 @@
+import React from 'react'
 import { StyledBookingContainer, StyledBookingContent, StyledBookingDays, StyledBookingDetails, StyledBookingInfo, StyledBookingItem, StyledCustomerName, StyledImage, StyledImageWrapper, StyledLargeImageWrapper, StyledRoomType, StyledTime, StyledViewMore } from './BookingInfoStyled'
 import Photo from '../../../assets/dni_cuadrado.jpg'
 
-export const BookingInfo = () => {
+export const BookingInfo: React.FC = () => {
 
     const bookings = [
         {

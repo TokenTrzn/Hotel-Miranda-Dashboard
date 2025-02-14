@@ -71,7 +71,6 @@ export const UsersItemTextStyled = styled.p`
 `
 
 export const UsersItemStatusStyled = styled.div<{ $status: 'ACTIVE' | 'INACTIVE'}>`
-    cursor: pointer;
     color: ${props => 
         props.$status === 'ACTIVE' ? '#5AD07A' : 
         props.$status === 'INACTIVE' ? '#E23428' : 'white'

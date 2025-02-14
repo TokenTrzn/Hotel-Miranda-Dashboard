@@ -1,3 +1,4 @@
+import React from "react"
 import { KPI } from "../../common/components/KPI/KPI"
 import { DashboardContainerStyled, DashboardKPIsStyled } from "../components/DashboardStyled"
 import { ContactKPIContainer, ContactKPIIconItemStyled, ContactKPIIconsStyled, ContactKPIInfoStyled, ContactKPIProfileInfoStyled, ContactKPIProfilePhotoStyled, ContactKPIProfileRowStyled, ContactKPIStyled, ContactKPITextStyled, ContactKPITimeStyled } from '../../Contact/components/ContactStyled'
@@ -10,7 +11,7 @@ import { BookingInfo } from "../components/BookingInfo/BookingInfo";
 
 
 
-export const Dashboard = () => {
+export const Dashboard: React.FC = () => {
 
     return (
         <DashboardContainerStyled data-cy='dashboard'>
