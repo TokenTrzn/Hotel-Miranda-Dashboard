@@ -14,6 +14,7 @@ import { getAllBookings, getAllBookingsError, getAllBookingsStatus } from "../fe
 import { AppDispatch, RootState } from "../../store/store"
 import { BookingInterface } from "../interfaces/BookingInterface"
 import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
+import { NoResultPage } from "../../common/components/noResultPage/NoResultPage"
 
 export const Booking: React.FC = () => {
     const [popUpData, setPopUpData] = useState('')
@@ -168,17 +169,21 @@ export const Booking: React.FC = () => {
                 </BookingMenuSortBy>
             </BookingMenuStyled>
             <DefaultTable headers={headers} data={currentBookings} itemRow={itemRow} />
-            <PaginationContainer>
-                {pageNumbers.map(number => (
-                    <PaginationButton
-                        key={number}
-                        onClick={() => paginate(number)}
-                        $selected={currentPage === number}
-                    >
-                        {number}
-                    </PaginationButton>
-                ))}
-            </PaginationContainer>
+            {currentBookings.length >= 1
+                ? <PaginationContainer>
+                    {pageNumbers.map(number => (
+                        <PaginationButton
+                            key={number}
+                            onClick={() => paginate(number)}
+                            $selected={currentPage === number}
+                        >
+                            {number}
+                        </PaginationButton>
+                    ))}
+                </PaginationContainer>
+                : <NoResultPage />
+            }
+
 
             {popUpData && (
                 <Overlay>

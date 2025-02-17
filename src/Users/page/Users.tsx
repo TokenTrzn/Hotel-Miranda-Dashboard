@@ -15,6 +15,7 @@ import { AppDispatch, RootState } from "../../store/store"
 import { getAllUsers, getAllUsersError, getAllUsersStatus } from "../features/UsersSlice"
 import { UserInterface } from "../interfaces/UserInterface"
 import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
+import { NoResultPage } from "../../common/components/noResultPage/NoResultPage"
 
 export const Users: React.FC = () => {
     const dispatch: AppDispatch = useDispatch()
@@ -156,17 +157,20 @@ export const Users: React.FC = () => {
                         <DefaultCreateButton onClick={handleNewUserClick} />
                     </UsersMenuStyled>
                     <DefaultTable headers={headers} data={currentUsers} itemRow={itemRow} />
-                    <PaginationContainer>
-                        {pageNumbers.map(number => (
-                            <PaginationButton
-                                key={number}
-                                onClick={() => paginate(number)}
-                                $selected={currentPage === number}
-                            >
-                                {number}
-                            </PaginationButton>
-                        ))}
-                    </PaginationContainer>
+                    {currentUsers.length >= 1
+                        ? <PaginationContainer>
+                            {pageNumbers.map(number => (
+                                <PaginationButton
+                                    key={number}
+                                    onClick={() => paginate(number)}
+                                    $selected={currentPage === number}
+                                >
+                                    {number}
+                                </PaginationButton>
+                            ))}
+                        </PaginationContainer>
+                        : <NoResultPage />
+                    }
                 </UsersStyled>
             }
         </>

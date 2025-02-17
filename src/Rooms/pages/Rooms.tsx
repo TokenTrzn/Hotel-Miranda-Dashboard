@@ -14,6 +14,7 @@ import { AppDispatch, RootState } from "../../store/store"
 import { RoomInterface } from "../interfaces/RoomInterface"
 import { getAllRooms, getAllRoomsError, getAllRoomsStatus } from "../features/RoomsSlice"
 import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
+import { NoResultPage } from "../../common/components/noResultPage/NoResultPage"
 
 export const Rooms: React.FC = () => {
     const dispatch: AppDispatch = useDispatch()
@@ -108,17 +109,20 @@ export const Rooms: React.FC = () => {
                         <DefaultCreateButton onClick={handleNewUserClick} />
                     </RoomsMenuStyled>
                     <DefaultTable headers={headers} data={currentRooms} itemRow={itemRow} />
-                    <PaginationContainer>
-                        {pageNumbers.map(number => (
-                            <PaginationButton
-                                key={number}
-                                onClick={() => paginate(number)}
-                                $selected={currentPage === number}
-                            >
-                                {number}
-                            </PaginationButton>
-                        ))}
-                    </PaginationContainer>
+                    {currentRooms.length >= 1
+                        ? <PaginationContainer>
+                            {pageNumbers.map(number => (
+                                <PaginationButton
+                                    key={number}
+                                    onClick={() => paginate(number)}
+                                    $selected={currentPage === number}
+                                >
+                                    {number}
+                                </PaginationButton>
+                            ))}
+                        </PaginationContainer>
+                        : <NoResultPage />
+                    }
                 </RoomsStyled>
             }
         </>

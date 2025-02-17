@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom"
 import { ContactInterface } from "../interfaces/ContactInterface"
 import { getAllContacts, getAllContactsError, getAllContactsStatus } from "../features/ContactSlice"
 import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
+import { NoResultPage } from "../../common/components/noResultPage/NoResultPage"
 
 export const Contact: React.FC = () => {
     const dispatch: AppDispatch = useDispatch()
@@ -170,18 +171,20 @@ export const Contact: React.FC = () => {
                             >Archived</ContactMenuItemStyled>
                         </ContactMenuStyled>
                         <DefaultTable headers={headers} data={currentContacts} itemRow={itemRow} />
-                        <PaginationContainer>
-                                        {pageNumbers.map(number => (
-                                            <PaginationButton
-                                                key={number}
-                                                onClick={() => paginate(number)}
-                                                $selected={currentPage === number}
-                                            >
-                                                {number}
-                                            </PaginationButton>
-                                        ))}
-                                    </PaginationContainer>
-
+                        {currentContacts.length >= 1
+                            ? <PaginationContainer>
+                                {pageNumbers.map(number => (
+                                    <PaginationButton
+                                        key={number}
+                                        onClick={() => paginate(number)}
+                                        $selected={currentPage === number}
+                                    >
+                                        {number}
+                                    </PaginationButton>
+                                ))}
+                            </PaginationContainer>
+                            : <NoResultPage />
+                        }
                     </ContactListContainerStyled>
                 </ContactStyled>
             }
