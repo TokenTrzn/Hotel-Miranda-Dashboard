@@ -21,6 +21,7 @@ export const Booking: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true)
     const bookingsData = useSelector<RootState, BookingInterface[]>(getAllBookings)
     const [bookings, setBookings] = useState<BookingInterface[]>(bookingsData)
+    const [selectedStatus, setSelectedStatus] = useState<string>('All Bookings')
     const status = useSelector<RootState, string>(getAllBookingsStatus)
     const error = useSelector<RootState, string | null>(getAllBookingsError)
 
@@ -36,6 +37,16 @@ export const Booking: React.FC = () => {
             setLoading(true)
         }
     }, [dispatch, status, bookingsData])
+
+    const handleFilterByStatus = (status: string) => {
+        if (status === 'All Bookings') {
+            setBookings(bookingsData) 
+        } else {
+            const filteredBookings = bookingsData.filter(booking => booking.status === status)
+            setBookings(filteredBookings)
+        }
+        setSelectedStatus(status)
+    }
 
     const itemRow = (booking: BookingInterface) => (
         <>
@@ -79,10 +90,22 @@ export const Booking: React.FC = () => {
         <BookingStyled data-cy='bookings'>
             <BookingMenuStyled>
                 <BookingMenuTextStyled>
-                    <BookingMenuItemStyled>All Bookings</BookingMenuItemStyled>
-                    <BookingMenuItemStyled>Checking In</BookingMenuItemStyled>
-                    <BookingMenuItemStyled>Checking Out</BookingMenuItemStyled>
-                    <BookingMenuItemStyled>In Progress</BookingMenuItemStyled>
+                    <BookingMenuItemStyled 
+                        onClick={() => handleFilterByStatus('All Bookings')}
+                        className={selectedStatus === 'All Bookings' ? 'active' : ''}
+                    >All Bookings</BookingMenuItemStyled>
+                    <BookingMenuItemStyled
+                        onClick={() => handleFilterByStatus('Check In')}
+                        className={selectedStatus === 'Check In' ? 'active' : ''}
+                    >Checking In</BookingMenuItemStyled>
+                    <BookingMenuItemStyled
+                        onClick={() => handleFilterByStatus('Check Out')}
+                        className={selectedStatus === 'Check Out' ? 'active' : ''}
+                    >Checking Out</BookingMenuItemStyled>
+                    <BookingMenuItemStyled
+                        onClick={() => handleFilterByStatus('In Progress')}
+                        className={selectedStatus === 'In Progress' ? 'active' : ''}
+                    >In Progress</BookingMenuItemStyled>
                 </BookingMenuTextStyled>
                 <BookingMenuSearchBarStyled>
                     <BookingMenuSearchBarInputStyled type="text" placeholder="Search..." />

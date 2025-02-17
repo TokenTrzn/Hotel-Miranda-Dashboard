@@ -17,6 +17,11 @@ export const BookingMenuStyled = styled.div`
 export const BookingMenuTextStyled = styled.div`
     display: flex;
     padding: 0 1rem;
+
+    .active {
+        color: #135846;
+        border-color: #135846;
+    }
 `
 
 export const BookingMenuSearchBarStyled = styled.div`
@@ -72,7 +77,7 @@ export const BookingMenuItemStyled = styled.p`
     font-weight: 600;
     font-size: 1rem;
     color: #6E6E6E;
-    padding-right: 1rem;
+    padding-right: 2rem;
     cursor: pointer;
     border-bottom: 1px solid #D4D4D4;
 
