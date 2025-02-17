@@ -51,6 +51,12 @@ export const Rooms: React.FC = () => {
 
     const handleNewUserClick = (): void => navigate('/new-room')
 
+    const navigateToRoomDetails = (room: RoomInterface) => {
+        navigate(`/rooms/details/${room.id}`, {
+            state: { room }
+        });
+    };
+
     const indexOfLastRoom: number = currentPage * roomsPerPage
     const indexOfFirstRoom: number = indexOfLastRoom - roomsPerPage
     const currentRooms: RoomInterface[] = rooms.slice(indexOfFirstRoom, indexOfLastRoom)
@@ -89,13 +95,7 @@ export const Rooms: React.FC = () => {
                 <RoomsItemStatusStyled $type={room.status}>{room.status}</RoomsItemStatusStyled>
             </TableDataStyled>
             <TableDataStyled>
-                <OptionsIcon onClick={toggleMenuOptions} />
-                {showOptions === false ? <></> :
-                    <OptionsContainerStyled>
-                        <ButtonOption onClick={() => handleUpdate(room)}>Update</ButtonOption>
-                        <ButtonOption>Delete</ButtonOption>
-                    </OptionsContainerStyled>
-                }
+                <OptionsIcon onClick={() => navigateToRoomDetails(room)} />
             </TableDataStyled>
         </>
     )

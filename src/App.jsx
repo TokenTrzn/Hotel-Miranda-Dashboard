@@ -14,6 +14,7 @@ import { AuthProvider } from './login/AuthContext'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
 import { NewUserForm } from './users/page/NewUserForm'
+import { RoomDetails } from './Rooms/pages/RoomDetails'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
                 <Route path='/booking' element={<PrivateRoute element={<Booking />} />} />
                 <Route path='/booking/details/:id' element={<PrivateRoute element={<BookingDetails />} />} />
                 <Route path='/rooms' element={<PrivateRoute element={<Rooms />} />} />
+                <Route path='/rooms/details/:id' element={<PrivateRoute element={<RoomDetails />} />} />
                 <Route path='/new-room' element={<PrivateRoute element={<NewRoomForm />} />} />
                 <Route path='/contact' element={<PrivateRoute element={<Contact />} />} />
                 <Route path='/users' element={<PrivateRoute element={<Users />} />} />

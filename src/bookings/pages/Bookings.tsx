@@ -130,7 +130,7 @@ export const Booking: React.FC = () => {
                         <BookingItemStatusStyled $type={booking.status}>{booking.status}</BookingItemStatusStyled>
                     </TableDataStyled>
                     <TableDataStyled>
-                    <OptionsIcon onClick={() => navigateToBookingDetails(booking)}/>
+                        <OptionsIcon onClick={() => navigateToBookingDetails(booking)}/>
                     </TableDataStyled>
                 </>
             }

@@ -1,12 +1,12 @@
 import styled from "styled-components"
 
-export const BookingDetailsStyled = styled.div`
+export const RoomDetailsStyled = styled.div`
     display: flex;
     flex-direction: row;
     background: #ffffff;
 `
 
-export const BookingDetailsInfoStyled = styled.div`
+export const RoomDetailsInfoStyled = styled.div`
     display: flex;
     flex-direction: column;
     padding: 1rem 1rem;
@@ -22,7 +22,7 @@ export const BookingDetailsInfoStyled = styled.div`
     }
 `
 
-export const BookingDetailsNameStyled = styled.p`
+export const RoomDetailsNameStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 700;
     font-size: 1.875rem;
@@ -31,7 +31,7 @@ export const BookingDetailsNameStyled = styled.p`
     padding: 0 3rem;
 `
 
-export const BookingDetailsIdStyled = styled.p`
+export const RoomDetailsIdStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 400;
     font-size: .875rem;
@@ -41,12 +41,12 @@ export const BookingDetailsIdStyled = styled.p`
     
 `
 
-export const BookingDetailsHorizontalContainer = styled.div`
+export const RoomDetailsHorizontalContainer = styled.div`
     display: flex;
     flex-direction: row;
 `
 
-export const BookingDetailsFieldTitleStyled = styled.p`
+export const RoomDetailsFieldTitleStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 400;
     font-size: 0.875rem;
@@ -55,7 +55,7 @@ export const BookingDetailsFieldTitleStyled = styled.p`
     padding: 0 2rem;
 `
 
-export const BookingDetailsFieldInfoStyled = styled.p`
+export const RoomDetailsFieldInfoStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 500;
     font-size: 1rem;
@@ -64,7 +64,7 @@ export const BookingDetailsFieldInfoStyled = styled.p`
     padding: 1rem 2rem;
 `
 
-export const BookingDetailsFieldBoldInfoStyled = styled.p`
+export const RoomDetailsFieldBoldInfoStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 1.6rem;
@@ -79,14 +79,14 @@ export const BookingDetailsFieldBoldInfoStyled = styled.p`
     }
 `
 
-export const BookingDetailsAmenitiesContainerStyled = styled.div`
+export const RoomDetailsAmenitiesContainerStyled = styled.div`
     display: flex;
     flex-direction: row;
     gap: 1rem;
     padding: 0 3rem;
 `
 
-export const BookingDetailsAmenitiesItemStyled = styled.div`
+export const RoomDetailsAmenitiesItemStyled = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -110,27 +110,27 @@ export const BookingDetailsAmenitiesItemStyled = styled.div`
     }
 `
 
-export const BookingDetailsAmenitiesTextStyled = styled.p`
+export const RoomDetailsAmenitiesTextStyled = styled.p`
     font-family: 'Poppins';
     font-size: .875rem;
     font-weight: 500;
     color: #135846;
 `
 
-export const BookingDetailsPhotoContainerStyled = styled.div`
+export const RoomDetailsPhotoContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
     padding: 0 1rem;
 `
 
-export const BookingDetailsPhotoImageStyled = styled.img`
+export const RoomDetailsPhotoImageStyled = styled.img`
     height: auto;
     width: 100%;
     border-radius: .2rem;
 `
 
-export const BookingDetailsPhotoTagStyled = styled.div`
+export const RoomDetailsPhotoTagStyled = styled.div`
     position: absolute;
     font-family: 'Poppins';
     font-size: 1.2rem;
@@ -142,14 +142,14 @@ export const BookingDetailsPhotoTagStyled = styled.div`
     transform: rotate(45deg);
 `
 
-export const BookingDetailsPhotoTitleStyled = styled.p`
+export const RoomDetailsPhotoTitleStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 1.6rem;
     color: #fff;
 `
 
-export const BookingDetailsPhotoDescriptionStyled = styled.p`
+export const RoomDetailsPhotoDescriptionStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 500;
     font-size: 1rem;
