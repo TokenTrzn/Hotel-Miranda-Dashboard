@@ -21,9 +21,12 @@ export const Users: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true)
     const usersData = useSelector<RootState, UserInterface[]>(getAllUsers)
     const [users, setUsers] = useState<UserInterface[]>(usersData)
+    const [selectedStatus, setSelectedStatus] = useState<string>('All Employee')
+    const [searchInput, setSearchInput] = useState<string>('')
     const status = useSelector<RootState, string>(getAllUsersStatus)
     const error = useSelector<RootState, string | null>(getAllUsersError)
 
+    const headers: string[] = ['Name', 'Email', 'Start Date', 'Description', 'Contact', 'Status', '']
 
     useEffect(() => {
         if (status === 'idle') {
@@ -40,8 +43,41 @@ export const Users: React.FC = () => {
         navigate('/new-user')
     }
 
-
-    const headers: string[] = ['Name', 'Email', 'Start Date', 'Description', 'Contact', 'Status', '']
+    const handleFilterByStatus = (status: string) => {
+            let filteredUsers = usersData;
+    
+            if (status !== 'All Employee') {
+                filteredUsers = usersData.filter(booking => booking.status === status);
+            }
+    
+            if (searchInput.trim() !== '') {
+                filteredUsers = filteredUsers.filter(user =>
+                    user.name.toLowerCase().includes(searchInput.toLowerCase())
+                );
+            }
+    
+            setUsers(filteredUsers);
+            setSelectedStatus(status);
+        }
+    
+        const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+            const value = event.target.value
+            setSearchInput(value)
+    
+            let filteredUsers = usersData
+    
+            if (selectedStatus !== 'All Employee') {
+                filteredUsers = usersData.filter(user => user.status === selectedStatus)
+            }
+    
+            if (value.trim() !== '') {
+                filteredUsers = filteredUsers.filter(user =>
+                    user.name.toLowerCase().includes(value.toLowerCase())
+                )
+            }
+    
+            setUsers(filteredUsers)
+        }
 
     const itemRow = (user: UserInterface) => (
         <>
@@ -72,17 +108,30 @@ export const Users: React.FC = () => {
         </>
     )
 
-
     return (
         <>
             {loading === true ? <></> :
                 <UsersStyled>
                     <UsersMenuStyled>
-                        <UsersMenuItemStyled>All Employee</UsersMenuItemStyled>
-                        <UsersMenuItemStyled>Active Employee</UsersMenuItemStyled>
-                        <UsersMenuItemStyled>Inactive Employee</UsersMenuItemStyled>
+                        <UsersMenuItemStyled
+                            onClick={() => handleFilterByStatus('All Employee')}
+                            className={selectedStatus === 'All Employee' ? 'active' : ''}
+                        >All Employee</UsersMenuItemStyled>
+                        <UsersMenuItemStyled
+                            onClick={() => handleFilterByStatus('ACTIVE')}
+                            className={selectedStatus === 'ACTIVE' ? 'active' : ''}
+                        >Active Employee</UsersMenuItemStyled>
+                        <UsersMenuItemStyled
+                            onClick={() => handleFilterByStatus('INACTIVE')}
+                            className={selectedStatus === 'INACTIVE' ? 'active' : ''}
+                        >Inactive Employee</UsersMenuItemStyled>
                         <UsersMenuSearchBarStyled>
-                            <UsersMenuSearchBarInputStyled type="text" placeholder="Search..." />
+                            <UsersMenuSearchBarInputStyled 
+                                type="text" 
+                                placeholder="Search..."
+                                value={searchInput}
+                                onChange={handleSearch}
+                                />
                             <SearchIcon />
                         </UsersMenuSearchBarStyled>
                         <DefaultCreateButton onClick={handleNewUserClick} />

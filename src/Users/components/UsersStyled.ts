@@ -11,6 +11,11 @@ export const UsersMenuStyled = styled.div`
     align-items: center;
     justify-content: start;
     padding: .5% 2%;
+
+    .active {
+        color: #135846;
+        border-color: #135846;
+    }
 `
 
 export const UsersMenuTextStyled = styled.div`
