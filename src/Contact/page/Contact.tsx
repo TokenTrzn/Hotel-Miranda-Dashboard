@@ -19,7 +19,7 @@ export const Contact: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true)
     const contactsData = useSelector<RootState, ContactInterface[]>(getAllContacts)
     const [contacts, setContacts] = useState<ContactInterface[]>(contactsData)
-    const [selectedIsArchived, setSelectedIsArchived] = useState<boolean>(false)
+    const [selectedIsArchived, setSelectedIsArchived] = useState<boolean>(true)
     const status = useSelector<RootState, string>(getAllContactsStatus)
     const error = useSelector<RootState, string | null>(getAllContactsError)
 
