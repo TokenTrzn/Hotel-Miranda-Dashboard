@@ -12,6 +12,7 @@ import { AppDispatch, RootState } from "../../store/store"
 import { useNavigate } from "react-router-dom"
 import { ContactInterface } from "../interfaces/ContactInterface"
 import { getAllContacts, getAllContactsError, getAllContactsStatus } from "../features/ContactSlice"
+import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
 
 export const Contact: React.FC = () => {
     const dispatch: AppDispatch = useDispatch()
@@ -20,13 +21,15 @@ export const Contact: React.FC = () => {
     const contactsData = useSelector<RootState, ContactInterface[]>(getAllContacts)
     const [contacts, setContacts] = useState<ContactInterface[]>(contactsData)
     const [selectedIsArchived, setSelectedIsArchived] = useState<boolean>(true)
+    const [currentPage, setCurrentPage] = useState<number>(1)
+    const contactsPerPage = 8
     const status = useSelector<RootState, string>(getAllContactsStatus)
     const error = useSelector<RootState, string | null>(getAllContactsError)
 
     const headers: string[] = ['Date', 'Customer', 'Comment', 'Action']
 
     useEffect(() => {
-        
+
         console.log(contactsData)
         console.log(contacts)
         if (status === 'idle') {
@@ -46,6 +49,7 @@ export const Contact: React.FC = () => {
 
         setContacts(filteredContacts)
         setSelectedIsArchived(isArchived)
+        setCurrentPage(1)
     }
 
     const handleToggleArchiveStatus = (contact: ContactInterface) => {
@@ -59,6 +63,19 @@ export const Contact: React.FC = () => {
             )
             setContacts(updatedContacts)
         })
+    }
+
+    const indexOfLastContact: number = currentPage * contactsPerPage
+    const indexOfFirstContact: number = indexOfLastContact - contactsPerPage
+    const currentContacts: ContactInterface[] = contacts.slice(indexOfFirstContact, indexOfLastContact)
+
+    const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+
+    const totalPages: number = contacts.length > 0 ? Math.ceil(contacts.length / contactsPerPage) : 1
+
+    const pageNumbers: number[] = []
+    for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i)
     }
 
     const itemRow = (contact: ContactInterface) => (
@@ -77,11 +94,11 @@ export const Contact: React.FC = () => {
             </TableDataStyled>
             <TableDataStyled><TableSecundaryText>{contact.comment}</TableSecundaryText></TableDataStyled>
             <TableDataStyled>
-                <ContactItemActionStyled 
+                <ContactItemActionStyled
                     $isArchived={contact.isArchived}
                     onClick={() => handleToggleArchiveStatus(contact)}
-                    >
-                        {contact.isArchived ? 'Publish' : 'Archive'}
+                >
+                    {contact.isArchived ? 'Publish' : 'Archive'}
                 </ContactItemActionStyled>
             </TableDataStyled>
         </>
@@ -143,7 +160,7 @@ export const Contact: React.FC = () => {
                     </ContactKPIContainer>
                     <ContactListContainerStyled>
                         <ContactMenuStyled>
-                            <ContactMenuItemStyled 
+                            <ContactMenuItemStyled
                                 onClick={() => handleFilterByArchived(true)}
                                 className={selectedIsArchived === true ? 'active' : ''}
                             >All Contacts</ContactMenuItemStyled>
@@ -152,7 +169,19 @@ export const Contact: React.FC = () => {
                                 className={selectedIsArchived === false ? 'active' : ''}
                             >Archived</ContactMenuItemStyled>
                         </ContactMenuStyled>
-                        <DefaultTable headers={headers} data={contacts} itemRow={itemRow} />
+                        <DefaultTable headers={headers} data={currentContacts} itemRow={itemRow} />
+                        <PaginationContainer>
+                                        {pageNumbers.map(number => (
+                                            <PaginationButton
+                                                key={number}
+                                                onClick={() => paginate(number)}
+                                                $selected={currentPage === number}
+                                            >
+                                                {number}
+                                            </PaginationButton>
+                                        ))}
+                                    </PaginationContainer>
+
                     </ContactListContainerStyled>
                 </ContactStyled>
             }
