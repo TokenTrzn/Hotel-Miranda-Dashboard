@@ -46,18 +46,14 @@ export const RoomsMenuItemStyled = styled.p`
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 1rem;
-    color: #6E6E6E;
+    color: #135846;
     padding-right: 1rem;
     cursor: pointer;
     border-bottom: 1px solid #D4D4D4;
+    border-color: #135846;
 
     svg {
         cursor: pointer;
-    }
-
-    &:hover {
-        color: #135846;
-        border-color: #135846;
     }
 `
 

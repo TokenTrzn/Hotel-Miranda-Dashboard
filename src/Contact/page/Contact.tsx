@@ -19,8 +19,11 @@ export const Contact: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true)
     const contactsData = useSelector<RootState, ContactInterface[]>(getAllContacts)
     const [contacts, setContacts] = useState<ContactInterface[]>(contactsData)
+    const [selectedIsArchived, setSelectedIsArchived] = useState<boolean>(false)
     const status = useSelector<RootState, string>(getAllContactsStatus)
     const error = useSelector<RootState, string | null>(getAllContactsError)
+
+    const headers: string[] = ['Date', 'Customer', 'Comment', 'Action']
 
     useEffect(() => {
         
@@ -36,7 +39,14 @@ export const Contact: React.FC = () => {
         }
     }, [dispatch, status, contactsData])
 
-    const headers: string[] = ['Date', 'Customer', 'Comment', 'Action']
+    const handleFilterByArchived = (isArchived: boolean) => {
+        const filteredContacts = isArchived
+            ? contactsData
+            : contactsData.filter(contact => contact.isArchived)
+
+        setContacts(filteredContacts);
+        setSelectedIsArchived(isArchived);
+    }
 
     const itemRow = (contact: ContactInterface) => (
         <>
@@ -113,8 +123,14 @@ export const Contact: React.FC = () => {
                     </ContactKPIContainer>
                     <ContactListContainerStyled>
                         <ContactMenuStyled>
-                            <ContactMenuItemStyled>All Contacts</ContactMenuItemStyled>
-                            <ContactMenuItemStyled>Archived</ContactMenuItemStyled>
+                            <ContactMenuItemStyled 
+                                onClick={() => handleFilterByArchived(true)}
+                                className={selectedIsArchived === true ? 'active' : ''}
+                            >All Contacts</ContactMenuItemStyled>
+                            <ContactMenuItemStyled
+                                onClick={() => handleFilterByArchived(false)}
+                                className={selectedIsArchived === false ? 'active' : ''}
+                            >Archived</ContactMenuItemStyled>
                         </ContactMenuStyled>
                         <DefaultTable headers={headers} data={contacts} itemRow={itemRow} />
                     </ContactListContainerStyled>
