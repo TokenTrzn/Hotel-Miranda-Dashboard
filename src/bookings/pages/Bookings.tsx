@@ -22,6 +22,7 @@ export const Booking: React.FC = () => {
     const bookingsData = useSelector<RootState, BookingInterface[]>(getAllBookings)
     const [bookings, setBookings] = useState<BookingInterface[]>(bookingsData)
     const [selectedStatus, setSelectedStatus] = useState<string>('All Bookings')
+    const [searchInput, setSearchInput] = useState<string>('')
     const status = useSelector<RootState, string>(getAllBookingsStatus)
     const error = useSelector<RootState, string | null>(getAllBookingsError)
 
@@ -39,13 +40,39 @@ export const Booking: React.FC = () => {
     }, [dispatch, status, bookingsData])
 
     const handleFilterByStatus = (status: string) => {
-        if (status === 'All Bookings') {
-            setBookings(bookingsData) 
-        } else {
-            const filteredBookings = bookingsData.filter(booking => booking.status === status)
-            setBookings(filteredBookings)
+        let filteredBookings = bookingsData;
+
+        if (status !== 'All Bookings') {
+            filteredBookings = bookingsData.filter(booking => booking.status === status);
         }
-        setSelectedStatus(status)
+
+        if (searchInput.trim() !== '') {
+            filteredBookings = filteredBookings.filter(booking =>
+                booking.guestName.toLowerCase().includes(searchInput.toLowerCase())
+            );
+        }
+
+        setBookings(filteredBookings);
+        setSelectedStatus(status);
+    }
+
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value
+        setSearchInput(value)
+
+        let filteredBookings = bookingsData
+
+        if (selectedStatus !== 'All Bookings') {
+            filteredBookings = bookingsData.filter(booking => booking.status === selectedStatus)
+        }
+
+        if (value.trim() !== '') {
+            filteredBookings = filteredBookings.filter(booking =>
+                booking.guestName.toLowerCase().includes(value.toLowerCase())
+            )
+        }
+
+        setBookings(filteredBookings)
     }
 
     const itemRow = (booking: BookingInterface) => (
@@ -108,7 +135,12 @@ export const Booking: React.FC = () => {
                     >In Progress</BookingMenuItemStyled>
                 </BookingMenuTextStyled>
                 <BookingMenuSearchBarStyled>
-                    <BookingMenuSearchBarInputStyled type="text" placeholder="Search..." />
+                    <BookingMenuSearchBarInputStyled 
+                    type="text" 
+                    placeholder="Search..."
+                    value={searchInput}
+                    onChange={handleSearch}
+                    />
                     <SearchIcon />
                 </BookingMenuSearchBarStyled>
                 <BookingMenuSortBy>

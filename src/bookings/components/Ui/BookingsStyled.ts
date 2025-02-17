@@ -186,20 +186,20 @@ export const BookingItemCheckHourStyled = styled.p`
     margin: 0; 
 `
 
-export const BookingItemSpecialRequestStyled = styled.div<{ $type: 'true' | 'false' }>`
+export const BookingItemSpecialRequestStyled = styled.div<{ $type: Boolean }>`
     padding: .8rem 1.5rem;
     cursor: pointer;
     color: ${props =>
-        props.$type === 'true' ? '#799283' : '#000000'
+        props.$type === true ? '#799283' : '#000000'
     };
     font-family: 'Poppins';
     font-size: 1rem;
     font-weight: 600;
     background: ${props =>
-        props.$type === 'true' ? '#ffffff' : '#EEF9F2'
+        props.$type === true ? '#ffffff' : '#EEF9F2'
     };
     border: ${props =>
-        props.$type === 'true' ? '1px solid #799283' : 'none'
+        props.$type === true ? '1px solid #799283' : 'none'
     };
     border-radius: .5rem;
     text-align: center;
