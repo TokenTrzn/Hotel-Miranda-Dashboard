@@ -1,8 +1,10 @@
 import React from 'react'
 import { StyledBookingContainer, StyledBookingContent, StyledBookingDays, StyledBookingDetails, StyledBookingInfo, StyledBookingItem, StyledCustomerName, StyledImage, StyledImageWrapper, StyledLargeImageWrapper, StyledRoomType, StyledTime, StyledViewMore } from './BookingInfoStyled'
 import Photo from '../../../assets/dni_cuadrado.jpg'
+import { useNavigate } from 'react-router-dom'
 
 export const BookingInfo: React.FC = () => {
+    const navigate = useNavigate()
 
     const bookings = [
         {
@@ -31,6 +33,10 @@ export const BookingInfo: React.FC = () => {
         },
     ];
 
+    const handleViewMoreClick = () => {
+        navigate('/booking')
+    }
+
     return (
         <StyledBookingContainer>
             <StyledBookingDetails>
@@ -55,7 +61,7 @@ export const BookingInfo: React.FC = () => {
                     </StyledBookingItem>
                 ))}
             </StyledBookingDetails>
-            <StyledViewMore>View More</StyledViewMore>
+            <StyledViewMore onClick={handleViewMoreClick} >View More</StyledViewMore>
         </StyledBookingContainer>
     )
 }

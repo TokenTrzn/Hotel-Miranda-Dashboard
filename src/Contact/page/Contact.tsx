@@ -54,8 +54,8 @@ export const Contact: React.FC = () => {
             isArchived: !contact.isArchived,
         }
         dispatch(updateContactThunk(updatedContact)).then(() => {
-            const updatedContacts = contacts.map((c) =>
-                c.id === updatedContact.id ? updatedContact : c
+            const updatedContacts = contacts.map((contact) =>
+                contact.id === updatedContact.id ? updatedContact : contact
             )
             setContacts(updatedContacts)
         })

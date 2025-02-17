@@ -17,7 +17,7 @@ export const StyledBookingItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 1rem;
+  margin: 0 1rem;
 `;
 
 export const StyledLargeImageWrapper = styled.div`
