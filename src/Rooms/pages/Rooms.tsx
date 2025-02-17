@@ -56,7 +56,7 @@ export const Rooms: React.FC = () => {
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
-    const totalPages: number = Math.ceil(rooms.length / roomsPerPage)
+    const totalPages: number = rooms.length > 0 ? Math.ceil(rooms.length / roomsPerPage) : 1
 
     const pageNumbers: number[] = []
     for (let i = 1; i <= totalPages; i++) {
@@ -76,8 +76,8 @@ export const Rooms: React.FC = () => {
             </TableDataStyled>
             <TableDataStyled><TablePrimaryText>{room.type}</TablePrimaryText></TableDataStyled>
             <TableDataStyled>
-                {room.amenities.map((amenitie) => (
-                    <TablePrimaryText>
+                {room.amenities.map((amenitie, index) => (
+                    <TablePrimaryText key={index}>
                         {amenitie}
                     </TablePrimaryText>
                 ))}
@@ -119,7 +119,6 @@ export const Rooms: React.FC = () => {
                             </PaginationButton>
                         ))}
                     </PaginationContainer>
-
                 </RoomsStyled>
             }
         </>

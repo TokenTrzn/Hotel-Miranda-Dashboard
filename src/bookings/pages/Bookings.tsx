@@ -13,6 +13,7 @@ import { fetchBookingsThunk } from "../features/BookingsThunk"
 import { getAllBookings, getAllBookingsError, getAllBookingsStatus } from "../features/BookingsSlice"
 import { AppDispatch, RootState } from "../../store/store"
 import { BookingInterface } from "../interfaces/BookingInterface"
+import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
 
 export const Booking: React.FC = () => {
     const [popUpData, setPopUpData] = useState('')
@@ -23,10 +24,12 @@ export const Booking: React.FC = () => {
     const [bookings, setBookings] = useState<BookingInterface[]>(bookingsData)
     const [selectedStatus, setSelectedStatus] = useState<string>('All Bookings')
     const [searchInput, setSearchInput] = useState<string>('')
+    const [currentPage, setCurrentPage] = useState<number>(1)
+    const bookingsPerPage = 10
     const status = useSelector<RootState, string>(getAllBookingsStatus)
     const error = useSelector<RootState, string | null>(getAllBookingsError)
 
-    const headers: string[] = ['Guest', 'Order Date', 'Check In', 'Check Out', 'Special Request', 'Room Type', 'Status', '']
+    const headers: string[] = ['Guest', 'Order Date', 'Check In', 'Check Out', 'Special Request', 'Booking Type', 'Status', '']
 
     useEffect(() => {
         if (status === 'idle') {
@@ -54,6 +57,7 @@ export const Booking: React.FC = () => {
 
         setBookings(filteredBookings);
         setSelectedStatus(status);
+        setCurrentPage(1)
     }
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,7 +77,22 @@ export const Booking: React.FC = () => {
         }
 
         setBookings(filteredBookings)
+        setCurrentPage(1)
     }
+
+    const indexOfLastBooking: number = currentPage * bookingsPerPage
+    const indexOfFirstBooking: number = indexOfLastBooking - bookingsPerPage
+    const currentBookings: BookingInterface[] = bookings.slice(indexOfFirstBooking, indexOfLastBooking)
+
+    const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+
+    const totalPages: number = bookings.length > 0 ? Math.ceil(bookings.length / bookingsPerPage) : 1
+
+    const pageNumbers: number[] = []
+    for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i)
+    }
+
 
     const itemRow = (booking: BookingInterface) => (
         <>
@@ -117,7 +136,7 @@ export const Booking: React.FC = () => {
         <BookingStyled data-cy='bookings'>
             <BookingMenuStyled>
                 <BookingMenuTextStyled>
-                    <BookingMenuItemStyled 
+                    <BookingMenuItemStyled
                         onClick={() => handleFilterByStatus('All Bookings')}
                         className={selectedStatus === 'All Bookings' ? 'active' : ''}
                     >All Bookings</BookingMenuItemStyled>
@@ -135,11 +154,11 @@ export const Booking: React.FC = () => {
                     >In Progress</BookingMenuItemStyled>
                 </BookingMenuTextStyled>
                 <BookingMenuSearchBarStyled>
-                    <BookingMenuSearchBarInputStyled 
-                    type="text" 
-                    placeholder="Search..."
-                    value={searchInput}
-                    onChange={handleSearch}
+                    <BookingMenuSearchBarInputStyled
+                        type="text"
+                        placeholder="Search..."
+                        value={searchInput}
+                        onChange={handleSearch}
                     />
                     <SearchIcon />
                 </BookingMenuSearchBarStyled>
@@ -148,7 +167,18 @@ export const Booking: React.FC = () => {
                     <ArrowDownIcon />
                 </BookingMenuSortBy>
             </BookingMenuStyled>
-            <DefaultTable headers={headers} data={bookings} itemRow={itemRow} />
+            <DefaultTable headers={headers} data={currentBookings} itemRow={itemRow} />
+            <PaginationContainer>
+                {pageNumbers.map(number => (
+                    <PaginationButton
+                        key={number}
+                        onClick={() => paginate(number)}
+                        $selected={currentPage === number}
+                    >
+                        {number}
+                    </PaginationButton>
+                ))}
+            </PaginationContainer>
 
             {popUpData && (
                 <Overlay>
