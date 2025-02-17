@@ -14,6 +14,7 @@ import { DefaultCreateButton } from "../../common/components/defaultCreateButton
 import { AppDispatch, RootState } from "../../store/store"
 import { getAllUsers, getAllUsersError, getAllUsersStatus } from "../features/UsersSlice"
 import { UserInterface } from "../interfaces/UserInterface"
+import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
 
 export const Users: React.FC = () => {
     const dispatch: AppDispatch = useDispatch()
@@ -23,6 +24,8 @@ export const Users: React.FC = () => {
     const [users, setUsers] = useState<UserInterface[]>(usersData)
     const [selectedStatus, setSelectedStatus] = useState<string>('All Employee')
     const [searchInput, setSearchInput] = useState<string>('')
+    const [currentPage, setCurrentPage] = useState<number>(1)
+    const usersPerPage = 10
     const status = useSelector<RootState, string>(getAllUsersStatus)
     const error = useSelector<RootState, string | null>(getAllUsersError)
 
@@ -44,40 +47,56 @@ export const Users: React.FC = () => {
     }
 
     const handleFilterByStatus = (status: string) => {
-            let filteredUsers = usersData;
-    
-            if (status !== 'All Employee') {
-                filteredUsers = usersData.filter(booking => booking.status === status);
-            }
-    
-            if (searchInput.trim() !== '') {
-                filteredUsers = filteredUsers.filter(user =>
-                    user.name.toLowerCase().includes(searchInput.toLowerCase())
-                );
-            }
-    
-            setUsers(filteredUsers);
-            setSelectedStatus(status);
+        let filteredUsers = usersData;
+
+        if (status !== 'All Employee') {
+            filteredUsers = usersData.filter(User => User.status === status);
         }
-    
-        const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-            const value = event.target.value
-            setSearchInput(value)
-    
-            let filteredUsers = usersData
-    
-            if (selectedStatus !== 'All Employee') {
-                filteredUsers = usersData.filter(user => user.status === selectedStatus)
-            }
-    
-            if (value.trim() !== '') {
-                filteredUsers = filteredUsers.filter(user =>
-                    user.name.toLowerCase().includes(value.toLowerCase())
-                )
-            }
-    
-            setUsers(filteredUsers)
+
+        if (searchInput.trim() !== '') {
+            filteredUsers = filteredUsers.filter(user =>
+                user.name.toLowerCase().includes(searchInput.toLowerCase())
+            );
         }
+
+        setUsers(filteredUsers);
+        setSelectedStatus(status);
+        setCurrentPage(1)
+    }
+
+
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value
+        setSearchInput(value)
+
+        let filteredUsers = usersData
+
+        if (selectedStatus !== 'All Employee') {
+            filteredUsers = usersData.filter(user => user.status === selectedStatus)
+        }
+
+        if (value.trim() !== '') {
+            filteredUsers = filteredUsers.filter(user =>
+                user.name.toLowerCase().includes(value.toLowerCase())
+            )
+        }
+
+        setUsers(filteredUsers)
+        setCurrentPage(1)
+    }
+
+    const indexOfLastUser: number = currentPage * usersPerPage
+    const indexOfFirstUser: number = indexOfLastUser - usersPerPage
+    const currentUsers: UserInterface[] = users.slice(indexOfFirstUser, indexOfLastUser)
+
+    const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+
+    const totalPages: number = users.length > 0 ? Math.ceil(users.length / usersPerPage) : 1
+
+    const pageNumbers: number[] = []
+    for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i)
+    }
 
     const itemRow = (user: UserInterface) => (
         <>
@@ -126,17 +145,28 @@ export const Users: React.FC = () => {
                             className={selectedStatus === 'INACTIVE' ? 'active' : ''}
                         >Inactive Employee</UsersMenuItemStyled>
                         <UsersMenuSearchBarStyled>
-                            <UsersMenuSearchBarInputStyled 
-                                type="text" 
+                            <UsersMenuSearchBarInputStyled
+                                type="text"
                                 placeholder="Search..."
                                 value={searchInput}
                                 onChange={handleSearch}
-                                />
+                            />
                             <SearchIcon />
                         </UsersMenuSearchBarStyled>
                         <DefaultCreateButton onClick={handleNewUserClick} />
                     </UsersMenuStyled>
-                    <DefaultTable headers={headers} data={users} itemRow={itemRow} />
+                    <DefaultTable headers={headers} data={currentUsers} itemRow={itemRow} />
+                    <PaginationContainer>
+                        {pageNumbers.map(number => (
+                            <PaginationButton
+                                key={number}
+                                onClick={() => paginate(number)}
+                                $selected={currentPage === number}
+                            >
+                                {number}
+                            </PaginationButton>
+                        ))}
+                    </PaginationContainer>
                 </UsersStyled>
             }
         </>
