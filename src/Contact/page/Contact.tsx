@@ -7,7 +7,7 @@ import { TableIdText, TableSecundaryText } from "../../common/components/Text/Te
 import { TableDataHorizontalContainer, TableDataStyled } from "../../common/components/Table/DefaultTableStyled"
 import { useDispatch, useSelector } from "react-redux"
 import React, { useEffect, useState } from "react"
-import { fetchContactsThunk } from "../features/ContactThunk"
+import { fetchContactsThunk, updateContactThunk } from "../features/ContactThunk"
 import { AppDispatch, RootState } from "../../store/store"
 import { useNavigate } from "react-router-dom"
 import { ContactInterface } from "../interfaces/ContactInterface"
@@ -44,8 +44,21 @@ export const Contact: React.FC = () => {
             ? contactsData
             : contactsData.filter(contact => contact.isArchived)
 
-        setContacts(filteredContacts);
-        setSelectedIsArchived(isArchived);
+        setContacts(filteredContacts)
+        setSelectedIsArchived(isArchived)
+    }
+
+    const handleToggleArchiveStatus = (contact: ContactInterface) => {
+        const updatedContact = {
+            ...contact,
+            isArchived: !contact.isArchived,
+        }
+        dispatch(updateContactThunk(updatedContact)).then(() => {
+            const updatedContacts = contacts.map((c) =>
+                c.id === updatedContact.id ? updatedContact : c
+            )
+            setContacts(updatedContacts)
+        })
     }
 
     const itemRow = (contact: ContactInterface) => (
@@ -63,7 +76,14 @@ export const Contact: React.FC = () => {
                 <TableSecundaryText>{contact.phone}</TableSecundaryText>
             </TableDataStyled>
             <TableDataStyled><TableSecundaryText>{contact.comment}</TableSecundaryText></TableDataStyled>
-            <TableDataStyled><ContactItemActionStyled $isArchived={contact.isArchived}>{contact.isArchived ? 'Publish' : 'Archive'}</ContactItemActionStyled></TableDataStyled>
+            <TableDataStyled>
+                <ContactItemActionStyled 
+                    $isArchived={contact.isArchived}
+                    onClick={() => handleToggleArchiveStatus(contact)}
+                    >
+                        {contact.isArchived ? 'Publish' : 'Archive'}
+                </ContactItemActionStyled>
+            </TableDataStyled>
         </>
     )
 
