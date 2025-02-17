@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { BookingDetailsAmenitiesContainerStyled, BookingDetailsAmenitiesItemStyled, BookingDetailsFieldBoldInfoStyled, BookingDetailsFieldInfoStyled, BookingDetailsFieldTitleStyled, BookingDetailsHorizontalContainer, BookingDetailsIdStyled, BookingDetailsInfoStyled, BookingDetailsNameStyled, BookingDetailsStyled, BackButton } from '../components/Ui/BookingsDetailsStyled'
+import { BookingDetailsAmenitiesContainerStyled, BookingDetailsAmenitiesItemStyled, BookingDetailsFieldBoldInfoStyled, BookingDetailsFieldInfoStyled, BookingDetailsFieldTitleStyled, BookingDetailsHorizontalContainer, BookingDetailsIdStyled, BookingDetailsInfoStyled, BookingDetailsNameStyled, BookingDetailsStyled, BackButton, BookingDetailsPhotoContainerStyled, BookingDetailsPhotoImageStyled, BookingDetailsPhotoTagStyled, BookingDetailsPhotoTitleStyled, BookingDetailsPhotoDescriptionStyled } from '../components/Ui/BookingsDetailsStyled'
 import { IoWifi as WifiIcon } from "react-icons/io5"
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBookingByIdThunk } from '../features/BookingsThunk'
 import { getAllBookingsError, getAllBookingsStatus, getBooking } from '../features/BookingsSlice'
 import { AppDispatch, RootState } from '../../store/store'
 import { BookingInterface } from '../interfaces/BookingInterface'
+import RoomPhoto from '../../assets/room_photo.jpg'
 
 type Params = {
     id: string;
@@ -17,7 +18,9 @@ export const BookingDetails: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { id } = useParams<Params>();
     const [loading, setLoading] = useState<boolean>(true);
-    const booking = useSelector<RootState, BookingInterface | null>(getBooking);
+    const location = useLocation();
+    const booking: BookingInterface = location.state?.booking;
+    //const booking = useSelector<RootState, BookingInterface | null>(getBooking);
     const status = useSelector<RootState, string>(getAllBookingsStatus);
     const error = useSelector<RootState, string | null>(getAllBookingsError)
 
@@ -34,7 +37,7 @@ export const BookingDetails: React.FC = () => {
                 }
             }
         }
-    }, [dispatch, id, status])
+    }, [dispatch, id, status, booking])
 
     return (
         <>
@@ -74,7 +77,11 @@ export const BookingDetails: React.FC = () => {
                         </BookingDetailsAmenitiesContainerStyled>
                         <BackButton type="button" onClick={() => navigate(-1)}>Volver</BackButton>
                     </BookingDetailsInfoStyled>
-
+                    <BookingDetailsPhotoContainerStyled>
+                        <BookingDetailsPhotoImageStyled src={RoomPhoto} />
+                        <BookingDetailsPhotoTitleStyled>{booking.type}</BookingDetailsPhotoTitleStyled>
+                            <BookingDetailsPhotoDescriptionStyled>{booking.description}</BookingDetailsPhotoDescriptionStyled>
+                    </BookingDetailsPhotoContainerStyled>
                 </BookingDetailsStyled>
             }
         </>

@@ -2,7 +2,8 @@ import styled from "styled-components"
 
 export const BookingDetailsStyled = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    background: #ffffff;
 `
 
 export const BookingDetailsInfoStyled = styled.div`
@@ -17,6 +18,7 @@ export const BookingDetailsInfoStyled = styled.div`
     
     .description {
         padding: 1rem 3rem;
+        max-width: 40%;
     }
 `
 
@@ -119,11 +121,13 @@ export const BookingDetailsPhotoContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
+    padding: 0 1rem;
 `
 
 export const BookingDetailsPhotoImageStyled = styled.img`
     height: auto;
-    width: 50%;
+    width: 100%;
+    border-radius: .2rem;
 `
 
 export const BookingDetailsPhotoTagStyled = styled.div`
@@ -147,9 +151,9 @@ export const BookingDetailsPhotoTitleStyled = styled.p`
 
 export const BookingDetailsPhotoDescriptionStyled = styled.p`
     font-family: 'Poppins';
-    font-weight: 400;
-    font-size: .875rem;
-    color: #a5a5a5;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #212121;
 `
 
 export const BackButton = styled.button`

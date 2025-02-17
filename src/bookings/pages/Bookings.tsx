@@ -81,6 +81,12 @@ export const Booking: React.FC = () => {
         setCurrentPage(1)
     }
 
+    const navigateToBookingDetails = (booking: BookingInterface) => {
+        navigate(`/booking/details/${booking.id}`, {
+            state: { booking }
+        });
+    };
+
     const indexOfLastBooking: number = currentPage * bookingsPerPage
     const indexOfFirstBooking: number = indexOfLastBooking - bookingsPerPage
     const currentBookings: BookingInterface[] = bookings.slice(indexOfFirstBooking, indexOfLastBooking)
@@ -124,9 +130,7 @@ export const Booking: React.FC = () => {
                         <BookingItemStatusStyled $type={booking.status}>{booking.status}</BookingItemStatusStyled>
                     </TableDataStyled>
                     <TableDataStyled>
-                        <Link to={`details/${booking.id}`}>
-                            <OptionsIcon />
-                        </Link>
+                    <OptionsIcon onClick={() => navigateToBookingDetails(booking)}/>
                     </TableDataStyled>
                 </>
             }

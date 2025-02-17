@@ -16,7 +16,7 @@ export const NewRoomForm: React.FC = () => {
         number: 0,
         name: "",
         type: "",
-        amenities: ["", ""],
+        amenities: [""],
         price: "",
         offerPrice: "",
         status: 'Booked'
