@@ -13,6 +13,7 @@ import { ButtonOption, OptionsContainerStyled } from "../../common/components/op
 import { AppDispatch, RootState } from "../../store/store"
 import { RoomInterface } from "../interfaces/RoomInterface"
 import { getAllRooms, getAllRoomsError, getAllRoomsStatus } from "../features/RoomsSlice"
+import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
 
 export const Rooms: React.FC = () => {
     const dispatch: AppDispatch = useDispatch()
@@ -20,10 +21,13 @@ export const Rooms: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true)
     const roomsData = useSelector<RootState, RoomInterface[]>(getAllRooms)
     const [rooms, setRooms] = useState<RoomInterface[]>(roomsData)
+    const [showOptions, setShowOptions] = useState<boolean>(false)
+    const [currentPage, setCurrentPage] = useState<number>(1)
+    const roomsPerPage = 10
     const status = useSelector<RootState, string>(getAllRoomsStatus)
     const error = useSelector<RootState, string | null>(getAllRoomsError)
 
-    const [showOptions, setShowOptions] = useState(false)
+    const headers: string[] = ['Room Name', 'Room Type', 'Amenities', 'Price', 'Offer Price', 'Status', '']
 
     const toggleMenuOptions = () => {
         setShowOptions(!showOptions)
@@ -32,8 +36,6 @@ export const Rooms: React.FC = () => {
     const handleUpdate = (room: RoomInterface) => {
         dispatch(updateRoomThunk(room))
     }
-
-    const headers: string[] = ['Room Name', 'Room Type', 'Amenities', 'Price', 'Offer Price', 'Status', '']
 
     useEffect(() => {
         if (status === 'idle') {
@@ -47,6 +49,19 @@ export const Rooms: React.FC = () => {
     }, [dispatch, status, roomsData])
 
     const handleNewUserClick = (): void => navigate('/new-room')
+
+    const indexOfLastRoom: number = currentPage * roomsPerPage
+    const indexOfFirstRoom: number = indexOfLastRoom - roomsPerPage
+    const currentRooms: RoomInterface[] = rooms.slice(indexOfFirstRoom, indexOfLastRoom)
+
+    const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+
+    const totalPages: number = Math.ceil(rooms.length / roomsPerPage)
+
+    const pageNumbers: number[] = []
+    for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i)
+    }
 
     const itemRow = (room: RoomInterface) => (
         <>
@@ -92,7 +107,19 @@ export const Rooms: React.FC = () => {
                         <RoomsMenuItemStyled>All Rooms</RoomsMenuItemStyled>
                         <DefaultCreateButton onClick={handleNewUserClick} />
                     </RoomsMenuStyled>
-                    <DefaultTable headers={headers} data={rooms} itemRow={itemRow} />
+                    <DefaultTable headers={headers} data={currentRooms} itemRow={itemRow} />
+                    <PaginationContainer>
+                        {pageNumbers.map(number => (
+                            <PaginationButton
+                                key={number}
+                                onClick={() => paginate(number)}
+                                $selected={currentPage === number}
+                            >
+                                {number}
+                            </PaginationButton>
+                        ))}
+                    </PaginationContainer>
+
                 </RoomsStyled>
             }
         </>
