@@ -1,13 +1,13 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { addContactThunk, deleteContactThunk, fetchContactByIdThunk, fetchContactsThunk, updateContactThunk } from "./ContactThunk"
 import { ContactInterface, ContactData } from '../interfaces/ContactInterface'
-import { RootState } from "../../store/store";
+import { RootState } from "../../store/store"
 
 export const contactSlice = createSlice({
   name: 'contact',
   initialState: {
-    contacts: [],
-    contact: null,
+    contacts: [] as ContactInterface[],
+    contact: {} as ContactInterface,
     status: 'idle',
     error: null,
   } as ContactData,
@@ -16,7 +16,7 @@ export const contactSlice = createSlice({
     builder
       .addCase(fetchContactsThunk.fulfilled, (state, action: PayloadAction<ContactInterface[]>) => {
         state.status = 'fulfilled'
-        state.contacts = action.payload;
+        state.contacts = action.payload
       })
       .addCase(fetchContactsThunk.pending, (state) => {
         state.status = 'pending'
@@ -28,7 +28,7 @@ export const contactSlice = createSlice({
 
       .addCase(fetchContactByIdThunk.fulfilled, (state, action: PayloadAction<ContactInterface>) => {
         state.status = 'fulfilled'
-        state.contact = action.payload;
+        state.contact = action.payload
       })
       .addCase(fetchContactByIdThunk.pending, (state) => {
         state.status = 'pending'
@@ -40,7 +40,7 @@ export const contactSlice = createSlice({
 
       .addCase(addContactThunk.fulfilled, (state, action: PayloadAction<ContactInterface>) => {
         state.status = 'fulfilled'
-        state.contacts.push(action.payload);
+        state.contacts.push(action.payload)
       })
       .addCase(addContactThunk.pending, (state) => {
         state.status = 'pending'
@@ -52,7 +52,7 @@ export const contactSlice = createSlice({
 
       .addCase(updateContactThunk.fulfilled, (state, action: PayloadAction<ContactInterface>) => {
         state.status = 'fulfilled'
-        const index = state.contacts.findIndex(contact => contact.id === action.payload.id);
+        const index = state.contacts.findIndex(contact => contact.id === action.payload.id)
         if (index !== -1) {
           state.contacts[index] = action.payload
         }
@@ -65,9 +65,9 @@ export const contactSlice = createSlice({
         state.error = action.error.message || 'Error'
       })
 
-      .addCase(deleteContactThunk.fulfilled, (state, action: PayloadAction<number>) => {
+      .addCase(deleteContactThunk.fulfilled, (state, action: PayloadAction<string>) => {
         state.status = 'fulfilled'
-        state.contacts = state.contacts.filter(contact => contact.id !== action.payload);
+        state.contacts = state.contacts.filter(contact => contact.id !== action.payload)
       })
       .addCase(deleteContactThunk.pending, (state) => {
         state.status = 'pending'

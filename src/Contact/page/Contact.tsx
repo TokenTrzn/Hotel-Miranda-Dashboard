@@ -30,9 +30,7 @@ export const Contact: React.FC = () => {
     const headers: string[] = ['Date', 'Customer', 'Comment', 'Action']
 
     useEffect(() => {
-
         console.log(contactsData)
-        console.log(contacts)
         if (status === 'idle') {
             dispatch(fetchContactsThunk())
         } else if (status === 'fulfilled') {
@@ -58,7 +56,7 @@ export const Contact: React.FC = () => {
             ...contact,
             isArchived: !contact.isArchived,
         }
-        dispatch(updateContactThunk(updatedContact)).then(() => {
+        dispatch(updateContactThunk({ id: updatedContact.id, updatedContact: updatedContact})).then(() => {
             const updatedContacts = contacts.map((contact) =>
                 contact.id === updatedContact.id ? updatedContact : contact
             )
