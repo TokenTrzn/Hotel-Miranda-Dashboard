@@ -7,7 +7,7 @@ export const contactSlice = createSlice({
   name: 'contact',
   initialState: {
     contacts: [] as ContactInterface[],
-    contact: {} as ContactInterface,
+    contact: null,
     status: 'idle',
     error: null,
   } as ContactData,
