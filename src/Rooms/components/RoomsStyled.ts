@@ -150,3 +150,17 @@ export const RoomsItemStatusStyled = styled.div<{ $type: 'Available' | 'Booked'}
     border-radius: .5rem;
     text-align: center;
 `
+
+export const RoomSeeAmenitiesStyled = styled.div`
+    padding: .8rem 1.5rem;
+    cursor: pointer;
+    color: #799283;    
+    font-family: 'Poppins';
+    font-size: 1rem;
+    font-weight: 600;
+    background: #ffffff;
+    border: 1px solid #799283;
+    border-radius: .5rem;
+    text-align: center;
+    width: 60%;
+`

@@ -101,8 +101,7 @@ export const Booking: React.FC = () => {
         pageNumbers.push(i)
     }
 
-
-    const itemRow = (booking: BookingInterface, index) => (
+    const itemRow = (booking: BookingInterface) => (
         <>
             {loading === true ? <></> :
                 <>

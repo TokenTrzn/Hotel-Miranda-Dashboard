@@ -35,7 +35,7 @@ export const Popup = styled.div`
     color: #555;
     line-height: 1.6;
     margin: 1rem 2rem;
-    text-align: justify;
+    text-align: center;
   }
 `
 

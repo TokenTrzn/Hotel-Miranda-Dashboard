@@ -1,4 +1,4 @@
-import { RoomsItemStatusStyled, RoomsMenuItemStyled, RoomsMenuStyled, RoomsStyled } from "../components/RoomsStyled"
+import { RoomSeeAmenitiesStyled, RoomsItemStatusStyled, RoomsMenuItemStyled, RoomsMenuStyled, RoomsStyled } from "../components/RoomsStyled"
 import RoomPhoto from '../../assets/room_photo.jpg'
 import { SlOptionsVertical as OptionsIcon } from "react-icons/sl"
 import { ImageStyled, TableDataHorizontalContainer, TableDataStyled, TableDataVerticalContainer } from "../../common/components/Table/DefaultTableStyled"
@@ -15,8 +15,10 @@ import { RoomInterface } from "../interfaces/RoomInterface"
 import { getAllRooms, getAllRoomsError, getAllRoomsStatus } from "../features/RoomsSlice"
 import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
 import { NoResultPage } from "../../common/components/noResultPage/NoResultPage"
+import { CloseButton, Overlay, Popup } from "../../common/components/PopUp/PopUpStyled"
 
 export const Rooms: React.FC = () => {
+    const [popUpData, setPopUpData] = useState('')
     const dispatch: AppDispatch = useDispatch()
     const navigate = useNavigate()
     const [loading, setLoading] = useState<boolean>(true)
@@ -30,12 +32,8 @@ export const Rooms: React.FC = () => {
 
     const headers: string[] = ['Room Name', 'Room Type', 'Amenities', 'Price', 'Offer Price', 'Status', '']
 
-    const toggleMenuOptions = () => {
-        setShowOptions(!showOptions)
-    }
-
     const handleUpdate = (room: RoomInterface) => {
-        dispatch(updateRoomThunk(room))
+        dispatch(updateRoomThunk(room._id))
     }
 
     useEffect(() => {
@@ -83,11 +81,7 @@ export const Rooms: React.FC = () => {
             </TableDataStyled>
             <TableDataStyled><TablePrimaryText>{room.type}</TablePrimaryText></TableDataStyled>
             <TableDataStyled>
-                {room.amenities.map((amenitie, index) => (
-                    <TablePrimaryText key={index}>
-                        {amenitie}
-                    </TablePrimaryText>
-                ))}
+                <RoomSeeAmenitiesStyled onClick={() => setPopUpData(room.amenities.join('\t-\t'))}>See Amenities</RoomSeeAmenitiesStyled>
             </TableDataStyled>
             <TableDataStyled><TablePrimaryText>{room.price}<span>/Night</span></TablePrimaryText></TableDataStyled>
             <TableDataStyled><TablePrimaryText>{room.offerPrice}<span>/Night</span></TablePrimaryText></TableDataStyled>
@@ -125,6 +119,16 @@ export const Rooms: React.FC = () => {
                     }
                 </RoomsStyled>
             }
+
+            {popUpData && (
+                <Overlay>
+                    <Popup>
+                        <h2>Room Amenities</h2>
+                        <p>{popUpData}</p>
+                        <CloseButton onClick={() => setPopUpData('')}>Close</CloseButton>
+                    </Popup>
+                </Overlay>
+            )}
         </>
     )
 }
