@@ -16,6 +16,7 @@ import { getAllUsers, getAllUsersError, getAllUsersStatus } from "../features/Us
 import { UserInterface } from "../interfaces/UserInterface"
 import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
 import { NoResultPage } from "../../common/components/noResultPage/NoResultPage"
+import { formatDate } from '../../utils/FormatDate'
 
 export const Users: React.FC = () => {
     const dispatch: AppDispatch = useDispatch()
@@ -106,12 +107,12 @@ export const Users: React.FC = () => {
                     <ImageStyled src={UserPhoto} />
                     <TableDataVerticalContainer>
                         <TablePrimaryText>{user.name}</TablePrimaryText>
-                        <TableIdText>#000{user.id}</TableIdText>
+                        <TableIdText>#{user._id}</TableIdText>
                     </TableDataVerticalContainer>
                 </TableDataHorizontalContainer>
             </TableDataStyled>
             <TableDataStyled><TablePrimaryText>{user.email}</TablePrimaryText></TableDataStyled>
-            <TableDataStyled><TablePrimaryText>{user.startDate}</TablePrimaryText></TableDataStyled>
+            <TableDataStyled><TablePrimaryText>{formatDate(user.startDate)}</TablePrimaryText></TableDataStyled>
             <TableDataStyled><TablePrimaryText>{user.description}</TablePrimaryText></TableDataStyled>
             <TableDataStyled>
                 <TableDataHorizontalContainer>

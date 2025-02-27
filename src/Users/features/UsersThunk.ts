@@ -2,55 +2,86 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 import { UserInterface } from '../interfaces/UserInterface'
 
 export const fetchUsersThunk = createAsyncThunk<UserInterface[]>('users/fetchUsers', async () => {
-  const response = await fetch('/data/usersData.json')
-  if (!response.ok) {
-    throw new Error('Error, Users not found')
-  }
-  const data: UserInterface[] = await response.json()
-  return new Promise<UserInterface[]>((resolve) => {
-    setTimeout(() => {
-      resolve(data)
-    }, 200)
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/users`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}`
+    }
   })
+  if (response.ok) {
+    const json = await response.json()
+    return json
+  } else {
+    throw new Error('Error, users Not Found')
+  }
 })
 
 export const fetchUserByIdThunk = createAsyncThunk<UserInterface, number>('users/fetchUserById', async (id: number) => {
-  const response = await fetch('data/usersData.json')
-  if (!response.ok) {
-    throw new Error('Network Error')
-  }
-  const data: UserInterface[] = await response.json()
-  const user = data.find(user => user.id === id)
-  if (!user) {
-    throw new Error('Error, User not found')
-  }
-  return new Promise<UserInterface>((resolve) => {
-    setTimeout(() => {
-      resolve(user)
-    }, 200)
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}`
+    }
   })
+  if (response.ok) {
+    const json = await response.json()
+    return json
+  }
+  else {
+    throw new Error('Error, User Not Found')
+  }
 })
 
 export const addUserThunk = createAsyncThunk<UserInterface, UserInterface>('users/addUser', async (newUser: UserInterface) => {
-  return new Promise<UserInterface>((resolve) => {
-    setTimeout(() => {
-      resolve(newUser)
-    }, 200)
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/users/create`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}`
+    },
+    body: JSON.stringify(newUser)
   })
+  if (response.ok) {
+    const json = await response.json()
+    return json
+  }
+  else {
+    throw new Error('Error, User Not Created')
+  }
 })
 
-export const updateUserThunk = createAsyncThunk<UserInterface, UserInterface>('users/updateUser', async (updatedUser: UserInterface) => {
-  return new Promise<UserInterface>((resolve) => {
-    setTimeout(() => {
-      resolve(updatedUser)
-    }, 200)
+export const updateUserThunk = createAsyncThunk('users/updateUser', async ({ id, updatedUser } : { id: string, updatedUser: UserInterface }) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}`
+    },
+    body: JSON.stringify(updatedUser)
   })
+  if (response.ok) {
+    const json = await response.json()
+    return json
+  }
+  else {
+    throw new Error('Error, User Not Found')
+  }
 })
 
-export const deleteUserThunk = createAsyncThunk<number, number>('users/deleteUser', async (id: number) => {
-  return new Promise<number>((resolve) => {
-    setTimeout(() => {
-      resolve(id)
-    }, 200)
+export const deleteUserThunk = createAsyncThunk('users/deleteUser', async (id: number) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}`
+    }
   })
+  if (response.ok) {
+    return id
+  }
+  else {
+    throw new Error('Error, User Not Found')
+  }
 })

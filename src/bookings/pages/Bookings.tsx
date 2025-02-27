@@ -15,6 +15,7 @@ import { AppDispatch, RootState } from "../../store/store"
 import { BookingInterface } from "../interfaces/BookingInterface"
 import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
 import { NoResultPage } from "../../common/components/noResultPage/NoResultPage"
+import { formatDate } from "../../utils/FormatDate"
 
 export const Booking: React.FC = () => {
     const [popUpData, setPopUpData] = useState('')
@@ -82,7 +83,7 @@ export const Booking: React.FC = () => {
     }
 
     const navigateToBookingDetails = (booking: BookingInterface) => {
-        navigate(`/booking/details/${booking.id}`, {
+        navigate(`/booking/details/${booking._id}`, {
             state: { booking }
         });
     };
@@ -101,23 +102,23 @@ export const Booking: React.FC = () => {
     }
 
 
-    const itemRow = (booking: BookingInterface) => (
+    const itemRow = (booking: BookingInterface, index) => (
         <>
             {loading === true ? <></> :
                 <>
                     <TableDataStyled>
                         <TablePrimaryText>{booking.guestName}</TablePrimaryText>
-                        <TableIdText>#000{booking.id}</TableIdText>
+                        <TableIdText>#{booking._id}</TableIdText>
                     </TableDataStyled>
                     <TableDataStyled>
-                        <TableSecundaryText>{booking.orderDate} {booking.orderDateHour}</TableSecundaryText>
+                        <TableSecundaryText>{formatDate(booking.orderDate)} {booking.orderDateHour}</TableSecundaryText>
                     </TableDataStyled>
                     <TableDataStyled>
-                        <TablePrimaryText>{booking.checkIn}</TablePrimaryText>
+                        <TablePrimaryText>{formatDate(booking.checkIn)}</TablePrimaryText>
                         <TableSecundaryTextSmall>{booking.checkInHour}</TableSecundaryTextSmall>
                     </TableDataStyled>
                     <TableDataStyled>
-                        <TablePrimaryText>{booking.checkOut}</TablePrimaryText>
+                        <TablePrimaryText>{formatDate(booking.checkOut)}</TablePrimaryText>
                         <TableSecundaryTextSmall>{booking.checkOutHour}</TableSecundaryTextSmall>
                     </TableDataStyled>
                     <TableDataStyled>

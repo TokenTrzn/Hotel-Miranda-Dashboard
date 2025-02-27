@@ -1,56 +1,87 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { RoomInterface } from "../interfaces/RoomInterface";
+import { RoomInterface } from "../interfaces/RoomInterface"
 
-export const fetchRoomsThunk = createAsyncThunk<RoomInterface[]>('rooms/fetchRooms', async () => {
-  const response = await fetch('/data/roomsData.json')
-  if (!response.ok) {
-    throw new Error('Error, Rooms not found')
+export const fetchRoomsThunk = createAsyncThunk('rooms/fetchRooms', async () => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}`
+    }
+  })
+  if (response.ok) {
+    const json = await response.json()
+    return json
+  } else {
+    throw new Error('Error, Rooms Not Found')
   }
-  const data: RoomInterface[] = await response.json()
-  return new Promise<RoomInterface[]>((resolve) => {
-    setTimeout(() => {
-      resolve(data);
-    }, 200);
-  });
-});
+})
 
-export const fetchRoomByIdThunk = createAsyncThunk<RoomInterface, number>('rooms/fetchRoomById', async (id: number) => {
-  const response = await fetch('/data/roomsData.json')
-  if (!response.ok) {
-    throw new Error('Network Error')
+export const fetchRoomByIdThunk = createAsyncThunk('rooms/fetchRoomById', async (id: number) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}`
+    }
+  })
+  if (response.ok) {
+    const json = await response.json()
+    return json
   }
-  const data: RoomInterface[] = await response.json()
-  const room = data.find(room => room.id === id)
-  if (!room) {
-    throw new Error('Error, Room not found')
+  else {
+    throw new Error('Error, Room Not Found')
   }
-  return new Promise<RoomInterface>((resolve) => {
-    setTimeout(() => {
-      resolve(room);
-    }, 200);
-  });
-});
+})
 
-export const addRoomThunk = createAsyncThunk<RoomInterface, RoomInterface>('rooms/addRoom', async (newRoom: RoomInterface) => {
-  return new Promise<RoomInterface>((resolve) => {
-    setTimeout(() => {
-      resolve(newRoom);
-    }, 200);
-  });
-});
+export const addRoomThunk = createAsyncThunk('rooms/addRoom', async (newRoom: RoomInterface) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/create`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}`
+    },
+    body: JSON.stringify(newRoom)
+  })
+  if (response.ok) {
+    const json = await response.json()
+    return json
+  }
+  else {
+    throw new Error('Error, Room Not Created')
+  }
+})
 
-export const updateRoomThunk = createAsyncThunk<RoomInterface, RoomInterface>('rooms/updateRoom', async (updatedRoom: RoomInterface) => {
-  return new Promise<RoomInterface>((resolve) => {
-    setTimeout(() => {
-      resolve(updatedRoom);
-    }, 200);
-  });
-});
+export const updateRoomThunk = createAsyncThunk('rooms/updateRoom', async ({ id, updatedRoom } : { id: string, updatedRoom: RoomInterface }) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}`
+    },
+    body: JSON.stringify(updatedRoom)
+  })
+  if (response.ok) {
+    const json = await response.json()
+    return json
+  }
+  else {
+    throw new Error('Error, Room Not Found')
+  }
+})
 
-export const deleteRoomThunk = createAsyncThunk<number, number>('rooms/deleteRoom', async (id: number) => {
-  return new Promise<number>((resolve) => {
-    setTimeout(() => {
-      resolve(id);
-    }, 200);
-  });
-});
+export const deleteRoomThunk = createAsyncThunk('rooms/deleteRoom', async (id: number) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}`
+    }
+  })
+  if (response.ok) {
+    return id
+  }
+  else {
+    throw new Error('Error, Room Not Found')
+  }
+})

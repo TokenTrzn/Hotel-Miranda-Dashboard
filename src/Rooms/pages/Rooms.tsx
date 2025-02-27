@@ -52,7 +52,7 @@ export const Rooms: React.FC = () => {
     const handleNewUserClick = (): void => navigate('/new-room')
 
     const navigateToRoomDetails = (room: RoomInterface) => {
-        navigate(`/rooms/details/${room.id}`, {
+        navigate(`/rooms/details/${room._id}`, {
             state: { room }
         });
     };
@@ -76,7 +76,7 @@ export const Rooms: React.FC = () => {
                 <TableDataHorizontalContainer>
                     <ImageStyled src={RoomPhoto} />
                     <TableDataVerticalContainer>
-                        <TableIdText> #000{room.id}</TableIdText>
+                        <TableIdText> #{room._id}</TableIdText>
                         <TablePrimaryText>{room.name} - {room.number}</TablePrimaryText>
                     </TableDataVerticalContainer>
                 </TableDataHorizontalContainer>

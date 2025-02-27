@@ -14,6 +14,7 @@ import { ContactInterface } from "../interfaces/ContactInterface"
 import { getAllContacts, getAllContactsError, getAllContactsStatus } from "../features/ContactSlice"
 import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
 import { NoResultPage } from "../../common/components/noResultPage/NoResultPage"
+import { formatDate } from '../../utils/FormatDate'
 
 export const Contact: React.FC = () => {
     const dispatch: AppDispatch = useDispatch()
@@ -82,7 +83,7 @@ export const Contact: React.FC = () => {
             <TableDataStyled>
                 <TableIdText>#{contact._id}</TableIdText>
                 <TableDataHorizontalContainer>
-                    <TableSecundaryText>{contact.date} {contact.hour}</TableSecundaryText>
+                    <TableSecundaryText>{formatDate(contact.date)} {contact.hour}</TableSecundaryText>
 
                 </TableDataHorizontalContainer>
             </TableDataStyled>
