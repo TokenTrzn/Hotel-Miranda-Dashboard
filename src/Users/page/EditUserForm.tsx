@@ -2,10 +2,11 @@ import { useNavigate, useParams } from "react-router-dom"
 import { BackButton, FormContainer, FormButton, FormField, FormLabel, FormPhotoInput, FormStatus, FormTextarea, FormTitle, FormInput } from "../components/NewUserFormStyled"
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchUserByIdThunk, updateUserThunk } from "../features/UsersThunk"
+import { fetchUserByIdThunk, fetchUsersThunk, updateUserThunk } from "../features/UsersThunk"
 import { UserInterface } from "../interfaces/UserInterface"
 import { AppDispatch } from "../../store/store"
 import { getUserById, getUserByIdStatus } from "../features/UsersSlice"
+import { formatDate } from '../../utils/FormatDate'
 
 export const EditUserForm: React.FC = () => {
   const navigate = useNavigate()
@@ -14,28 +15,17 @@ export const EditUserForm: React.FC = () => {
   const idParams = id!
   const user = useSelector(getUserById)
   const userStatus = useSelector(getUserByIdStatus)
-  const [formData, setFormData] = useState<UserInterface>({
-    _id: '0',
-    photo: '',
-    name: '',
-    email: '',
-    startDate: '',
-    description: '',
-    contact: '',
-    status: 'INACTIVE',
-    password: ''
-  })
+  const [formData, setFormData] = useState<UserInterface | null>(null)
 
   useEffect(() => {
     if (userStatus === 'idle') {
       dispatch(fetchUserByIdThunk(idParams))
-    } else if (userStatus === 'fulfilled' && user && user._id === idParams) {
+    } else if (userStatus === 'fulfilled' && user) {
       setFormData({
-        _id: user._id,
-        photo: user.photo,
+        photo: user.photo || 'http://photo.png',
         name: user.name,
         email: user.email,
-        startDate: user.startDate,
+        startDate: formatDate(user.startDate),
         description: user.description,
         contact: user.contact,
         status: user.status,
@@ -46,25 +36,35 @@ export const EditUserForm: React.FC = () => {
     }
   }, [userStatus, user, idParams, dispatch])
 
+  if (!formData) return <p>Cargando usuario...</p>; // 🔹 Evita renderizar el formulario vacío
+
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLInputElement>) => {
     const { name, value } = event.target
-    setFormData({ ...formData, [name]: value })
+    setFormData((prev) => prev ? { ...prev, [name]: value } : null);
   }
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleBack = () => {
+    dispatch(fetchUsersThunk())
+    navigate('/users')
+  }
+
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    dispatch(updateUserThunk({ id: formData._id.toString(), updatedUser: formData }))
-    navigate('../')
+
+    try {
+      await dispatch(updateUserThunk({ id: formData._id, updatedUser: formData })).unwrap()
+      navigate('/users')
+      dispatch(fetchUsersThunk())
+    } catch (error) {
+      console.log('Error: ' + error.message)
+    }
   }
 
   return (
     <>
       <FormContainer onSubmit={handleSubmit}>
         <FormTitle>Update User</FormTitle>
-        <FormField>
-          <FormLabel>Photo</FormLabel>
-          <FormPhotoInput type="file" name="profilePhoto" />
-        </FormField>
         <FormField>
           <FormLabel>Full Name</FormLabel>
           <FormInput type="text" name="name" value={formData.name} onChange={handleInputChange} required />
@@ -83,11 +83,7 @@ export const EditUserForm: React.FC = () => {
         </FormField>
         <FormField>
           <FormLabel>Start Date</FormLabel>
-          <FormInput type="date" name="startDate" value={formData.startDate} onChange={handleInputChange} required />
-        </FormField>
-        <FormField>
-          <FormLabel>Descripción de funciones</FormLabel>
-          <FormInput type="text" name="description" value={formData.description} onChange={handleInputChange} required />
+          <FormInput type="date" name="startDate" value={formatDate(formData.startDate)} onChange={handleInputChange} required />
         </FormField>
         <FormField>
           <FormLabel>Estado</FormLabel>
@@ -107,7 +103,7 @@ export const EditUserForm: React.FC = () => {
           <FormInput type="password" name="password" value={formData.password} onChange={handleInputChange} required />
         </FormField>
         <FormButton type="submit">Guardar</FormButton>
-        <BackButton type="button" onClick={() => navigate(-1)}>Volver</BackButton>
+        <BackButton type="button" onClick={() => handleBack()}>Volver</BackButton>
       </FormContainer>
     </>
   )

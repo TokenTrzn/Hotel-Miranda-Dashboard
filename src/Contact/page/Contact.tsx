@@ -168,7 +168,7 @@ export const Contact: React.FC = () => {
                     >Archived</ContactMenuItemStyled>
                 </ContactMenuStyled>
                 <DefaultTable headers={headers} data={currentContacts} itemRow={itemRow} />
-                {currentContacts.length > 1
+                {currentContacts.length > 0
                     ? <PaginationContainer>
                         {pageNumbers.map(number => (
                             <PaginationButton

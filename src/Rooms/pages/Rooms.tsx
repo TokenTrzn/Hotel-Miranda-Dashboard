@@ -105,7 +105,7 @@ export const Rooms: React.FC = () => {
                 <DefaultCreateButton onClick={handleNewUserClick} />
             </RoomsMenuStyled>
             <DefaultTable headers={headers} data={currentRooms} itemRow={itemRow} />
-            {currentRooms.length > 1
+            {currentRooms.length > 0
                 ? <PaginationContainer>
                     {pageNumbers.map(number => (
                         <PaginationButton

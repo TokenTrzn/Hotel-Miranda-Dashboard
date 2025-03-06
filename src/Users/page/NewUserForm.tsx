@@ -104,10 +104,6 @@ export const NewUserForm: React.FC = () => {
           <FormInput type="date" name="startDate" onChange={handleDateChange} required />
         </FormField>
         <FormField>
-          <FormLabel>Descripción de funciones</FormLabel>
-          <FormInput type="text" name="description" value={newUser.description} onChange={handleInputChange} required />
-        </FormField>
-        <FormField>
           <FormLabel>Estado</FormLabel>
           <FormStatus>
             <label>

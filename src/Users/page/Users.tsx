@@ -9,7 +9,7 @@ import { TableIdText, TablePrimaryText } from "../../common/components/Text/Text
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import React, { useEffect, useState } from "react"
-import { fetchUsersThunk } from "../features/UsersThunk"
+import { deleteUserThunk, fetchUserByIdThunk, fetchUsersThunk } from "../features/UsersThunk"
 import { DefaultCreateButton } from "../../common/components/defaultCreateButton/DefaultCreateButton"
 import { AppDispatch, RootState } from "../../store/store"
 import { getAllUsers, getAllUsersError, getAllUsersStatus } from "../features/UsersSlice"
@@ -50,10 +50,19 @@ export const Users: React.FC = () => {
         navigate('/new-user')
     }
 
+    const handleDetailsUserClick = (user: UserInterface) => {
+        dispatch(fetchUserByIdThunk(user._id))
+        navigate(`/users/details/${user._id}`)
+    }
+
     const handleEditUserClick = (user: UserInterface) => {
-        navigate(`users/edit/${user._id}`, {
-            state: { user }
-        })
+        dispatch(fetchUserByIdThunk(user._id))
+        navigate(`/users/edit/${user._id}`)
+    }
+
+    const handleDeleteUserClick = (userId: string) => {
+        dispatch(deleteUserThunk(userId))
+        setCurrentPage(1)
     }
 
     const handleFilterByStatus = (status: string) => {
@@ -139,9 +148,9 @@ export const Users: React.FC = () => {
                 <OptionsIcon onClick={toggleShowOptions} />
                 {showOptions ? 
                     <OptionsContainerStyled>
-                        <ButtonOption onClick={() => navigate(`details/${user._id}`)}>Details</ButtonOption>
-                        <ButtonOption onClick={() => navigate(`edit/${user._id}`)}>Update</ButtonOption>
-                        <ButtonOption>Delete</ButtonOption>
+                        <ButtonOption onClick={() => handleDetailsUserClick(user)}>Details</ButtonOption>
+                        <ButtonOption onClick={() => handleEditUserClick(user)}>Update</ButtonOption>
+                        <ButtonOption onClick={() => handleDeleteUserClick(user._id)} >Delete</ButtonOption>
                     </OptionsContainerStyled> : <></>}
             </TableDataStyled>
         </>
@@ -176,7 +185,7 @@ export const Users: React.FC = () => {
                         <DefaultCreateButton onClick={handleNewUserClick} />
                     </UsersMenuStyled>
                     <DefaultTable headers={headers} data={currentUsers} itemRow={itemRow} />
-                    {currentUsers.length > 1
+                    {currentUsers.length > 0
                         ? <PaginationContainer>
                             {pageNumbers.map(number => (
                                 <PaginationButton

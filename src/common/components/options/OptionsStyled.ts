@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const OptionsContainerStyled = styled.div`
     z-index: 1;
-    position: absolute;
+    position: relative;
     display: flex;
     top: 50%;
     left: 93%;

@@ -18,42 +18,52 @@ export const usersSlice = createSlice({
         builder
             .addCase(fetchUsersThunk.fulfilled, (state, action: PayloadAction<UserInterface[]>) => {
                 state.status = 'fulfilled'
+                state.userStatus = 'fulfilled'
                 state.users = action.payload
             })
             .addCase(fetchUsersThunk.pending, (state) => {
                 state.status = 'pending'
+                state.userStatus = 'pending'
             })
             .addCase(fetchUsersThunk.rejected, (state, action) => {
                 state.status = 'rejected'
+                state.userStatus = 'rejected'
                 state.error = action.error.message || 'Error'
             })
 
             .addCase(fetchUserByIdThunk.fulfilled, (state, action: PayloadAction<UserInterface>) => {
                 state.status = 'fulfilled'
+                state.userStatus = 'fulfilled'
                 state.user = action.payload
             })
             .addCase(fetchUserByIdThunk.pending, (state) => {
                 state.status = 'pending'
+                state.userStatus = 'pending'
             })
             .addCase(fetchUserByIdThunk.rejected, (state, action) => {
                 state.status = 'rejected'
+                state.userStatus = 'rejected'
                 state.error = action.error.message || 'Error'
             })
 
             .addCase(addUserThunk.fulfilled, (state, action: PayloadAction<UserInterface>) => {
                 state.status = 'fulfilled'
+                state.userStatus = 'fulfilled'
                 state.users.push(action.payload)
             })
             .addCase(addUserThunk.pending, (state) => {
                 state.status = 'pending'
+                state.userStatus = 'pending'
             })
             .addCase(addUserThunk.rejected, (state, action) => {
                 state.status = 'rejected'
+                state.userStatus = 'rejected'
                 state.error = action.error.message || 'Error'
             })
 
             .addCase(updateUserThunk.fulfilled, (state, action: PayloadAction<UserInterface>) => {
                 state.status = 'fulfilled'
+                state.userStatus = 'fulfilled'
                 const index = state.users.findIndex(user => user._id === action.payload._id)
                 if (index !== -1) {
                     state.users[index] = action.payload
@@ -61,21 +71,26 @@ export const usersSlice = createSlice({
             })
             .addCase(updateUserThunk.pending, (state) => {
                 state.status = 'pending'
+                state.userStatus = 'pending'
             })
             .addCase(updateUserThunk.rejected, (state, action) => {
                 state.status = 'rejected'
+                state.userStatus = 'rejected'
                 state.error = action.error.message || 'Error'
             })
 
             .addCase(deleteUserThunk.fulfilled, (state, action: PayloadAction<string>) => {
                 state.status = 'fulfilled'
+                state.userStatus = 'fulfilled'
                 state.users = state.users.filter(user => user._id !== action.payload)
             })
             .addCase(deleteUserThunk.pending, (state) => {
                 state.status = 'pending'
+                state.userStatus = 'pending'
             })
             .addCase(deleteUserThunk.rejected, (state, action) => {
                 state.status = 'rejected'
+                state.userStatus = 'rejected'
                 state.error = action.error.message || 'Error'
             })
     }
