@@ -44,7 +44,7 @@ export const Users: React.FC = () => {
         } else if (status === 'pending') {
             setLoading(true)
         }
-    }, [dispatch, status, users, usersData, loading, navigate])
+    }, [dispatch, status, usersData, navigate])
 
     const handleNewUserClick = (): void => {
         navigate('/new-user')
