@@ -70,54 +70,54 @@ export const Rooms: React.FC = () => {
 
     const itemRow = (room: RoomInterface) => (
         <>
-            <TableDataStyled>
-                <TableDataHorizontalContainer>
-                    <ImageStyled src={RoomPhoto} />
-                    <TableDataVerticalContainer>
-                        <TableIdText> #{room._id}</TableIdText>
-                        <TablePrimaryText>{room.name} - {room.number}</TablePrimaryText>
-                    </TableDataVerticalContainer>
-                </TableDataHorizontalContainer>
-            </TableDataStyled>
-            <TableDataStyled><TablePrimaryText>{room.type}</TablePrimaryText></TableDataStyled>
-            <TableDataStyled>
-                <RoomSeeAmenitiesStyled onClick={() => setPopUpData(room.amenities.join('\t-\t'))}>See Amenities</RoomSeeAmenitiesStyled>
-            </TableDataStyled>
-            <TableDataStyled><TablePrimaryText>{room.price}<span>/Night</span></TablePrimaryText></TableDataStyled>
-            <TableDataStyled><TablePrimaryText>{room.offerPrice}<span>/Night</span></TablePrimaryText></TableDataStyled>
-            <TableDataStyled>
-                <RoomsItemStatusStyled $type={room.status}>{room.status}</RoomsItemStatusStyled>
-            </TableDataStyled>
-            <TableDataStyled>
-                <OptionsIcon onClick={() => navigateToRoomDetails(room)} />
-            </TableDataStyled>
+            {loading === true ? <></> :
+                <>
+                    <TableDataStyled>
+                        <TableDataHorizontalContainer>
+                            <ImageStyled src={RoomPhoto} />
+                            <TableDataVerticalContainer>
+                                <TableIdText> #{room._id}</TableIdText>
+                                <TablePrimaryText>{room.name} - {room.number}</TablePrimaryText>
+                            </TableDataVerticalContainer>
+                        </TableDataHorizontalContainer>
+                    </TableDataStyled>
+                    <TableDataStyled><TablePrimaryText>{room.type}</TablePrimaryText></TableDataStyled>
+                    <TableDataStyled>
+                        <RoomSeeAmenitiesStyled onClick={() => setPopUpData(room.amenities.join('\t-\t'))}>See Amenities</RoomSeeAmenitiesStyled>
+                    </TableDataStyled>
+                    <TableDataStyled><TablePrimaryText>{room.price}<span>/Night</span></TablePrimaryText></TableDataStyled>
+                    <TableDataStyled><TablePrimaryText>{room.offerPrice}<span>/Night</span></TablePrimaryText></TableDataStyled>
+                    <TableDataStyled>
+                        <RoomsItemStatusStyled $type={room.status}>{room.status}</RoomsItemStatusStyled>
+                    </TableDataStyled>
+                    <TableDataStyled>
+                        <OptionsIcon onClick={() => navigateToRoomDetails(room)} />
+                    </TableDataStyled>
+                </>
+            }
         </>
     )
 
     return (
-        <>
-            {loading === true ? <></> :
-                <RoomsStyled>
-                    <RoomsMenuStyled>
-                        <RoomsMenuItemStyled>All Rooms</RoomsMenuItemStyled>
-                        <DefaultCreateButton onClick={handleNewUserClick} />
-                    </RoomsMenuStyled>
-                    <DefaultTable headers={headers} data={currentRooms} itemRow={itemRow} />
-                    {currentRooms.length >= 1
-                        ? <PaginationContainer>
-                            {pageNumbers.map(number => (
-                                <PaginationButton
-                                    key={number}
-                                    onClick={() => paginate(number)}
-                                    $selected={currentPage === number}
-                                >
-                                    {number}
-                                </PaginationButton>
-                            ))}
-                        </PaginationContainer>
-                        : <NoResultPage />
-                    }
-                </RoomsStyled>
+        <RoomsStyled>
+            <RoomsMenuStyled>
+                <RoomsMenuItemStyled>All Rooms</RoomsMenuItemStyled>
+                <DefaultCreateButton onClick={handleNewUserClick} />
+            </RoomsMenuStyled>
+            <DefaultTable headers={headers} data={currentRooms} itemRow={itemRow} />
+            {currentRooms.length > 1
+                ? <PaginationContainer>
+                    {pageNumbers.map(number => (
+                        <PaginationButton
+                            key={number}
+                            onClick={() => paginate(number)}
+                            $selected={currentPage === number}
+                        >
+                            {number}
+                        </PaginationButton>
+                    ))}
+                </PaginationContainer>
+                : <NoResultPage />
             }
 
             {popUpData && (
@@ -129,6 +129,6 @@ export const Rooms: React.FC = () => {
                     </Popup>
                 </Overlay>
             )}
-        </>
+        </RoomsStyled>
     )
 }

@@ -17,6 +17,7 @@ import { UserInterface } from "../interfaces/UserInterface"
 import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
 import { NoResultPage } from "../../common/components/noResultPage/NoResultPage"
 import { formatDate } from '../../utils/FormatDate'
+import { ButtonOption, OptionsContainerStyled } from "../../common/components/options/OptionsStyled"
 
 export const Users: React.FC = () => {
     const dispatch: AppDispatch = useDispatch()
@@ -28,6 +29,7 @@ export const Users: React.FC = () => {
     const [searchInput, setSearchInput] = useState<string>('')
     const [currentPage, setCurrentPage] = useState<number>(1)
     const usersPerPage = 10
+    const [showOptions, setShowOptions] = useState<boolean>(false)
     const status = useSelector<RootState, string>(getAllUsersStatus)
     const error = useSelector<RootState, string | null>(getAllUsersError)
 
@@ -42,10 +44,16 @@ export const Users: React.FC = () => {
         } else if (status === 'pending') {
             setLoading(true)
         }
-    }, [dispatch, status, usersData])
+    }, [dispatch, status, users, usersData, loading, navigate])
 
     const handleNewUserClick = (): void => {
         navigate('/new-user')
+    }
+
+    const handleEditUserClick = (user: UserInterface) => {
+        navigate(`users/edit/${user._id}`, {
+            state: { user }
+        })
     }
 
     const handleFilterByStatus = (status: string) => {
@@ -100,6 +108,10 @@ export const Users: React.FC = () => {
         pageNumbers.push(i)
     }
 
+    const toggleShowOptions = () => {
+        setShowOptions(!showOptions)
+    }
+
     const itemRow = (user: UserInterface) => (
         <>
             <TableDataStyled>
@@ -124,7 +136,13 @@ export const Users: React.FC = () => {
                 <UsersItemStatusStyled $status={user.status}>{user.status}</UsersItemStatusStyled>
             </TableDataStyled>
             <TableDataStyled>
-                <OptionsIcon />
+                <OptionsIcon onClick={toggleShowOptions} />
+                {showOptions ? 
+                    <OptionsContainerStyled>
+                        <ButtonOption onClick={() => navigate(`details/${user._id}`)}>Details</ButtonOption>
+                        <ButtonOption onClick={() => navigate(`edit/${user._id}`)}>Update</ButtonOption>
+                        <ButtonOption>Delete</ButtonOption>
+                    </OptionsContainerStyled> : <></>}
             </TableDataStyled>
         </>
     )
@@ -158,7 +176,7 @@ export const Users: React.FC = () => {
                         <DefaultCreateButton onClick={handleNewUserClick} />
                     </UsersMenuStyled>
                     <DefaultTable headers={headers} data={currentUsers} itemRow={itemRow} />
-                    {currentUsers.length >= 1
+                    {currentUsers.length > 1
                         ? <PaginationContainer>
                             {pageNumbers.map(number => (
                                 <PaginationButton

@@ -15,6 +15,8 @@ import { Provider } from 'react-redux'
 import { store } from './store/store'
 import { NewUserForm } from './users/page/NewUserForm'
 import { RoomDetails } from './Rooms/pages/RoomDetails'
+import { EditUserForm } from './Users/page/EditUserForm'
+import { UserDetails } from './Users/page/UserDetails'
 
 function App() {
 
@@ -34,6 +36,8 @@ function App() {
                 <Route path='/new-room' element={<PrivateRoute element={<NewRoomForm />} />} />
                 <Route path='/contact' element={<PrivateRoute element={<Contact />} />} />
                 <Route path='/users' element={<PrivateRoute element={<Users />} />} />
+                <Route path='/users/details/:id' element={<PrivateRoute element={<UserDetails />} />} />
+                <Route path='/users/edit/:id' element={<PrivateRoute element={<EditUserForm />} />} />
                 <Route path='/new-user' element={<PrivateRoute element={<NewUserForm />} />} />
               </Route>
             </Routes>

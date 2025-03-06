@@ -10,6 +10,7 @@ export const usersSlice = createSlice({
         users: [],
         user: null,
         status: 'idle',
+        userStatus: 'idle',
         error: null,
     } as UserData,
     reducers: {},
@@ -53,7 +54,7 @@ export const usersSlice = createSlice({
 
             .addCase(updateUserThunk.fulfilled, (state, action: PayloadAction<UserInterface>) => {
                 state.status = 'fulfilled'
-                const index = state.users.findIndex(user => user.id === action.payload.id)
+                const index = state.users.findIndex(user => user._id === action.payload._id)
                 if (index !== -1) {
                     state.users[index] = action.payload
                 }
@@ -66,9 +67,9 @@ export const usersSlice = createSlice({
                 state.error = action.error.message || 'Error'
             })
 
-            .addCase(deleteUserThunk.fulfilled, (state, action: PayloadAction<number>) => {
+            .addCase(deleteUserThunk.fulfilled, (state, action: PayloadAction<string>) => {
                 state.status = 'fulfilled'
-                state.users = state.users.filter(user => user.id !== action.payload)
+                state.users = state.users.filter(user => user._id !== action.payload)
             })
             .addCase(deleteUserThunk.pending, (state) => {
                 state.status = 'pending'
@@ -81,5 +82,7 @@ export const usersSlice = createSlice({
 })
 
 export const getAllUsers = (state: RootState): UserInterface[] => state.users.users
+export const getUserById = (state: RootState): UserInterface | null => state.users.user
 export const getAllUsersStatus = (state: RootState) => state.users.status
+export const getUserByIdStatus = (state: RootState) => state.users.userStatus
 export const getAllUsersError = (state: RootState) => state.users.error

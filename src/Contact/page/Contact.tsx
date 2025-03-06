@@ -57,7 +57,7 @@ export const Contact: React.FC = () => {
             ...contact,
             isArchived: !contact.isArchived,
         }
-        dispatch(updateContactThunk({ id: updatedContact.id, updatedContact: updatedContact})).then(() => {
+        dispatch(updateContactThunk({ id: updatedContact.id, updatedContact: updatedContact })).then(() => {
             const updatedContacts = contacts.map((contact) =>
                 contact.id === updatedContact.id ? updatedContact : contact
             )
@@ -105,88 +105,84 @@ export const Contact: React.FC = () => {
     )
 
     return (
-        <>
-            {loading === true ? <></> :
-                <ContactStyled>
-                    <ContactKPIContainer>
-                        <ContactKPIStyled>
-                            <ContactKPIInfoStyled>
-                                <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
-                            </ContactKPIInfoStyled>
-                            <ContactKPIProfileRowStyled>
-                                <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
-                                <ContactKPIProfileInfoStyled>
-                                    <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
-                                    <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
-                                </ContactKPIProfileInfoStyled>
-                                <ContactKPIIconsStyled>
-                                    <ContactKPIIconItemStyled src={OkIcon} />
-                                    <ContactKPIIconItemStyled src={DeleteIcon} />
-                                </ContactKPIIconsStyled>
-                            </ContactKPIProfileRowStyled>
-                        </ContactKPIStyled>
-                        <ContactKPIStyled>
-                            <ContactKPIInfoStyled>
-                                <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
-                            </ContactKPIInfoStyled>
-                            <ContactKPIProfileRowStyled>
-                                <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
-                                <ContactKPIProfileInfoStyled>
-                                    <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
-                                    <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
-                                </ContactKPIProfileInfoStyled>
-                                <ContactKPIIconsStyled>
-                                    <ContactKPIIconItemStyled src={OkIcon} />
-                                    <ContactKPIIconItemStyled src={DeleteIcon} />
-                                </ContactKPIIconsStyled>
-                            </ContactKPIProfileRowStyled>
-                        </ContactKPIStyled>
-                        <ContactKPIStyled>
-                            <ContactKPIInfoStyled>
-                                <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
-                            </ContactKPIInfoStyled>
-                            <ContactKPIProfileRowStyled>
-                                <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
-                                <ContactKPIProfileInfoStyled>
-                                    <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
-                                    <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
-                                </ContactKPIProfileInfoStyled>
-                                <ContactKPIIconsStyled>
-                                    <ContactKPIIconItemStyled src={OkIcon} />
-                                    <ContactKPIIconItemStyled src={DeleteIcon} />
-                                </ContactKPIIconsStyled>
-                            </ContactKPIProfileRowStyled>
-                        </ContactKPIStyled>
-                    </ContactKPIContainer>
-                    <ContactListContainerStyled>
-                        <ContactMenuStyled>
-                            <ContactMenuItemStyled
-                                onClick={() => handleFilterByArchived(true)}
-                                className={selectedIsArchived === true ? 'active' : ''}
-                            >All Contacts</ContactMenuItemStyled>
-                            <ContactMenuItemStyled
-                                onClick={() => handleFilterByArchived(false)}
-                                className={selectedIsArchived === false ? 'active' : ''}
-                            >Archived</ContactMenuItemStyled>
-                        </ContactMenuStyled>
-                        <DefaultTable headers={headers} data={currentContacts} itemRow={itemRow} />
-                        {currentContacts.length >= 1
-                            ? <PaginationContainer>
-                                {pageNumbers.map(number => (
-                                    <PaginationButton
-                                        key={number}
-                                        onClick={() => paginate(number)}
-                                        $selected={currentPage === number}
-                                    >
-                                        {number}
-                                    </PaginationButton>
-                                ))}
-                            </PaginationContainer>
-                            : <NoResultPage />
-                        }
-                    </ContactListContainerStyled>
-                </ContactStyled>
-            }
-        </>
+        <ContactStyled>
+            <ContactKPIContainer>
+                <ContactKPIStyled>
+                    <ContactKPIInfoStyled>
+                        <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
+                    </ContactKPIInfoStyled>
+                    <ContactKPIProfileRowStyled>
+                        <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
+                        <ContactKPIProfileInfoStyled>
+                            <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
+                            <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
+                        </ContactKPIProfileInfoStyled>
+                        <ContactKPIIconsStyled>
+                            <ContactKPIIconItemStyled src={OkIcon} />
+                            <ContactKPIIconItemStyled src={DeleteIcon} />
+                        </ContactKPIIconsStyled>
+                    </ContactKPIProfileRowStyled>
+                </ContactKPIStyled>
+                <ContactKPIStyled>
+                    <ContactKPIInfoStyled>
+                        <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
+                    </ContactKPIInfoStyled>
+                    <ContactKPIProfileRowStyled>
+                        <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
+                        <ContactKPIProfileInfoStyled>
+                            <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
+                            <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
+                        </ContactKPIProfileInfoStyled>
+                        <ContactKPIIconsStyled>
+                            <ContactKPIIconItemStyled src={OkIcon} />
+                            <ContactKPIIconItemStyled src={DeleteIcon} />
+                        </ContactKPIIconsStyled>
+                    </ContactKPIProfileRowStyled>
+                </ContactKPIStyled>
+                <ContactKPIStyled>
+                    <ContactKPIInfoStyled>
+                        <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
+                    </ContactKPIInfoStyled>
+                    <ContactKPIProfileRowStyled>
+                        <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
+                        <ContactKPIProfileInfoStyled>
+                            <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
+                            <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
+                        </ContactKPIProfileInfoStyled>
+                        <ContactKPIIconsStyled>
+                            <ContactKPIIconItemStyled src={OkIcon} />
+                            <ContactKPIIconItemStyled src={DeleteIcon} />
+                        </ContactKPIIconsStyled>
+                    </ContactKPIProfileRowStyled>
+                </ContactKPIStyled>
+            </ContactKPIContainer>
+            <ContactListContainerStyled>
+                <ContactMenuStyled>
+                    <ContactMenuItemStyled
+                        onClick={() => handleFilterByArchived(true)}
+                        className={selectedIsArchived === true ? 'active' : ''}
+                    >All Contacts</ContactMenuItemStyled>
+                    <ContactMenuItemStyled
+                        onClick={() => handleFilterByArchived(false)}
+                        className={selectedIsArchived === false ? 'active' : ''}
+                    >Archived</ContactMenuItemStyled>
+                </ContactMenuStyled>
+                <DefaultTable headers={headers} data={currentContacts} itemRow={itemRow} />
+                {currentContacts.length > 1
+                    ? <PaginationContainer>
+                        {pageNumbers.map(number => (
+                            <PaginationButton
+                                key={number}
+                                onClick={() => paginate(number)}
+                                $selected={currentPage === number}
+                            >
+                                {number}
+                            </PaginationButton>
+                        ))}
+                    </PaginationContainer>
+                    : <NoResultPage />
+                }
+            </ContactListContainerStyled>
+        </ContactStyled>
     )
 }

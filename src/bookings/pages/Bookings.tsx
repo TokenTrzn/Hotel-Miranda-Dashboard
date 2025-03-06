@@ -173,7 +173,7 @@ export const Booking: React.FC = () => {
                 </BookingMenuSortBy>
             </BookingMenuStyled>
             <DefaultTable headers={headers} data={currentBookings} itemRow={itemRow} />
-            {currentBookings.length >= 1
+            {currentBookings.length > 1
                 ? <PaginationContainer>
                     {pageNumbers.map(number => (
                         <PaginationButton
@@ -187,7 +187,6 @@ export const Booking: React.FC = () => {
                 </PaginationContainer>
                 : <NoResultPage />
             }
-
 
             {popUpData && (
                 <Overlay>

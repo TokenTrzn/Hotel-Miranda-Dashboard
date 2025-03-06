@@ -1,5 +1,4 @@
 export interface UserInterface {
-    id: number;
     photo: string;
     name: string;
     email: string;
@@ -14,5 +13,6 @@ export interface UserData {
     users: UserInterface[];
     user: UserInterface | null;
     status: 'idle' | 'fulfilled' | 'pending' | 'rejected';
+    userStatus: 'idle' | 'fulfilled' | 'pending' | 'rejected';
     error: string | null
 }

@@ -1,13 +1,13 @@
 [
     {
-        "id": 1,
         "photo": "VolutpatConvallis.avi",
         "name": "Nicolle FitzGibbon",
         "email": "nfitzgibbon0@ft.com",
         "startDate": "08/15/2025",
         "description": "Programmer I",
         "contact": "774-902-0976",
-        "status": "INACTIVE"
+        "status": "INACTIVE",
+        "password": "1234"
     },
     {
         "id": 2,

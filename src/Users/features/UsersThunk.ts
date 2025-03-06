@@ -17,7 +17,7 @@ export const fetchUsersThunk = createAsyncThunk<UserInterface[]>('users/fetchUse
   }
 })
 
-export const fetchUserByIdThunk = createAsyncThunk<UserInterface, number>('users/fetchUserById', async (id: number) => {
+export const fetchUserByIdThunk = createAsyncThunk<UserInterface, string>('users/fetchUserById', async (id: string) => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${id}`, {
     method: 'GET',
     headers: {
@@ -35,7 +35,7 @@ export const fetchUserByIdThunk = createAsyncThunk<UserInterface, number>('users
 })
 
 export const addUserThunk = createAsyncThunk<UserInterface, UserInterface>('users/addUser', async (newUser: UserInterface) => {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/users/create`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/users`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export const updateUserThunk = createAsyncThunk('users/updateUser', async ({ id,
   }
 })
 
-export const deleteUserThunk = createAsyncThunk('users/deleteUser', async (id: number) => {
+export const deleteUserThunk = createAsyncThunk('users/deleteUser', async (id: string) => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${id}`, {
     method: 'DELETE',
     headers: {

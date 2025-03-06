@@ -8,6 +8,7 @@ import { getAllBookingsError, getAllBookingsStatus, getBooking } from '../featur
 import { AppDispatch, RootState } from '../../store/store'
 import { BookingInterface } from '../interfaces/BookingInterface'
 import RoomPhoto from '../../assets/room_photo.jpg'
+import { formatDate } from '../../utils/FormatDate'
 
 type Params = {
     id: string;
@@ -46,16 +47,16 @@ export const BookingDetails: React.FC = () => {
                     <BookingDetailsInfoStyled>
                         <div>
                             <BookingDetailsNameStyled>{booking.guestName}</BookingDetailsNameStyled>
-                            <BookingDetailsIdStyled>#000000{id}</BookingDetailsIdStyled>
+                            <BookingDetailsIdStyled>#{id}</BookingDetailsIdStyled>
                         </div>
                         <BookingDetailsHorizontalContainer>
                             <BookingDetailsInfoStyled>
                                 <BookingDetailsFieldTitleStyled>Check In</BookingDetailsFieldTitleStyled>
-                                <BookingDetailsFieldInfoStyled>{booking.checkIn} | {booking.checkInHour}</BookingDetailsFieldInfoStyled>
+                                <BookingDetailsFieldInfoStyled>{formatDate(booking.checkIn)} | {booking.checkInHour}</BookingDetailsFieldInfoStyled>
                             </BookingDetailsInfoStyled>
                             <BookingDetailsInfoStyled>
                                 <BookingDetailsFieldTitleStyled>Check Out</BookingDetailsFieldTitleStyled>
-                                <BookingDetailsFieldInfoStyled>{booking.checkOut} | {booking.checkOutHour}</BookingDetailsFieldInfoStyled>
+                                <BookingDetailsFieldInfoStyled>{formatDate(booking.checkOut)} | {booking.checkOutHour}</BookingDetailsFieldInfoStyled>
                             </BookingDetailsInfoStyled>
                         </BookingDetailsHorizontalContainer>
                         <BookingDetailsHorizontalContainer>
