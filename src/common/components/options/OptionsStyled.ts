@@ -4,9 +4,7 @@ export const OptionsContainerStyled = styled.div`
     z-index: 1;
     position: relative;
     display: flex;
-    top: 50%;
-    left: 93%;
-    transform: translate(-50%, 25%);
+    right: 100%;
     flex-direction: column;
     gap: 0.5rem;
     padding: 1em;

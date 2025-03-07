@@ -18,25 +18,29 @@ export const EditUserForm: React.FC = () => {
   const [formData, setFormData] = useState<UserInterface | null>(null)
 
   useEffect(() => {
-    if (userStatus === 'idle') {
-      dispatch(fetchUserByIdThunk(idParams))
-    } else if (userStatus === 'fulfilled' && user) {
-      setFormData({
-        photo: user.photo || 'http://photo.png',
-        name: user.name,
-        email: user.email,
-        startDate: formatDate(user.startDate),
-        description: user.description,
-        contact: user.contact,
-        status: user.status,
-        password: user.password
-      })
-    } else if (userStatus === 'rejected') {
-      throw new Error('Error in user update')
+    try {
+      if (userStatus === 'idle') {
+        dispatch(fetchUserByIdThunk(parseInt(idParams)))
+      } else if (userStatus === 'fulfilled' && user) {
+        setFormData({
+          id: user.id,
+          photo: user.photo || 'http://photo.png',
+          name: user.name,
+          email: user.email,
+          startDate: user.startDate,
+          description: user.description,
+          contact: user.contact,
+          status: user.status,
+          password: user.password
+        })
+      } 
+    } catch (error) {
+      console.log(error)
     }
+
   }, [userStatus, user, idParams, dispatch])
 
-  if (!formData) return <p>Cargando usuario...</p>; // 🔹 Evita renderizar el formulario vacío
+  if (!formData) return <p>Cargando usuario...</p>
 
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLInputElement>) => {
@@ -51,13 +55,14 @@ export const EditUserForm: React.FC = () => {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
+    console.log(formData)
 
     try {
-      await dispatch(updateUserThunk({ id: formData._id, updatedUser: formData })).unwrap()
+      await dispatch(updateUserThunk({ id: formData.id, updatedUser: formData })).unwrap()
       navigate('/users')
       dispatch(fetchUsersThunk())
     } catch (error) {
-      console.log('Error: ' + error.message)
+      console.log('Error: ' + error.stack)
     }
   }
 

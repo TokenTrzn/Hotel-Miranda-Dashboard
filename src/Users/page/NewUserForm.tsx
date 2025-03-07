@@ -64,8 +64,7 @@ export const NewUserForm: React.FC = () => {
 
     try {
       await dispatch(addUserThunk(newUser)).unwrap()
-      console.log('Usuario creado')
-      await dispatch(fetchUsersThunk()).unwrap()
+      dispatch(fetchUsersThunk()).unwrap()
       navigate('/users')
     } catch (error) {
       console.log('Error: ' + error.message)
@@ -82,14 +81,7 @@ export const NewUserForm: React.FC = () => {
         </FormField>
         <FormField>
           <FormLabel>Job Position</FormLabel>
-          <FormSelect name="job" value={newUser.description} onChange={handleInputChange}>
-            <FormOption value="Manager">Manager</FormOption>
-            <FormOption value="Director">Director</FormOption>
-            <FormOption value="Programmer">Programmer</FormOption>
-            <FormOption value="Staff Accountant">Staff Accountant</FormOption>
-            <FormOption value="Human Resources Manager">Human Resources Manager</FormOption>
-            <FormOption value="Software Test Engineer">Software Test Engineer</FormOption>
-          </FormSelect>
+          <FormInput type="text" name="description" value={newUser.description} onChange={handleInputChange} required />
         </FormField>
         <FormField>
           <FormLabel>Email</FormLabel>
@@ -120,7 +112,7 @@ export const NewUserForm: React.FC = () => {
           <FormLabel>Password</FormLabel>
           <FormInput type="password" name="password" value={newUser.password} onChange={handleInputChange} required />
         </FormField>
-        <FormButton type="submit" >Guardar</FormButton>
+        <FormButton type="submit">Guardar</FormButton>
         <BackButton type="button" onClick={() => navigate('/users')}>Volver</BackButton>
       </FormContainer>
     </>

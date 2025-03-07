@@ -1,4 +1,16 @@
 export interface UserInterface {
+    id?: number;
+    photo: string;
+    name: string;
+    email: string;
+    startDate: string;
+    description: string;
+    contact: string;
+    status: 'ACTIVE' | 'INACTIVE';
+    password: string;
+}
+
+export interface NewUserInterface {
     photo: string;
     name: string;
     email: string;

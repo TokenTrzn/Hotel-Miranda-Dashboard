@@ -51,17 +51,18 @@ export const Users: React.FC = () => {
     }
 
     const handleDetailsUserClick = (user: UserInterface) => {
-        dispatch(fetchUserByIdThunk(user._id))
-        navigate(`/users/details/${user._id}`)
+        dispatch(fetchUserByIdThunk(user.id))
+        navigate(`/users/details/${user.id.toString()}`)
     }
 
     const handleEditUserClick = (user: UserInterface) => {
-        dispatch(fetchUserByIdThunk(user._id))
-        navigate(`/users/edit/${user._id}`)
+        dispatch(fetchUserByIdThunk(user.id))
+        navigate(`/users/edit/${user.id}`)
     }
 
-    const handleDeleteUserClick = (userId: string) => {
+    const handleDeleteUserClick = (userId: number) => {
         dispatch(deleteUserThunk(userId))
+        dispatch(fetchUsersThunk())
         setCurrentPage(1)
     }
 
@@ -128,7 +129,7 @@ export const Users: React.FC = () => {
                     <ImageStyled src={UserPhoto} />
                     <TableDataVerticalContainer>
                         <TablePrimaryText>{user.name}</TablePrimaryText>
-                        <TableIdText>#{user._id}</TableIdText>
+                        <TableIdText>#00{user.id}</TableIdText>
                     </TableDataVerticalContainer>
                 </TableDataHorizontalContainer>
             </TableDataStyled>
@@ -150,7 +151,7 @@ export const Users: React.FC = () => {
                     <OptionsContainerStyled>
                         <ButtonOption onClick={() => handleDetailsUserClick(user)}>Details</ButtonOption>
                         <ButtonOption onClick={() => handleEditUserClick(user)}>Update</ButtonOption>
-                        <ButtonOption onClick={() => handleDeleteUserClick(user._id)} >Delete</ButtonOption>
+                        <ButtonOption onClick={() => handleDeleteUserClick(user.id)}>Delete</ButtonOption>
                     </OptionsContainerStyled> : <></>}
             </TableDataStyled>
         </>
