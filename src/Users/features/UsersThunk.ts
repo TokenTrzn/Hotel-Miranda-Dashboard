@@ -52,7 +52,7 @@ export const addUserThunk = createAsyncThunk<UserInterface, UserInterface>('user
   }
 })
 
-export const updateUserThunk = createAsyncThunk('users/updateUser', async ({ id, updatedUser } : { id: number, updatedUser: UserInterface }) => {
+export const updateUserThunk = createAsyncThunk('users/updateUser', async ({ id, updatedUser } : { id: number | undefined, updatedUser: UserInterface }) => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/users/edit/${id}`, {
     method: 'PUT',
     headers: {

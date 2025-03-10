@@ -27,7 +27,7 @@ export const EditUserForm: React.FC = () => {
           photo: user.photo || 'http://photo.png',
           name: user.name,
           email: user.email,
-          startDate: user.startDate,
+          startDate: user.startDate + 'T00:00:00.000Z',
           description: user.description,
           contact: user.contact,
           status: user.status,
@@ -45,7 +45,13 @@ export const EditUserForm: React.FC = () => {
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLInputElement>) => {
     const { name, value } = event.target
+    const updatedValue = name === 'startDate' ? new Date(value) : value;
+
     setFormData((prev) => prev ? { ...prev, [name]: value } : null);
+  }
+
+  const handleDate = (date: Date) => {
+
   }
 
   const handleBack = () => {
@@ -58,11 +64,11 @@ export const EditUserForm: React.FC = () => {
     console.log(formData)
 
     try {
-      await dispatch(updateUserThunk({ id: formData.id, updatedUser: formData })).unwrap()
-      navigate('/users')
+      await dispatch(updateUserThunk({ id: formData.id, updatedUser: formData })).unwrap()      
       dispatch(fetchUsersThunk())
+      navigate('/users')
     } catch (error) {
-      console.log('Error: ' + error.stack)
+      console.log('Error: ' + error.message)
     }
   }
 
