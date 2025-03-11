@@ -10,6 +10,12 @@ export const ContactKPIContainer = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    overflow: hidden;
+
+    .swiper-wrapper {
+        margin: .5rem 2rem;
+        overflow: hidden;
+    }
 `
 
 export const ContactKPIStyled = styled.div`
@@ -20,7 +26,9 @@ export const ContactKPIStyled = styled.div`
     gap: 1.5rem;
     border-radius: 1rem;
     margin-top: 1rem;
-    width: 25%;
+    height: 15rem;
+    width: 90%;
+    justify-content: space-between;
 
     svg {
         font-size: 3rem;

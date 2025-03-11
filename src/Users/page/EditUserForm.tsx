@@ -61,7 +61,6 @@ export const EditUserForm: React.FC = () => {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    console.log(formData)
 
     try {
       await dispatch(updateUserThunk({ id: formData.id, updatedUser: formData })).unwrap()      

@@ -17,8 +17,6 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import { EditUserPopup } from "./components/EditUserInfoPopUp"
 
-
-
 export const SideBarMenu = () => {
 
     const [user, setUser] = useState({

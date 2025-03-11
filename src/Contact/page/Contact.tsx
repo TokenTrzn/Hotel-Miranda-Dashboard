@@ -16,6 +16,12 @@ import { PaginationButton, PaginationContainer } from "../../common/components/p
 import { NoResultPage } from "../../common/components/noResultPage/NoResultPage"
 import { formatDate } from '../../utils/FormatDate'
 
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/css"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
+import { Navigation, Pagination, Autoplay } from "swiper/modules"
+
 export const Contact: React.FC = () => {
     const dispatch: AppDispatch = useDispatch()
     const navigate = useNavigate()
@@ -40,7 +46,7 @@ export const Contact: React.FC = () => {
         } else if (status === 'pending') {
             setLoading(true)
         }
-    }, [dispatch, status, contactsData, navigate, selectedIsArchived])
+    }, [dispatch, status, contactsData, navigate])
 
     const handleFilterByArchived = (isArchived: number) => {
         const filteredContacts = isArchived
@@ -106,55 +112,37 @@ export const Contact: React.FC = () => {
 
     return (
         <ContactStyled>
+            
             <ContactKPIContainer>
-                <ContactKPIStyled>
-                    <ContactKPIInfoStyled>
-                        <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
-                    </ContactKPIInfoStyled>
-                    <ContactKPIProfileRowStyled>
-                        <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
-                        <ContactKPIProfileInfoStyled>
-                            <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
-                            <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
-                        </ContactKPIProfileInfoStyled>
-                        <ContactKPIIconsStyled>
-                            <ContactKPIIconItemStyled src={OkIcon} />
-                            <ContactKPIIconItemStyled src={DeleteIcon} />
-                        </ContactKPIIconsStyled>
-                    </ContactKPIProfileRowStyled>
-                </ContactKPIStyled>
-                <ContactKPIStyled>
-                    <ContactKPIInfoStyled>
-                        <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
-                    </ContactKPIInfoStyled>
-                    <ContactKPIProfileRowStyled>
-                        <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
-                        <ContactKPIProfileInfoStyled>
-                            <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
-                            <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
-                        </ContactKPIProfileInfoStyled>
-                        <ContactKPIIconsStyled>
-                            <ContactKPIIconItemStyled src={OkIcon} />
-                            <ContactKPIIconItemStyled src={DeleteIcon} />
-                        </ContactKPIIconsStyled>
-                    </ContactKPIProfileRowStyled>
-                </ContactKPIStyled>
-                <ContactKPIStyled>
-                    <ContactKPIInfoStyled>
-                        <ContactKPITextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</ContactKPITextStyled>
-                    </ContactKPIInfoStyled>
-                    <ContactKPIProfileRowStyled>
-                        <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
-                        <ContactKPIProfileInfoStyled>
-                            <ContactKPITextStyled>Alberto Gil</ContactKPITextStyled>
-                            <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
-                        </ContactKPIProfileInfoStyled>
-                        <ContactKPIIconsStyled>
-                            <ContactKPIIconItemStyled src={OkIcon} />
-                            <ContactKPIIconItemStyled src={DeleteIcon} />
-                        </ContactKPIIconsStyled>
-                    </ContactKPIProfileRowStyled>
-                </ContactKPIStyled>
+            <Swiper className="swiper-wrapper"
+                    modules={[Navigation, Pagination, Autoplay]}
+                    spaceBetween={50}
+                    slidesPerView={3}
+                    navigation={true}
+                    pagination={false}
+                    autoplay={false}
+                >
+                    {contacts.map((contact) => (
+                        <SwiperSlide className="swiper-slide" key={contact.id}>
+                            <ContactKPIStyled>
+                                <ContactKPIInfoStyled>
+                                    <ContactKPITextStyled>{contact.comment}</ContactKPITextStyled>
+                                </ContactKPIInfoStyled>
+                                <ContactKPIProfileRowStyled>
+                                    <ContactKPIProfilePhotoStyled src={ReviewPhoto} />
+                                    <ContactKPIProfileInfoStyled>
+                                        <ContactKPITextStyled>{contact.name}</ContactKPITextStyled>
+                                        <ContactKPITimeStyled>4m ago</ContactKPITimeStyled>
+                                    </ContactKPIProfileInfoStyled>
+                                    <ContactKPIIconsStyled>
+                                        <ContactKPIIconItemStyled src={OkIcon} />
+                                        <ContactKPIIconItemStyled src={DeleteIcon} />
+                                    </ContactKPIIconsStyled>
+                                </ContactKPIProfileRowStyled>
+                            </ContactKPIStyled>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </ContactKPIContainer>
             <ContactListContainerStyled>
                 <ContactMenuStyled>
