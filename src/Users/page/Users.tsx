@@ -8,7 +8,7 @@ import { IoIosSearch as SearchIcon } from "react-icons/io"
 import { TableIdText, TablePrimaryText } from "../../common/components/Text/TextStyled"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { deleteUserThunk, fetchUserByIdThunk, fetchUsersThunk } from "../features/UsersThunk"
 import { DefaultCreateButton } from "../../common/components/defaultCreateButton/DefaultCreateButton"
 import { AppDispatch, RootState } from "../../store/store"
@@ -17,7 +17,7 @@ import { UserInterface } from "../interfaces/UserInterface"
 import { PaginationButton, PaginationContainer } from "../../common/components/pagination/PaginationStyled"
 import { NoResultPage } from "../../common/components/noResultPage/NoResultPage"
 import { formatDate } from '../../utils/FormatDate'
-import { ButtonOption, OptionsContainerStyled } from "../../common/components/options/OptionsStyled"
+import { ButtonOptionStyled, ButtonOptionStyledTextStyled, OptionsContainerStyled } from "../../common/components/options/OptionsStyled"
 
 export const Users: React.FC = () => {
     const dispatch: AppDispatch = useDispatch()
@@ -30,6 +30,8 @@ export const Users: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<number>(1)
     const usersPerPage = 10
     const [showOptions, setShowOptions] = useState<boolean>(false)
+    const [selectedUserId, setSelectedUserId] = useState<number | null>(null)
+    const menuRef = useRef<HTMLDivElement | null>(null)
     const status = useSelector<RootState, string>(getAllUsersStatus)
     const error = useSelector<RootState, string | null>(getAllUsersError)
 
@@ -44,7 +46,28 @@ export const Users: React.FC = () => {
         } else if (status === 'pending') {
             setLoading(true)
         }
-    }, [dispatch, status, usersData, navigate])
+    }, [dispatch, status, usersData, navigate, currentPage])
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setShowOptions(false)
+            }
+        }    
+        const handleEscapeKey = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setShowOptions(false)
+            }
+        }    
+        document.addEventListener("mousedown", handleClickOutside)
+        document.addEventListener("keydown", handleEscapeKey)
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+            document.removeEventListener("keydown", handleEscapeKey)
+        }
+    }, [])
+
 
     const handleNewUserClick = (): void => {
         navigate('/new-user')
@@ -64,26 +87,26 @@ export const Users: React.FC = () => {
 
     const handleDeleteUserClick = (userId: number) => {
         dispatch(deleteUserThunk(userId))
-        dispatch(fetchUsersThunk())
         setShowOptions(false)
         setCurrentPage(1)
+        dispatch(fetchUsersThunk())
     }
 
     const handleFilterByStatus = (status: string) => {
-        let filteredUsers = usersData;
+        let filteredUsers = usersData
 
         if (status !== 'All Employee') {
-            filteredUsers = usersData.filter(User => User.status === status);
+            filteredUsers = usersData.filter(User => User.status === status)
         }
 
         if (searchInput.trim() !== '') {
             filteredUsers = filteredUsers.filter(user =>
                 user.name.toLowerCase().includes(searchInput.toLowerCase())
-            );
+            )
         }
 
-        setUsers(filteredUsers);
-        setSelectedStatus(status);
+        setUsers(filteredUsers)
+        setSelectedStatus(status)
         setCurrentPage(1)
     }
 
@@ -121,7 +144,8 @@ export const Users: React.FC = () => {
         pageNumbers.push(i)
     }
 
-    const toggleShowOptions = () => {
+    const toggleShowOptions = (userId: number) => {
+        setSelectedUserId(userId)
         setShowOptions(!showOptions)
     }
 
@@ -149,13 +173,19 @@ export const Users: React.FC = () => {
                 <UsersItemStatusStyled $status={user.status}>{user.status}</UsersItemStatusStyled>
             </TableDataStyled>
             <TableDataStyled>
-                <OptionsIcon onClick={toggleShowOptions} />
-                {showOptions ? 
-                    <OptionsContainerStyled>
-                        <ButtonOption onClick={() => handleDetailsUserClick(user)}>Details</ButtonOption>
-                        <ButtonOption onClick={() => handleEditUserClick(user)}>Update</ButtonOption>
-                        <ButtonOption onClick={() => handleDeleteUserClick(user.id!)}>Delete</ButtonOption>
-                    </OptionsContainerStyled> : <></>}
+                <OptionsIcon onClick={() => toggleShowOptions(user.id!)} />
+                {showOptions && selectedUserId === user.id! ?
+                <OptionsContainerStyled ref={menuRef}>
+                    <ButtonOptionStyled onClick={() => handleDetailsUserClick(user)}>
+                        <ButtonOptionStyledTextStyled>Details</ButtonOptionStyledTextStyled>
+                    </ButtonOptionStyled>
+                    <ButtonOptionStyled onClick={() => handleEditUserClick(user)}>
+                        <ButtonOptionStyledTextStyled>Update</ButtonOptionStyledTextStyled>
+                    </ButtonOptionStyled>
+                    <ButtonOptionStyled onClick={() => handleDeleteUserClick(user.id!)}>
+                        <ButtonOptionStyledTextStyled>Delete</ButtonOptionStyledTextStyled>
+                    </ButtonOptionStyled>
+                </OptionsContainerStyled> : <></>}
             </TableDataStyled>
         </>
     )

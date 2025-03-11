@@ -28,6 +28,7 @@ export const TableDataStyled = styled.td`
   padding: .5rem;
   vertical-align: middle; 
   text-align: start; 
+  position: relative;
 
   svg {
     color: #000;
