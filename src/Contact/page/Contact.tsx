@@ -22,7 +22,7 @@ export const Contact: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true)
     const contactsData = useSelector<RootState, ContactInterface[]>(getAllContacts)
     const [contacts, setContacts] = useState<ContactInterface[]>(contactsData)
-    const [selectedIsArchived, setSelectedIsArchived] = useState<boolean>(true)
+    const [selectedIsArchived, setSelectedIsArchived] = useState<number>(0)
     const [currentPage, setCurrentPage] = useState<number>(1)
     const contactsPerPage = 8
     const status = useSelector<RootState, string>(getAllContactsStatus)
@@ -40,9 +40,9 @@ export const Contact: React.FC = () => {
         } else if (status === 'pending') {
             setLoading(true)
         }
-    }, [dispatch, status, contactsData])
+    }, [dispatch, status, contactsData, navigate, selectedIsArchived])
 
-    const handleFilterByArchived = (isArchived: boolean) => {
+    const handleFilterByArchived = (isArchived: number) => {
         const filteredContacts = isArchived
             ? contactsData
             : contactsData.filter(contact => contact.isArchived)
@@ -55,7 +55,7 @@ export const Contact: React.FC = () => {
     const handleToggleArchiveStatus = (contact: ContactInterface) => {
         const updatedContact = {
             ...contact,
-            isArchived: !contact.isArchived,
+            isArchived: contact.isArchived ? 0 : 1,
         }
         dispatch(updateContactThunk({ id: updatedContact.id, updatedContact: updatedContact })).then(() => {
             const updatedContacts = contacts.map((contact) =>
@@ -81,7 +81,7 @@ export const Contact: React.FC = () => {
     const itemRow = (contact: ContactInterface) => (
         <>
             <TableDataStyled>
-                <TableIdText>#{contact._id}</TableIdText>
+                <TableIdText>#{contact.id}</TableIdText>
                 <TableDataHorizontalContainer>
                     <TableSecundaryText>{formatDate(contact.date)} {contact.hour}</TableSecundaryText>
 
@@ -98,7 +98,7 @@ export const Contact: React.FC = () => {
                     $isArchived={contact.isArchived}
                     onClick={() => handleToggleArchiveStatus(contact)}
                 >
-                    {contact.isArchived ? 'Publish' : 'Archive'}
+                    {contact.isArchived === 1 ? 'Publish' : 'Archive'}
                 </ContactItemActionStyled>
             </TableDataStyled>
         </>
@@ -159,12 +159,12 @@ export const Contact: React.FC = () => {
             <ContactListContainerStyled>
                 <ContactMenuStyled>
                     <ContactMenuItemStyled
-                        onClick={() => handleFilterByArchived(true)}
-                        className={selectedIsArchived === true ? 'active' : ''}
+                        onClick={() => handleFilterByArchived(1)}
+                        className={selectedIsArchived === 1 ? 'active' : ''}
                     >All Contacts</ContactMenuItemStyled>
                     <ContactMenuItemStyled
-                        onClick={() => handleFilterByArchived(false)}
-                        className={selectedIsArchived === false ? 'active' : ''}
+                        onClick={() => handleFilterByArchived(0)}
+                        className={selectedIsArchived === 0 ? 'active' : ''}
                     >Archived</ContactMenuItemStyled>
                 </ContactMenuStyled>
                 <DefaultTable headers={headers} data={currentContacts} itemRow={itemRow} />

@@ -64,7 +64,7 @@ export const usersSlice = createSlice({
             .addCase(updateUserThunk.fulfilled, (state, action: PayloadAction<UserInterface>) => {
                 state.status = 'fulfilled'
                 state.userStatus = 'fulfilled'
-                const index = state.users.findIndex(user => user._id === action.payload._id)
+                const index = state.users.findIndex(user => user.id === action.payload.id)
                 if (index !== -1) {
                     state.users[index] = action.payload
                 }
@@ -79,10 +79,10 @@ export const usersSlice = createSlice({
                 state.error = action.error.message || 'Error'
             })
 
-            .addCase(deleteUserThunk.fulfilled, (state, action: PayloadAction<string>) => {
+            .addCase(deleteUserThunk.fulfilled, (state, action: PayloadAction<number>) => {
                 state.status = 'fulfilled'
                 state.userStatus = 'fulfilled'
-                state.users = state.users.filter(user => user._id !== action.payload)
+                state.users = state.users.filter(user => user.id !== action.payload)
             })
             .addCase(deleteUserThunk.pending, (state) => {
                 state.status = 'pending'

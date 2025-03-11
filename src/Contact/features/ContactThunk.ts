@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { ContactInterface } from '../interfaces/ContactInterface'
 
-export const fetchContactsThunk = createAsyncThunk('contact/fetchContacts', async () => {
+export const fetchContactsThunk = createAsyncThunk<ContactInterface[]>('contact/fetchContacts', async () => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/contacts`, {
     method: 'GET',
     headers: {
@@ -17,7 +17,7 @@ export const fetchContactsThunk = createAsyncThunk('contact/fetchContacts', asyn
   }
 })
 
-export const fetchContactByIdThunk = createAsyncThunk('contact/fetchContactById', async (id: string) => {
+export const fetchContactByIdThunk = createAsyncThunk<ContactInterface, number>('contact/fetchContactById', async (id: number) => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/contacts/${id}`, {
     method: 'GET',
     headers: {
@@ -34,8 +34,8 @@ export const fetchContactByIdThunk = createAsyncThunk('contact/fetchContactById'
   }
 })
 
-export const addContactThunk = createAsyncThunk('contact/addContact', async (newContact: ContactInterface) => {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/contacts/create`, {
+export const addContactThunk = createAsyncThunk<ContactInterface, ContactInterface>('contact/addContact', async (newContact: ContactInterface) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/contacts`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -52,8 +52,8 @@ export const addContactThunk = createAsyncThunk('contact/addContact', async (new
   }
 })
 
-export const updateContactThunk = createAsyncThunk('contact/updateContact', async ({ id, updatedContact } : { id: string, updatedContact: ContactInterface }) => {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/contacts/${id}`, {
+export const updateContactThunk = createAsyncThunk('contact/updateContact', async ({ id, updatedContact } : { id: number | undefined, updatedContact: ContactInterface }) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/contacts/edit/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export const updateContactThunk = createAsyncThunk('contact/updateContact', asyn
   }
 })
 
-export const deleteContactThunk = createAsyncThunk('contact/deleteContact', async (id: string) => {
+export const deleteContactThunk = createAsyncThunk('contact/deleteContact', async (id: number) => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/contacts/${id}`, {
     method: 'DELETE',
     headers: {
