@@ -33,7 +33,7 @@ export const Rooms: React.FC = () => {
     const headers: string[] = ['Room Name', 'Room Type', 'Amenities', 'Price', 'Offer Price', 'Status', '']
 
     const handleUpdate = (room: RoomInterface) => {
-        dispatch(updateRoomThunk(room._id))
+        dispatch(updateRoomThunk({ id: room.id, updatedRoom: room }))
     }
 
     useEffect(() => {
@@ -50,10 +50,16 @@ export const Rooms: React.FC = () => {
     const handleNewUserClick = (): void => navigate('/new-room')
 
     const navigateToRoomDetails = (room: RoomInterface) => {
-        navigate(`/rooms/details/${room._id}`, {
+        navigate(`/rooms/details/${room.id}`, {
             state: { room }
         });
     };
+
+    const handleAmenities = (room: RoomInterface): string => {
+        return room.amenities && room.amenities.length > 0 
+        ? room.amenities.join(", ")
+        : 'No Amenities Available'
+    }
 
     const indexOfLastRoom: number = currentPage * roomsPerPage
     const indexOfFirstRoom: number = indexOfLastRoom - roomsPerPage
@@ -76,14 +82,14 @@ export const Rooms: React.FC = () => {
                         <TableDataHorizontalContainer>
                             <ImageStyled src={RoomPhoto} />
                             <TableDataVerticalContainer>
-                                <TableIdText> #{room._id}</TableIdText>
+                                <TableIdText> #{room.id}</TableIdText>
                                 <TablePrimaryText>{room.name} - {room.number}</TablePrimaryText>
                             </TableDataVerticalContainer>
                         </TableDataHorizontalContainer>
                     </TableDataStyled>
                     <TableDataStyled><TablePrimaryText>{room.type}</TablePrimaryText></TableDataStyled>
                     <TableDataStyled>
-                        <RoomSeeAmenitiesStyled onClick={() => setPopUpData(room.amenities.join('\t-\t'))}>See Amenities</RoomSeeAmenitiesStyled>
+                        <RoomSeeAmenitiesStyled onClick={() => setPopUpData(handleAmenities(room))}>See Amenities</RoomSeeAmenitiesStyled>
                     </TableDataStyled>
                     <TableDataStyled><TablePrimaryText>{room.price}<span>/Night</span></TablePrimaryText></TableDataStyled>
                     <TableDataStyled><TablePrimaryText>{room.offerPrice}<span>/Night</span></TablePrimaryText></TableDataStyled>

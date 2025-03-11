@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { RoomInterface } from "../interfaces/RoomInterface"
 
-export const fetchRoomsThunk = createAsyncThunk('rooms/fetchRooms', async () => {
+export const fetchRoomsThunk = createAsyncThunk<RoomInterface[]>('rooms/fetchRooms', async () => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms`, {
     method: 'GET',
     headers: {
@@ -17,7 +17,7 @@ export const fetchRoomsThunk = createAsyncThunk('rooms/fetchRooms', async () => 
   }
 })
 
-export const fetchRoomByIdThunk = createAsyncThunk('rooms/fetchRoomById', async (id: number) => {
+export const fetchRoomByIdThunk = createAsyncThunk<RoomInterface, number>('rooms/fetchRoomById', async (id: number) => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}`, {
     method: 'GET',
     headers: {
@@ -34,8 +34,8 @@ export const fetchRoomByIdThunk = createAsyncThunk('rooms/fetchRoomById', async 
   }
 })
 
-export const addRoomThunk = createAsyncThunk('rooms/addRoom', async (newRoom: RoomInterface) => {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/create`, {
+export const addRoomThunk = createAsyncThunk<RoomInterface, RoomInterface>('rooms/addRoom', async (newRoom: RoomInterface) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -52,8 +52,8 @@ export const addRoomThunk = createAsyncThunk('rooms/addRoom', async (newRoom: Ro
   }
 })
 
-export const updateRoomThunk = createAsyncThunk('rooms/updateRoom', async ({ id, updatedRoom } : { id: string, updatedRoom: RoomInterface }) => {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}`, {
+export const updateRoomThunk = createAsyncThunk('rooms/updateRoom', async ({ id, updatedRoom } : { id: number, updatedRoom: RoomInterface }) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/edit/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

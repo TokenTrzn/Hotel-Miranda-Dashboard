@@ -1,4 +1,5 @@
 export interface RoomInterface {
+    id: number;
     photo: string;
     number: number;
     name: string;
@@ -13,5 +14,6 @@ export interface RoomInitialState {
     rooms: RoomInterface[];
     room: RoomInterface | null;
     status: 'idle' | 'fulfilled' | 'pending' | 'rejected';
+    roomStatus: 'idle' | 'fulfilled' | 'pending' | 'rejected';
     error: string | null
 }

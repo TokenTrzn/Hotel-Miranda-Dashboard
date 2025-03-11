@@ -1,5 +1,5 @@
 export interface BookingInterface {
-    id: string;
+    id: number;
     guestName: string;
     orderDate: string;
     orderDateHour: string;
@@ -20,5 +20,6 @@ export interface BookingInitialState {
     bookings: BookingInterface[];
     booking: BookingInterface | null;
     status: 'idle' | 'fulfilled' | 'pending' | 'rejected';
+    bookingStatus: 'idle' | 'fulfilled' | 'pending' | 'rejected';
     error: string | null
 }

@@ -81,7 +81,7 @@ export const Contact: React.FC = () => {
     const itemRow = (contact: ContactInterface) => (
         <>
             <TableDataStyled>
-                <TableIdText>#{contact.id}</TableIdText>
+                <TableIdText>#00{contact.id}</TableIdText>
                 <TableDataHorizontalContainer>
                     <TableSecundaryText>{formatDate(contact.date)} {contact.hour}</TableSecundaryText>
 

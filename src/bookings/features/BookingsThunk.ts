@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { BookingInterface } from '../interfaces/BookingInterface'
 
-export const fetchBookingsThunk = createAsyncThunk('bookings/fetchBookings', async () => {
+export const fetchBookingsThunk = createAsyncThunk<BookingInterface[]>('bookings/fetchBookings', async () => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/bookings`, {
     method: 'GET',
     headers: {
@@ -17,7 +17,7 @@ export const fetchBookingsThunk = createAsyncThunk('bookings/fetchBookings', asy
   }
 })
 
-export const fetchBookingByIdThunk = createAsyncThunk('bookings/fetchBookingById', async (id: number) => {
+export const fetchBookingByIdThunk = createAsyncThunk<BookingInterface, number>('bookings/fetchBookingById', async (id: number) => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/bookings/${id}`, {
     method: 'GET',
     headers: {
@@ -34,8 +34,8 @@ export const fetchBookingByIdThunk = createAsyncThunk('bookings/fetchBookingById
   }
 })
 
-export const addBookingThunk = createAsyncThunk('bookings/addBooking', async (newBooking: BookingInterface) => {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/bookings/create`, {
+export const addBookingThunk = createAsyncThunk<BookingInterface, BookingInterface>('bookings/addBooking', async (newBooking: BookingInterface) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/bookings`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export const addBookingThunk = createAsyncThunk('bookings/addBooking', async (ne
 })
 
 export const updateBookingThunk = createAsyncThunk('bookings/updateBooking', async ({ id, updatedBooking } : { id: string, updatedBooking: BookingInterface }) => {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/bookings/${id}`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/bookings/edit/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

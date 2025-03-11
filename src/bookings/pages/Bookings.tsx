@@ -83,7 +83,7 @@ export const Booking: React.FC = () => {
     }
 
     const navigateToBookingDetails = (booking: BookingInterface) => {
-        navigate(`/booking/details/${booking._id}`, {
+        navigate(`/booking/details/${booking.id}`, {
             state: { booking }
         });
     };
@@ -107,7 +107,7 @@ export const Booking: React.FC = () => {
                 <>
                     <TableDataStyled>
                         <TablePrimaryText>{booking.guestName}</TablePrimaryText>
-                        <TableIdText>#{booking._id}</TableIdText>
+                        <TableIdText>#{booking.id}</TableIdText>
                     </TableDataStyled>
                     <TableDataStyled>
                         <TableSecundaryText>{formatDate(booking.orderDate)} {booking.orderDateHour}</TableSecundaryText>
